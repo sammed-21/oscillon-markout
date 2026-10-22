@@ -1,0 +1,164 @@
+{
+  "vanilla": {
+    "params": {
+      "fee": 0.0005
+    },
+    "train": {
+      "lp_pnl": 391282.38070194505,
+      "lp_pnl_bps_of_volume": 3.984070652447409,
+      "fee_revenue": 491058.5364011816,
+      "markout_loss": -99776.15569923651,
+      "volume_kept_pct": 100.0,
+      "avg_fee_bps": 5.0,
+      "win_pct_days_vs_vanilla": 0.0,
+      "edge_vs_vanilla": 0.0,
+      "edge_vs_vanilla_ci90": [
+        0.0,
+        0.0
+      ],
+      "days": 13
+    },
+    "test": {
+      "lp_pnl": 240711.67737338206,
+      "lp_pnl_bps_of_volume": 4.098068156189071,
+      "fee_revenue": 293689.20696188207,
+      "markout_loss": -52977.529588499936,
+      "volume_kept_pct": 100.0,
+      "avg_fee_bps": 5.000000000000003,
+      "win_pct_days_vs_vanilla": 0.0,
+      "edge_vs_vanilla": 0.0,
+      "edge_vs_vanilla_ci90": [
+        0.0,
+        0.0
+      ],
+      "days": 8
+    }
+  },
+  "dynamic_vol": {
+    "params": {
+      "base": 0.0005,
+      "a": 1.0,
+      "window": 14400
+    },
+    "train": {
+      "lp_pnl": 1833701.9503702484,
+      "lp_pnl_bps_of_volume": 101.02320669054296,
+      "fee_revenue": 1814544.505743606,
+      "markout_loss": 19157.444626642515,
+      "volume_kept_pct": 18.481802983791848,
+      "avg_fee_bps": 99.97927200006798,
+      "win_pct_days_vs_vanilla": 100.0,
+      "edge_vs_vanilla": 1442419.5696683035,
+      "edge_vs_vanilla_ci90": [
+        1369155.5162700869,
+        1493790.5374666378
+      ],
+      "days": 13
+    },
+    "test": {
+      "lp_pnl": 1104207.7238511152,
+      "lp_pnl_bps_of_volume": 100.98069413941744,
+      "fee_revenue": 1093483.990441389,
+      "markout_loss": 10723.7334097265,
+      "volume_kept_pct": 18.61634620068473,
+      "avg_fee_bps": 100.00000000000004,
+      "win_pct_days_vs_vanilla": 100.0,
+      "edge_vs_vanilla": 863496.0464777332,
+      "edge_vs_vanilla_ci90": [
+        749225.832373658,
+        964134.3199024604
+      ],
+      "days": 8
+    }
+  },
+  "markout": {
+    "params": {
+      "base": 0.0005,
+      "kappa": 4.0,
+      "h": 60,
+      "lookback": 900,
+      "directional": true
+    },
+    "train": {
+      "lp_pnl": 615199.4681223744,
+      "lp_pnl_bps_of_volume": 8.490298890433772,
+      "fee_revenue": 629730.2044197461,
+      "markout_loss": -14530.736297371739,
+      "volume_kept_pct": 73.77848130998588,
+      "avg_fee_bps": 8.700711961826745,
+      "win_pct_days_vs_vanilla": 100.0,
+      "edge_vs_vanilla": 223917.08742042922,
+      "edge_vs_vanilla_ci90": [
+        214463.97146504858,
+        231505.5696704518
+      ],
+      "days": 13
+    },
+    "test": {
+      "lp_pnl": 368967.79338413954,
+      "lp_pnl_bps_of_volume": 8.50345151373699,
+      "fee_revenue": 374401.71822303825,
+      "markout_loss": -5433.924838898642,
+      "volume_kept_pct": 73.87121412093987,
+      "avg_fee_bps": 8.64617662773748,
+      "win_pct_days_vs_vanilla": 100.0,
+      "edge_vs_vanilla": 128256.11601075747,
+      "edge_vs_vanilla_ci90": [
+        104811.03357356561,
+        152297.67575870833
+      ],
+      "days": 8
+    }
+  },
+  "oscillon_depeg": {
+    "params": {
+      "base": 0.0005,
+      "k": 0.0,
+      "m": 0.5,
+      "deadband_bps": 5,
+      "directional": false
+    },
+    "train": {
+      "lp_pnl": 1833871.2284249705,
+      "lp_pnl_bps_of_volume": 101.05324895813081,
+      "fee_revenue": 1814757.3159026229,
+      "markout_loss": 19113.912522347488,
+      "volume_kept_pct": 18.478014140660573,
+      "avg_fee_bps": 100.00000000000001,
+      "win_pct_days_vs_vanilla": 100.0,
+      "edge_vs_vanilla": 1442588.8477230256,
+      "edge_vs_vanilla_ci90": [
+        1369663.350434253,
+        1493790.5374666378
+      ],
+      "days": 13
+    },
+    "test": {
+      "lp_pnl": 1104207.7238511152,
+      "lp_pnl_bps_of_volume": 100.98069413941744,
+      "fee_revenue": 1093483.990441389,
+      "markout_loss": 10723.7334097265,
+      "volume_kept_pct": 18.61634620068473,
+      "avg_fee_bps": 100.00000000000004,
+      "win_pct_days_vs_vanilla": 100.0,
+      "edge_vs_vanilla": 863496.0464777332,
+      "edge_vs_vanilla_ci90": [
+        749225.832373658,
+        964134.3199024604
+      ],
+      "days": 8
+    }
+  },
+  "_config": {
+    "f0": 0.0005,
+    "fmin": 0.0001,
+    "fmax": 0.01,
+    "h_decision_s": 12,
+    "h_eval_s": 60,
+    "elasticity": 0.5,
+    "train_frac": 0.6,
+    "train_days": 13,
+    "test_days": 8,
+    "swaps": 264862
+  }
+}
