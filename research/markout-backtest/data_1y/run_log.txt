@@ -1,0 +1,39 @@
+
+=== elasticity 0.5 ===
+OUT-OF-SAMPLE (test period), amounts in token1 units
+policy                 LP PnL   PnL bps/vol  fees     markout  vol kept %  avg fee bps  win % days  vs vanilla [90% CI]       
+vanilla                207,970  0.87         239,110  -31,140  100.0       1.00         0           0 [0, 0]                  
+markout                484,023  4.03         409,721  74,302   50.2        2.95         97          276,053 [226,006, 330,794]
+oscillon_hook          301,197  2.77         339,350  -38,153  45.4        3.12         93          93,227 [76,293, 111,515]  
+oscillon_hook_poolfee  221,672  0.98         246,011  -24,338  94.7        1.09         35          13,702 [10,165, 18,072]   
+
+config: {'f0': 0.0001, 'fmin': 0.0001, 'fmax': 0.01, 'h_decision_s': 60, 'h_eval_s': 300, 'elasticity': 0.5, 'train_frac': 0.6, 'train_days': 204, 'test_days': 161, 'swaps': 348509}
+markout fitted params: {'base': 0.0001, 'kappa': 16.0, 'h': 12, 'lookback': 3600, 'directional': True}
+oscillon_hook fitted params: {'base': 0.0003, 'k': 45}
+oscillon_hook_poolfee fitted params: {'base': 0.0001, 'k': 45}
+
+=== elasticity 2.0 ===
+OUT-OF-SAMPLE (test period), amounts in token1 units
+policy                 LP PnL   PnL bps/vol  fees     markout   vol kept %  avg fee bps  win % days  vs vanilla [90% CI]          
+vanilla                207,970  0.87         239,110  -31,140   100.0       1.00         0           0 [0, 0]                     
+markout                227,964  1.07         232,220  -4,255    89.3        1.03         83          19,995 [11,513, 32,751]      
+oscillon_hook          -36,356  -1.14        99,754   -136,110  13.3        3.08         4           -244,326 [-313,855, -174,459]
+oscillon_hook_poolfee  199,377  0.92         226,587  -27,211   90.7        1.03         8           -8,593 [-14,310, -3,332]     
+
+config: {'f0': 0.0001, 'fmin': 0.0001, 'fmax': 0.01, 'h_decision_s': 60, 'h_eval_s': 300, 'elasticity': 2.0, 'train_frac': 0.6, 'train_days': 204, 'test_days': 161, 'swaps': 348509}
+markout fitted params: {'base': 6e-05, 'kappa': 0.5, 'h': 60, 'lookback': 900, 'directional': True}
+oscillon_hook fitted params: {'base': 0.0003, 'k': 45}
+oscillon_hook_poolfee fitted params: {'base': 0.0001, 'k': 45}
+
+=== elasticity 5.0 ===
+OUT-OF-SAMPLE (test period), amounts in token1 units
+policy                 LP PnL    PnL bps/vol  fees     markout   vol kept %  avg fee bps  win % days  vs vanilla [90% CI]          
+vanilla                207,970   0.87         239,110  -31,140   100.0       1.00         0           0 [0, 0]                     
+markout                212,550   0.90         241,864  -29,315   98.4        1.00         42          4,580 [-908, 13,468]         
+oscillon_hook          -110,266  -7.31        48,078   -158,345  6.3         3.09         2           -318,236 [-400,900, -235,068]
+oscillon_hook_poolfee  188,789   0.89         217,367  -28,577   88.7        1.01         4           -19,181 [-27,786, -11,121]   
+
+config: {'f0': 0.0001, 'fmin': 0.0001, 'fmax': 0.01, 'h_decision_s': 60, 'h_eval_s': 300, 'elasticity': 5.0, 'train_frac': 0.6, 'train_days': 204, 'test_days': 161, 'swaps': 348509}
+markout fitted params: {'base': 6e-05, 'kappa': 0.25, 'h': 60, 'lookback': 900, 'directional': True}
+oscillon_hook fitted params: {'base': 0.0003, 'k': 45}
+oscillon_hook_poolfee fitted params: {'base': 0.0001, 'k': 45}

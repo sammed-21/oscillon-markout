@@ -39,9 +39,18 @@ def load(swaps_csv: str, ref_csv: str) -> tuple[pd.DataFrame, pd.DataFrame]:
     a0,a1: absolute gross amounts in token units (decimals already applied)
     mid  : reference price of token0 in token1 (e.g. CEX mid)
     """
-    s = pd.read_csv(swaps_csv).sort_values("ts").reset_index(drop=True)
+    s = pd.read_csv(swaps_csv).sort_values("ts", kind="stable").reset_index(drop=True)
     r = pd.read_csv(ref_csv).sort_values("ts").reset_index(drop=True)
     return s, r
+
+
+def attach_oracle(s: pd.DataFrame, oracle_csv: str) -> pd.DataFrame:
+    """oracle.csv: ts, price (e.g. Chainlink USDC/USD). Attaches the last oracle value strictly before each swap."""
+    o = pd.read_csv(oracle_csv).sort_values("ts")
+    s = s.copy()
+    s["oracle"] = pd.merge_asof(pd.DataFrame({"ts": s["ts"] - 1}), o[["ts", "price"]], on="ts",
+                                direction="backward")["price"].values
+    return s
 
 
 def enrich(s: pd.DataFrame, r: pd.DataFrame, f0: float, horizons: list[int]) -> pd.DataFrame:
@@ -98,7 +107,36 @@ def fees_for(policy: Policy, s: pd.DataFrame, r: pd.DataFrame, f0: float,
         return _markout_fees(policy.params, s, f0, fmin, fmax, h_dec, eps)
     if policy.kind == "depeg":
         return _depeg_fees(policy.params, s, r, fmin, fmax)
+    if policy.kind in ("hook", "hook_poolfee"):
+        return _hook_fees(policy.params, s)
     raise ValueError(policy.kind)
+
+
+def _hybrid_surcharge_bps(dev_bps: np.ndarray, k: float) -> np.ndarray:
+    """Oscillon hybrid surcharge = max(piecewise, quadratic), capped at 100 bp.
+    Mirrors research-backtest/src/oscillon_fee.py (_piecewise/_quadratic/_hybrid_surcharge_bps, float path)."""
+    d = np.asarray(dev_bps, dtype=float)
+    ex = np.maximum(0.0, d - 3.0)
+    piece = np.where(d <= 3, 1.0, np.where(d <= 20, 1.0 + 204.0 * ex ** 2 / BPS,
+                                           (BPS + 204.0 * 17 ** 2 + 1100.0 * (d - 20)) / BPS))
+    quad = 1.0 + k * ex ** 2 / BPS
+    return np.minimum(np.maximum(piece, quad), 100.0)
+
+
+def _hook_fees(p: dict, s: pd.DataFrame) -> np.ndarray:
+    """Oscillon stable-fee hook (OscillonFeePolicy.sol): base fee on every swap; a drain swap (token0 sold into
+    the pool while the oracle shows token0 below peg by >= 3 bp) pays base + hybrid surcharge. No fitting."""
+    if "oracle" not in s.columns:
+        raise SystemExit("the hook policy needs --oracle")
+    peg = p.get("peg", 1.0)
+    o = s["oracle"].fillna(peg).values
+    dev = np.maximum(0.0, (peg - o) / peg * BPS)
+    drain = (o < peg) & (s["dir"].values < 0) & (dev >= 3.0)
+    fee_bps = p["base"] * BPS + np.where(drain, _hybrid_surcharge_bps(dev, p["k"]), 0.0)
+    return np.minimum(fee_bps, 100.0) / BPS
+
+
+_ANCHOR_CACHE: dict = {}
 
 
 def _depeg_fees(p: dict, s: pd.DataFrame, r: pd.DataFrame, fmin: float, fmax: float) -> np.ndarray:
@@ -117,12 +155,22 @@ def _depeg_fees(p: dict, s: pd.DataFrame, r: pd.DataFrame, fmin: float, fmax: fl
     pool_prev = np.concatenate([[np.nan], px[:-1]])               # pool price before this swap
     pool_prev = np.where(np.isnan(pool_prev), ref_prev, pool_prev)
     stale = np.abs(pool_prev - ref_prev) / ref_prev * BPS
+    w = p.get("peg_window_s", 0)                                  # 0 = fixed peg ($1); >0 = trailing median of the market
+    if w:                                                          # a steady offset (e.g. USDT at -10 bp for weeks) is a level,
+        key = (id(r), id(s), int(w), lag)                          # not a move; only moves away from it pay
+        if key not in _ANCHOR_CACHE:
+            rr = r.set_index(pd.to_datetime(r["ts"], unit="s"))["mid"]
+            anchor = rr.rolling(f"{int(w)}s").median().values
+            anc = pd.DataFrame({"ts": r["ts"].values, "anchor": anchor})
+            _ANCHOR_CACHE[key] = pd.merge_asof(pd.DataFrame({"ts": s["ts"] - lag}), anc, on="ts",
+                                               direction="backward")["anchor"].values
+        peg = _ANCHOR_CACHE[key]
     pegdev = np.abs(ref_prev - peg) / peg * BPS
     extra = (k * stale + m * np.maximum(0.0, pegdev - db)) / BPS
     if directional:
         toward = np.where(pool_prev > ref_prev, s["dir"].values < 0, s["dir"].values > 0)
         extra = np.where(toward, extra, 0.0)
-    return np.clip(base + extra, fmin, fmax)
+    return np.clip(base + np.nan_to_num(extra, nan=0.0), fmin, fmax)   # no prior price → charge base
 
 
 def _kept_weight(edge_bps: float, fee: float, f0: float, eps: float) -> float:
@@ -167,9 +215,12 @@ def _markout_fees(p: dict, s: pd.DataFrame, f0: float, fmin: float, fmax: float,
 # --------------------------------------------------------------------------- evaluation
 def evaluate(s: pd.DataFrame, fees: np.ndarray, f0: float, h_dec: int, h_eval: int, eps: float) -> pd.DataFrame:
     edge = -s[f"mark_bps_{h_dec}"].values
-    w = np.array([_kept_weight(e, f, f0, eps) for e, f in zip(edge, fees)])
+    informed = edge > f0 * BPS                                   # vectorized _kept_weight
+    w = np.where(informed, (edge > fees * BPS).astype(float),
+                 np.where(fees <= f0, 1.0, (np.maximum(fees, 1e-12) / f0) ** (-eps)))
     out = pd.DataFrame({
         "day": s["day"].values,
+        "dir": s["dir"].values,
         "w": w,
         "fee_rev": w * fees * s["notional"].values,
         "markout": w * s[f"mark_{h_eval}"].values,
@@ -187,6 +238,20 @@ def summarize(ev: pd.DataFrame, base_ev: pd.DataFrame, n_boot: int = 500, seed: 
     rng = np.random.default_rng(seed)
     boots = [rng.choice(diff, size=len(diff), replace=True).sum() for _ in range(n_boot)] if len(diff) else [0]
     vol = daily["volume"].sum()
+    by_dir = {}
+    for d, name in ((-1, "sell_token0"), (1, "buy_token0")):        # -1: trader sold token0, +1: trader bought it
+        e, b = ev[ev["dir"] == d], base_ev[base_ev["dir"] == d]
+        dv = e["volume"].sum()
+        by_dir[name] = {
+            "lp_pnl": float(e["lp_pnl"].sum()),
+            "fee_revenue": float(e["fee_rev"].sum()),
+            "markout_loss": float(e["markout"].sum()),
+            "lp_pnl_bps_of_volume": float(e["lp_pnl"].sum() / dv * BPS) if dv else np.nan,
+            "volume": float(dv),
+            "volume_kept_pct": float(dv / b["volume"].sum() * 100) if b["volume"].sum() else np.nan,
+            "avg_fee_bps": float(np.average(e["fee"], weights=np.maximum(e["w"], 1e-12)) * BPS) if len(e) else np.nan,
+            "edge_vs_vanilla": float(e["lp_pnl"].sum() - b["lp_pnl"].sum()),
+        }
     return {
         "lp_pnl": daily["lp_pnl"].sum(),
         "lp_pnl_bps_of_volume": daily["lp_pnl"].sum() / vol * BPS if vol else np.nan,
@@ -198,28 +263,36 @@ def summarize(ev: pd.DataFrame, base_ev: pd.DataFrame, n_boot: int = 500, seed: 
         "edge_vs_vanilla": float(diff.sum()),
         "edge_vs_vanilla_ci90": [float(np.percentile(boots, 5)), float(np.percentile(boots, 95))],
         "days": int(len(daily)),
+        "by_direction": by_dir,
     }
 
 
-def grid(kind: str, f0: float) -> list[dict]:
+def grid(kind: str, f0: float, h_eval: int = 60) -> list[dict]:
+    if kind == "hook":                       # as coded on-chain: 3 bp base, k = 45
+        return [{"base": 0.0003, "k": 45}]
+    if kind == "hook_poolfee":               # same surcharge, on top of the pool's own fee
+        return [{"base": f0, "k": 45}]
     if kind == "vol":
         return [{"base": b, "a": a, "window": w}
                 for b, a, w in product([f0 * 0.6, f0], [0.02, 0.05, 0.1, 0.2, 0.5, 1.0], [300, 900, 3600, 14400])]
     if kind == "markout":
         return [{"base": b, "kappa": k, "h": h, "lookback": lb, "directional": dr}
-                for b, k, h, lb, dr in product([f0 * 0.6, f0], [0.25, 0.5, 1.0, 2.0, 4.0], [12, 60],
+                for b, k, h, lb, dr in product([f0 * 0.6, f0], [0.25, 0.5, 1.0, 2.0, 4.0, 8.0, 16.0], sorted({12, 60, h_eval}),
                                                [900, 3600], [True, False])]
     if kind == "depeg":
-        return [{"base": f0, "k": k, "m": m, "deadband_bps": db, "directional": dr}
-                for k, m, db, dr in product([0.0, 0.25, 0.5, 1.0], [0.0, 0.5, 1.0, 2.0], [5, 20], [False, True])]
+        return [{"base": f0, "k": k, "m": m, "deadband_bps": db, "directional": dr, "peg_window_s": pw}
+                for k, m, db, dr, pw in product([0.0, 0.25, 0.5, 1.0], [0.0, 0.5, 1.0, 2.0], [5, 20], [False, True],
+                                                [0, 3600, 86400])]
     return [{}]
 
 
 def run(swaps_csv: str, ref_csv: str, f0: float, fmin: float, fmax: float,
         h_dec: int, h_eval: int, eps: float, train_frac: float,
-        kinds: tuple = ("vol", "markout", "depeg")) -> dict:
+        kinds: tuple = ("vol", "markout", "depeg"), oracle_csv: str = "", daily: list | None = None) -> dict:
     horizons = sorted({h_dec, h_eval, 12, 60})
     s, r = load(swaps_csv, ref_csv)
+    if oracle_csv:
+        s = attach_oracle(s, oracle_csv)
     s = enrich(s, r, f0, horizons)
     cut = s["day"].quantile(train_frac) if s["day"].nunique() > 1 else s["day"].max()
     train, test = s[s["day"] <= cut].reset_index(drop=True), s[s["day"] > cut].reset_index(drop=True)
@@ -229,22 +302,33 @@ def run(swaps_csv: str, ref_csv: str, f0: float, fmin: float, fmax: float,
     def ev(pol, df):
         return evaluate(df, fees_for(pol, df, r, f0, fmin, fmax, h_dec, eps), f0, h_dec, h_eval, eps)
 
+    def keep_daily(name, period, e):
+        if daily is None:
+            return
+        g = e.groupby(["day", "dir"])[["lp_pnl", "fee_rev", "markout", "volume"]].sum().reset_index()
+        g["policy"], g["period"], g["elasticity"] = name, period, eps
+        daily.append(g)
+
     vanilla = Policy("vanilla", "vanilla", {"fee": f0})
     base_train, base_test = ev(vanilla, train), ev(vanilla, test)
+    keep_daily("vanilla", "train", base_train); keep_daily("vanilla", "test", base_test)
     results = {"vanilla": {"params": {"fee": f0},
                            "train": summarize(base_train, base_train),
                            "test": summarize(base_test, base_test)}}
-    labels = {"vol": "dynamic_vol", "markout": "markout", "depeg": "oscillon_depeg"}
+    labels = {"vol": "dynamic_vol", "markout": "markout", "depeg": "oscillon_depeg",
+              "hook": "oscillon_hook", "hook_poolfee": "oscillon_hook_poolfee"}
     for kind in kinds:
         best, best_val = None, -np.inf
-        for p in grid(kind, f0):                                   # fit on train only
+        for p in grid(kind, f0, h_eval):                            # fit on train only
             val = ev(Policy(kind, kind, p), train)["lp_pnl"].sum()
             if val > best_val:
                 best, best_val = p, val
         pol = Policy(labels[kind], kind, best)                      # frozen, then tested
+        e_train, e_test = ev(pol, train), ev(pol, test)
+        keep_daily(labels[kind], "train", e_train); keep_daily(labels[kind], "test", e_test)
         results[labels[kind]] = {"params": best,
-                                 "train": summarize(ev(pol, train), base_train),
-                                 "test": summarize(ev(pol, test), base_test)}
+                                 "train": summarize(e_train, base_train),
+                                 "test": summarize(e_test, base_test)}
     results["_config"] = {"f0": f0, "fmin": fmin, "fmax": fmax, "h_decision_s": h_dec,
                           "h_eval_s": h_eval, "elasticity": eps, "train_frac": train_frac,
                           "train_days": int(train["day"].nunique()), "test_days": int(test["day"].nunique()),
@@ -286,22 +370,30 @@ if __name__ == "__main__":
     ap.add_argument("--train-frac", type=float, default=0.6)
     ap.add_argument("--out", default="results.json")
     ap.add_argument("--sweep", default="", help="comma list of elasticities, e.g. 0.5,2,5 (re-fits each)")
-    ap.add_argument("--policies", default="vol,markout,depeg", help="subset of vol,markout,depeg")
+    ap.add_argument("--policies", default="vol,markout,depeg",
+                    help="subset of vol,markout,depeg,hook,hook_poolfee (hook* need --oracle)")
+    ap.add_argument("--oracle", default="", help="oracle.csv (ts, price) for the hook policies, e.g. Chainlink USDC/USD")
+    ap.add_argument("--daily-out", default="", help="also write per-day, per-direction results to this CSV")
     ap.add_argument("--keeper-lag", type=int, default=12, help="seconds between the reference the keeper reads and the swap")
     a = ap.parse_args()
     KEEPER_LAG_S = a.keeper_lag
     kinds = tuple(x.strip() for x in a.policies.split(",") if x.strip())
+    daily = [] if a.daily_out else None
     if a.sweep:
         allres = {}
         for e in [float(x) for x in a.sweep.split(",")]:
-            res = run(a.swaps, a.ref, a.fee, a.fmin, a.fmax, a.h_decision, a.h_eval, e, a.train_frac, kinds)
+            res = run(a.swaps, a.ref, a.fee, a.fmin, a.fmax, a.h_decision, a.h_eval, e, a.train_frac, kinds,
+                      a.oracle, daily)
             allres[str(e)] = res
             print(f"\n=== elasticity {e} ===")
             print_table(res)
         with open(a.out, "w") as fh:
             json.dump(allres, fh, indent=2, default=str)
     else:
-        res = run(a.swaps, a.ref, a.fee, a.fmin, a.fmax, a.h_decision, a.h_eval, a.elasticity, a.train_frac, kinds)
+        res = run(a.swaps, a.ref, a.fee, a.fmin, a.fmax, a.h_decision, a.h_eval, a.elasticity, a.train_frac, kinds,
+                  a.oracle, daily)
         with open(a.out, "w") as fh:
             json.dump(res, fh, indent=2, default=str)
         print_table(res)
+    if daily:
+        pd.concat(daily).to_csv(a.daily_out, index=False)

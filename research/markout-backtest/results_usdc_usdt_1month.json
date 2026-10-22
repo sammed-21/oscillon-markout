@@ -1,0 +1,383 @@
+{
+  "0.5": {
+    "vanilla": {
+      "params": {
+        "fee": 0.0001
+      },
+      "train": {
+        "lp_pnl": 13042.551111197306,
+        "lp_pnl_bps_of_volume": 0.5653627625047566,
+        "fee_revenue": 23069.34940924338,
+        "markout_loss": -10026.798298045835,
+        "volume_kept_pct": 100.0,
+        "avg_fee_bps": 1.0000000000000002,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": 0.0,
+        "edge_vs_vanilla_ci90": [
+          0.0,
+          0.0
+        ],
+        "days": 20
+      },
+      "test": {
+        "lp_pnl": 9536.362732059308,
+        "lp_pnl_bps_of_volume": 1.22979018838195,
+        "fee_revenue": 7754.4631776631895,
+        "markout_loss": 1781.8995543961184,
+        "volume_kept_pct": 100.0,
+        "avg_fee_bps": 1.0,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": 0.0,
+        "edge_vs_vanilla_ci90": [
+          0.0,
+          0.0
+        ],
+        "days": 10
+      }
+    },
+    "oscillon_depeg": {
+      "params": {
+        "base": 0.0001,
+        "k": 0.0,
+        "m": 0.0,
+        "deadband_bps": 5,
+        "directional": false
+      },
+      "train": {
+        "lp_pnl": 13042.551111197306,
+        "lp_pnl_bps_of_volume": 0.5653627625047566,
+        "fee_revenue": 23069.34940924338,
+        "markout_loss": -10026.798298045835,
+        "volume_kept_pct": 100.0,
+        "avg_fee_bps": 1.0000000000000002,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": 0.0,
+        "edge_vs_vanilla_ci90": [
+          0.0,
+          0.0
+        ],
+        "days": 20
+      },
+      "test": {
+        "lp_pnl": 9536.362732059308,
+        "lp_pnl_bps_of_volume": 1.22979018838195,
+        "fee_revenue": 7754.4631776631895,
+        "markout_loss": 1781.8995543961184,
+        "volume_kept_pct": 100.0,
+        "avg_fee_bps": 1.0,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": 0.0,
+        "edge_vs_vanilla_ci90": [
+          0.0,
+          0.0
+        ],
+        "days": 10
+      }
+    },
+    "markout": {
+      "params": {
+        "base": 0.0001,
+        "kappa": 4.0,
+        "h": 60,
+        "lookback": 3600,
+        "directional": false
+      },
+      "train": {
+        "lp_pnl": 21408.577568924316,
+        "lp_pnl_bps_of_volume": 1.605455641508077,
+        "fee_revenue": 23994.90912302259,
+        "markout_loss": -2586.331554098127,
+        "volume_kept_pct": 57.80350260481134,
+        "avg_fee_bps": 1.640815553181954,
+        "win_pct_days_vs_vanilla": 95.0,
+        "edge_vs_vanilla": 8366.026457727008,
+        "edge_vs_vanilla_ci90": [
+          5968.68979905131,
+          11428.457362605914
+        ],
+        "days": 20
+      },
+      "test": {
+        "lp_pnl": 9884.210285497478,
+        "lp_pnl_bps_of_volume": 1.576469939475056,
+        "fee_revenue": 8864.014024918875,
+        "markout_loss": 1020.1962605786,
+        "volume_kept_pct": 80.85456490217817,
+        "avg_fee_bps": 1.3898838845512855,
+        "win_pct_days_vs_vanilla": 80.0,
+        "edge_vs_vanilla": 347.84755343816835,
+        "edge_vs_vanilla_ci90": [
+          -122.34649267881434,
+          812.5042781332841
+        ],
+        "days": 10
+      }
+    },
+    "_config": {
+      "f0": 0.0001,
+      "fmin": 0.0001,
+      "fmax": 0.01,
+      "h_decision_s": 12,
+      "h_eval_s": 60,
+      "elasticity": 0.5,
+      "train_frac": 0.6,
+      "train_days": 20,
+      "test_days": 10,
+      "swaps": 43732
+    }
+  },
+  "2.0": {
+    "vanilla": {
+      "params": {
+        "fee": 0.0001
+      },
+      "train": {
+        "lp_pnl": 13042.551111197306,
+        "lp_pnl_bps_of_volume": 0.5653627625047566,
+        "fee_revenue": 23069.34940924338,
+        "markout_loss": -10026.798298045835,
+        "volume_kept_pct": 100.0,
+        "avg_fee_bps": 1.0000000000000002,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": 0.0,
+        "edge_vs_vanilla_ci90": [
+          0.0,
+          0.0
+        ],
+        "days": 20
+      },
+      "test": {
+        "lp_pnl": 9536.362732059308,
+        "lp_pnl_bps_of_volume": 1.22979018838195,
+        "fee_revenue": 7754.4631776631895,
+        "markout_loss": 1781.8995543961184,
+        "volume_kept_pct": 100.0,
+        "avg_fee_bps": 1.0,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": 0.0,
+        "edge_vs_vanilla_ci90": [
+          0.0,
+          0.0
+        ],
+        "days": 10
+      }
+    },
+    "oscillon_depeg": {
+      "params": {
+        "base": 0.0001,
+        "k": 0.0,
+        "m": 0.0,
+        "deadband_bps": 5,
+        "directional": false
+      },
+      "train": {
+        "lp_pnl": 13042.551111197306,
+        "lp_pnl_bps_of_volume": 0.5653627625047566,
+        "fee_revenue": 23069.34940924338,
+        "markout_loss": -10026.798298045835,
+        "volume_kept_pct": 100.0,
+        "avg_fee_bps": 1.0000000000000002,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": 0.0,
+        "edge_vs_vanilla_ci90": [
+          0.0,
+          0.0
+        ],
+        "days": 20
+      },
+      "test": {
+        "lp_pnl": 9536.362732059308,
+        "lp_pnl_bps_of_volume": 1.22979018838195,
+        "fee_revenue": 7754.4631776631895,
+        "markout_loss": 1781.8995543961184,
+        "volume_kept_pct": 100.0,
+        "avg_fee_bps": 1.0,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": 0.0,
+        "edge_vs_vanilla_ci90": [
+          0.0,
+          0.0
+        ],
+        "days": 10
+      }
+    },
+    "markout": {
+      "params": {
+        "base": 6e-05,
+        "kappa": 0.5,
+        "h": 12,
+        "lookback": 900,
+        "directional": true
+      },
+      "train": {
+        "lp_pnl": 14399.135717908353,
+        "lp_pnl_bps_of_volume": 0.7467962291279919,
+        "fee_revenue": 20434.530529063148,
+        "markout_loss": -6035.394811154508,
+        "volume_kept_pct": 83.57934471851155,
+        "avg_fee_bps": 1.0164205661012462,
+        "win_pct_days_vs_vanilla": 80.0,
+        "edge_vs_vanilla": 1356.584606711047,
+        "edge_vs_vanilla_ci90": [
+          525.876924521965,
+          2069.141857777633
+        ],
+        "days": 20
+      },
+      "test": {
+        "lp_pnl": 8620.5531151987,
+        "lp_pnl_bps_of_volume": 1.2542690353214314,
+        "fee_revenue": 7180.841268803172,
+        "markout_loss": 1439.7118463955278,
+        "volume_kept_pct": 88.63243752989045,
+        "avg_fee_bps": 1.023537603517512,
+        "win_pct_days_vs_vanilla": 80.0,
+        "edge_vs_vanilla": -915.8096168606091,
+        "edge_vs_vanilla_ci90": [
+          -2494.329294085931,
+          312.57607559862043
+        ],
+        "days": 10
+      }
+    },
+    "_config": {
+      "f0": 0.0001,
+      "fmin": 0.0001,
+      "fmax": 0.01,
+      "h_decision_s": 12,
+      "h_eval_s": 60,
+      "elasticity": 2.0,
+      "train_frac": 0.6,
+      "train_days": 20,
+      "test_days": 10,
+      "swaps": 43732
+    }
+  },
+  "5.0": {
+    "vanilla": {
+      "params": {
+        "fee": 0.0001
+      },
+      "train": {
+        "lp_pnl": 13042.551111197306,
+        "lp_pnl_bps_of_volume": 0.5653627625047566,
+        "fee_revenue": 23069.34940924338,
+        "markout_loss": -10026.798298045835,
+        "volume_kept_pct": 100.0,
+        "avg_fee_bps": 1.0000000000000002,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": 0.0,
+        "edge_vs_vanilla_ci90": [
+          0.0,
+          0.0
+        ],
+        "days": 20
+      },
+      "test": {
+        "lp_pnl": 9536.362732059308,
+        "lp_pnl_bps_of_volume": 1.22979018838195,
+        "fee_revenue": 7754.4631776631895,
+        "markout_loss": 1781.8995543961184,
+        "volume_kept_pct": 100.0,
+        "avg_fee_bps": 1.0,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": 0.0,
+        "edge_vs_vanilla_ci90": [
+          0.0,
+          0.0
+        ],
+        "days": 10
+      }
+    },
+    "oscillon_depeg": {
+      "params": {
+        "base": 0.0001,
+        "k": 0.0,
+        "m": 0.0,
+        "deadband_bps": 5,
+        "directional": false
+      },
+      "train": {
+        "lp_pnl": 13042.551111197306,
+        "lp_pnl_bps_of_volume": 0.5653627625047566,
+        "fee_revenue": 23069.34940924338,
+        "markout_loss": -10026.798298045835,
+        "volume_kept_pct": 100.0,
+        "avg_fee_bps": 1.0000000000000002,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": 0.0,
+        "edge_vs_vanilla_ci90": [
+          0.0,
+          0.0
+        ],
+        "days": 20
+      },
+      "test": {
+        "lp_pnl": 9536.362732059308,
+        "lp_pnl_bps_of_volume": 1.22979018838195,
+        "fee_revenue": 7754.4631776631895,
+        "markout_loss": 1781.8995543961184,
+        "volume_kept_pct": 100.0,
+        "avg_fee_bps": 1.0,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": 0.0,
+        "edge_vs_vanilla_ci90": [
+          0.0,
+          0.0
+        ],
+        "days": 10
+      }
+    },
+    "markout": {
+      "params": {
+        "base": 6e-05,
+        "kappa": 0.5,
+        "h": 12,
+        "lookback": 900,
+        "directional": true
+      },
+      "train": {
+        "lp_pnl": 13666.515175320445,
+        "lp_pnl_bps_of_volume": 0.7362434575445456,
+        "fee_revenue": 19605.46405371629,
+        "markout_loss": -5938.948878395855,
+        "volume_kept_pct": 80.4638840500205,
+        "avg_fee_bps": 1.0140600572053367,
+        "win_pct_days_vs_vanilla": 80.0,
+        "edge_vs_vanilla": 623.9640641231351,
+        "edge_vs_vanilla_ci90": [
+          -997.1587676974367,
+          1774.0849223300786
+        ],
+        "days": 20
+      },
+      "test": {
+        "lp_pnl": 7433.8678280381655,
+        "lp_pnl_bps_of_volume": 1.1199529553246026,
+        "fee_revenue": 6891.997544183605,
+        "markout_loss": 541.8702838545605,
+        "volume_kept_pct": 85.5979407820499,
+        "avg_fee_bps": 1.0166280103739758,
+        "win_pct_days_vs_vanilla": 70.0,
+        "edge_vs_vanilla": -2102.494904021144,
+        "edge_vs_vanilla_ci90": [
+          -5082.774536481646,
+          263.19961455723035
+        ],
+        "days": 10
+      }
+    },
+    "_config": {
+      "f0": 0.0001,
+      "fmin": 0.0001,
+      "fmax": 0.01,
+      "h_decision_s": 12,
+      "h_eval_s": 60,
+      "elasticity": 5.0,
+      "train_frac": 0.6,
+      "train_days": 20,
+      "test_days": 10,
+      "swaps": 43732
+    }
+  }
+}

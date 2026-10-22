@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -c \"import json;d=json.load\\(open\\('results_usdc_usdt_1month.json'\\)\\);[print\\(e,k,v['test']['edge_vs_vanilla_ci90'],v['train']['edge_vs_vanilla_ci90']\\) for e in d for k,v in d[e].items\\(\\) if k=='markout']\")"
+    ]
+  }
+}
