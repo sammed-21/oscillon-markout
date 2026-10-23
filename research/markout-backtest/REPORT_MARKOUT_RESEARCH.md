@@ -1,6 +1,6 @@
 # Dynamic LP fees for stablecoin pools: what survived testing
 
-*For the Head of LP. Every figure comes from replaying real pool flow under each fee rule and scoring every trade from the LP's side. Charts are PNGs in this folder.*
+*Every figure comes from replaying real pool flow under each fee rule and scoring every trade from the LP's side. Charts are PNGs in this folder.*
 
 | | USDC/USDT (main study) | USDe/USDT (real swaps) | March 2023 USDC depeg |
 |---|---|---|---|
@@ -216,7 +216,7 @@ Five more pools have real swap data but no fast market price, so all seven are c
 
 ---
 
-## 8. What a Head of LP or market maker will look for
+## 8. What an LP or market maker will look for
 
 | Question | What this study shows | Gap |
 |---|---|---|

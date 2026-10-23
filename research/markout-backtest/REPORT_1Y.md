@@ -1,4 +1,4 @@
-> **Superseded for decisions by `REPORT_HEAD_OF_LP.md`**, which leads with out-of-sample results and compares every crash result against vanilla. Kept for its detail on the markout trigger.
+> **Superseded for decisions by `REPORT_MARKOUT_RESEARCH.md`**, which leads with out-of-sample results and compares every crash result against vanilla. Kept for its detail on the markout trigger.
 
 # Oscillon stable-fee hook: oracle trigger vs markout trigger
 

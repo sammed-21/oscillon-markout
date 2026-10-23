@@ -1,6 +1,6 @@
 # Oscillon markout research: validated results
 
-*For the Head of LP. Only results that passed validation are here; everything else is listed at the end with the reason it was left out.*
+*Only results that passed validation are here; everything else is listed at the end with the reason it was left out.*
 
 **The product tested:** a keeper measures markout separately for each side of the pool, and sets that side's fee to `pool fee + κ × max(0, measured loss)`, hard-capped at 100 bp. No oracle.
 
@@ -59,8 +59,7 @@
   | 3 | −$3.1k [−$8.4k, +$1.5k] | +$2.8k |
 
   At realistic elasticity it neither gains nor loses against plain 1 bp, but it consistently beats a flat fee at the same average. Its timing works; on this pool, in these 36 days, there wasn't much to recover.
-- **Per-side markout fee on USDC/USDT, 1-minute data, last 161 days to Jun 2026, elasticity 2:** +$20k (range +$12k to +$33k), beating its flat control by $60k. This is before the protocol fee, which was switched on during that window, and on coarser data than the row above.
-- **Same rule in the Mar 10–25, 2023 USDC crash (1-minute data):** neutral, −$39k (range −$296k to +$141k).
+- **Per-side markout fee in the Mar 10–25, 2023 USDC crash (1-minute data):** neutral, −$39k (range −$296k to +$141k).
 - **The original Oscillon oracle depeg hook (3 bp base) lost to plain 1 bp:** −$244k in the calm year and −$1.14M in the crash.
   - It charges only USDC sellers, and the oracle can't tell a falling price from a recovering one.
 - **Per-side markout fee on USDe/USDT** (individual swaps, last 122 days to Aug 2026, elasticity 2): +$40k (range +$26k to +$54k), with Oct 10–11 excluded as a Binance price dislocation. **Promising, not proven.**
@@ -73,6 +72,7 @@
 | Mar 2023 dollar split by direction | Built from one-minute totals, where same-minute round trips inflate both sides |
 | Cross-pair dollar comparisons (USDS, PYUSD, FRAX, AUSD) | No fast market price for those pairs; measured only against each pool's own later price |
 | Whole-year fee-rule figures | They include the days the rules were fitted on |
+| Earlier +$20k for the markout fee on USDC/USDT (1-minute data, Jan – Jun 2026) | Superseded by the per-swap keeper result above: 1-minute data merges different traders, and it assumed LPs kept the full fee before the protocol fee was switched on |
 | USDC/USDT 0.01% vs 0.05% APR comparison | The 0.05% pool is too small (3,282 swaps, $0.5M TVL) |
 
 ## Limits that still apply

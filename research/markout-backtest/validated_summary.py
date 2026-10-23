@@ -30,7 +30,6 @@ def daily_vs_flat(path, rule):
     return (d[d.policy == rule].groupby("day").lp_pnl.sum() - d[d.policy == f"flat_{rule}"].groupby("day").lp_pnl.sum()).sum()
 
 
-flat_y1 = daily_vs_flat("data_1y/daily_results.csv", "markout")
 flat_kp = daily_vs_flat("data_usdt_swaps/daily_results.csv", "oscillon_keeper")
 
 mk = pd.read_csv("data_swaps/usdc_weth_5bp_markouts.csv"); mk = mk[~mk.flagged.astype(bool)]
@@ -83,13 +82,10 @@ rows = [
      f"{sw['competitor_today']['gross_apr']:.1f}%) · protocol takes 1/4 and 1/6 of fees"),
     ("LP APR", "Stable 0.01%: net APR, after protocol fee, today's TVL",
      f"{su['today']['net_apr']:+.1f}% (gross {su['today']['gross_apr']:.1f}%) · protocol takes 1/4 · 0.05% pool too small to compare"),
-    ("RULE", "Oscillon keeper on USDC/USDT · per-swap, last 36 of 90 days, ε 2",
-     f"{k(kp['oscillon_keeper']['test']['edge_vs_vanilla'])} vs 1 bp {ci(kp['oscillon_keeper']['test']['edge_vs_vanilla_ci90'])}: neutral · "
-     f"beats a flat fee at its own average by {k(flat_kp)} · after protocol fee"),
-    ("RULE", "Per-side markout fee on USDC/USDT · 1-min data, last 161 days to Jun 2026, ε 2",
-     f"{k(y1['markout']['test']['edge_vs_vanilla'])} vs 1 bp {ci(y1['markout']['test']['edge_vs_vanilla_ci90'])} · beats flat by {k(flat_y1)} · "
-     f"before protocol fee (switched on in Q1 2026)"),
-    ("RULE", "Same rule, Mar 10–25 2023 USDC crash · 1-min data, ε 2",
+    ("RULE", "Oscillon keeper on USDC/USDT · per-swap, 36-day test window, ε 2",
+     f"{k(kp['oscillon_keeper']['test']['edge_vs_vanilla'])} vs 1 bp {ci(kp['oscillon_keeper']['test']['edge_vs_vanilla_ci90'])}: neutral "
+     f"(36-day test window) · beats a flat fee at its own average by {k(flat_kp)} · after protocol fee"),
+    ("RULE", "Per-side markout fee, Mar 10–25 2023 USDC crash · 1-min data, ε 2",
      f"{k(crash['markout']['stress']['edge_vs_vanilla'])} vs 1 bp {ci(crash['markout']['stress']['edge_vs_vanilla_ci90'])}: neutral · no protocol fee then"),
     ("RULE", "Oscillon oracle depeg hook (3 bp base) · same two 1-min windows, ε 2",
      f"{k(y1['oscillon_hook']['test']['edge_vs_vanilla'])} calm / {k(crash['oscillon_hook']['stress']['edge_vs_vanilla'])} crash vs plain 1 bp"),
