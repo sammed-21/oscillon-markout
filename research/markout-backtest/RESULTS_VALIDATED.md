@@ -33,7 +33,7 @@
 
 **2. On ETH, a few sources cause almost all of it, and they're also most of the volume.**
 - **Top source:** 51% of LP losses. **Top 5:** 89%.
-- **The top 2 are also 62% of the pool's volume.** They're the arbitrageurs keeping the pool's price in line with the market. The keeper charges them more only while they're costing LPs money; it doesn't target most of the volume all the time.
+- **The top 2 are also 62% of the pool's volume.** They're the arbitrageurs keeping the pool's price in line with the market. Charging them out would leave the pool's price stale. For this flow the fix is to make arbitrageurs pay LPs for the right to update the price (an auction or MEV tax), not a higher fee. That's the next thing to test.
 - **Uniswap's own routers are good flow:** +7 bp for LPs.
 
 ![Who causes LP losses, ETH](charts_flow/F3_sources_weth.png)
