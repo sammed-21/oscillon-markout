@@ -1,0 +1,29 @@
+{
+  "lp_fee_share": 0.75,
+  "comp_lp_fee_share": 0.75,
+  "pool": "USDC/USDT 0.01%",
+  "competitor": "USDC/USDT 0.05%",
+  "h_s": 60,
+  "today": {
+    "fees": 71906.7276917769,
+    "net_markout": -28494.888249498923,
+    "lp_net": 43411.83944227798,
+    "tvl": 34061333.3501,
+    "days": 90.0,
+    "gross_apr": 0.8561665099095428,
+    "net_apr": 0.5168885340376711,
+    "fee_bp": 1.0
+  },
+  "competitor_today": {
+    "fees": 2839.338944327076,
+    "net_markout": 1132.2942183751195,
+    "lp_net": 3971.6331627021955,
+    "tvl": 496060.9224,
+    "days": 90.0,
+    "gross_apr": 2.321306982630188,
+    "net_apr": 3.2470162857612688,
+    "fee_bp": 5.0
+  },
+  "net_apr_gap_vs_competitor_pp": -2.7301277517235976,
+  "rules": {}
+}

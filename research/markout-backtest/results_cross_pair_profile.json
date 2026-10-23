@@ -1,0 +1,296 @@
+[
+  {
+    "pair": "USDC/USDT",
+    "category": "Fiat-backed majors",
+    "fee_bp": 1.0,
+    "fee_source": "v3 0.01% tier",
+    "days": 365.0,
+    "window": [
+      "2025-07-01",
+      "2026-06-30"
+    ],
+    "swaps": 348509,
+    "volume": 7257599848.19342,
+    "volume_per_day": 19884516.177111328,
+    "pool_price_dev_bp_median": 3.999000199963465,
+    "pool_price_dev_bp_p99": 13.007802860713902,
+    "pool_price_dev_bp_max": 104.53742564732637,
+    "dirs": {
+      "USDC \u2192 USDT": {
+        "swaps": 176938,
+        "volume": 3643501668.844432,
+        "median_size": 997.5,
+        "fees": 364350.1668844432,
+        "lvr_pool_relative": -390446.0613825821,
+        "net_markout_pool_relative": -20940.36578857922,
+        "lp_profit_pool_relative": 343409.801095864,
+        "lvr_bp_of_volume": 1.0716231166333332
+      },
+      "USDT \u2192 USDC": {
+        "swaps": 171571,
+        "volume": 3614098179.348989,
+        "median_size": 561.6697768721762,
+        "fees": 361409.8179348989,
+        "lvr_pool_relative": -246539.36913138948,
+        "net_markout_pool_relative": 158758.14199289057,
+        "lp_profit_pool_relative": 520167.95992778946,
+        "lvr_bp_of_volume": 0.6821601320631496
+      }
+    },
+    "lvr_bp_of_volume": 0.8776805608434469,
+    "net_markout_bp_of_volume": 0.18989442665210768,
+    "lvr_to_fee_ratio": 0.8776805608434467
+  },
+  {
+    "pair": "USDe/USDT",
+    "category": "Synthetic / yield-bearing",
+    "fee_bp": 0.45,
+    "fee_source": "StateView lpFee 45",
+    "days": 322.6,
+    "window": [
+      "2025-10-02",
+      "2026-08-20"
+    ],
+    "swaps": 118312,
+    "volume": 9379640515.531853,
+    "volume_per_day": 29078871.846645154,
+    "pool_price_dev_bp_median": 5.027451661754334,
+    "pool_price_dev_bp_p99": 10.96699358379416,
+    "pool_price_dev_bp_max": 3370.799839770817,
+    "dirs": {
+      "USDe \u2192 USDT": {
+        "swaps": 71937,
+        "volume": 4712776033.021657,
+        "median_size": 1389.7184199734336,
+        "fees": 212074.9214859746,
+        "lvr_pool_relative": -505455.10860314546,
+        "net_markout_pool_relative": -365668.2617144977,
+        "lp_profit_pool_relative": -153593.3402285231,
+        "lvr_bp_of_volume": 1.0725209622980245
+      },
+      "USDT \u2192 USDe": {
+        "swaps": 46375,
+        "volume": 4666864482.510193,
+        "median_size": 8526.616581068121,
+        "fees": 210008.90171295867,
+        "lvr_pool_relative": -100141.47772282892,
+        "net_markout_pool_relative": 490716.75188449526,
+        "lp_profit_pool_relative": 700725.653597454,
+        "lvr_bp_of_volume": 0.21457978498866814
+      }
+    },
+    "lvr_bp_of_volume": 0.6456501028191435,
+    "net_markout_bp_of_volume": 0.13331906480096792,
+    "lvr_to_fee_ratio": 1.4347780062647635
+  },
+  {
+    "pair": "USDe/USDC",
+    "category": "Synthetic / yield-bearing",
+    "fee_bp": 0.25,
+    "fee_source": "StateView lpFee 25",
+    "days": 33.7,
+    "window": [
+      "2026-07-17",
+      "2026-08-20"
+    ],
+    "swaps": 17575,
+    "volume": 298169647.2217566,
+    "volume_per_day": 8856049.22176883,
+    "pool_price_dev_bp_median": 0.9734643136316556,
+    "pool_price_dev_bp_p99": 1.9732669869332309,
+    "pool_price_dev_bp_max": 670.4087221691635,
+    "dirs": {
+      "USDe \u2192 USDC": {
+        "swaps": 13545,
+        "volume": 146202608.73048225,
+        "median_size": 205.69993147933653,
+        "fees": 3655.065218262056,
+        "lvr_pool_relative": -9604.338996420065,
+        "net_markout_pool_relative": -4001.158423308587,
+        "lp_profit_pool_relative": -346.0932050465308,
+        "lvr_bp_of_volume": 0.6569198101057978
+      },
+      "USDC \u2192 USDe": {
+        "swaps": 4030,
+        "volume": 151967038.4912743,
+        "median_size": 7700.245534455529,
+        "fees": 3799.175962281858,
+        "lvr_pool_relative": -737.8783823651735,
+        "net_markout_pool_relative": 22688.638549266016,
+        "lp_profit_pool_relative": 26487.814511547873,
+        "lvr_bp_of_volume": 0.04855515970376308
+      }
+    },
+    "lvr_bp_of_volume": 0.3468568137350835,
+    "net_markout_bp_of_volume": 0.6267398543104915,
+    "lvr_to_fee_ratio": 1.3874272549403341
+  },
+  {
+    "pair": "USDS/USDT",
+    "category": "Decentralised (CDP)",
+    "fee_bp": 0.05,
+    "fee_source": "StateView lpFee 5",
+    "days": 211.9,
+    "window": [
+      "2026-01-24",
+      "2026-08-24"
+    ],
+    "swaps": 172916,
+    "volume": 6105868852.059887,
+    "volume_per_day": 28817901.143696792,
+    "pool_price_dev_bp_median": 5.024925404797376,
+    "pool_price_dev_bp_p99": 103.49762013812142,
+    "pool_price_dev_bp_max": 22501836.012802172,
+    "dirs": {
+      "USDT \u2192 USDS": {
+        "swaps": 82000,
+        "volume": 2960282612.2042885,
+        "median_size": 1014.8958933715171,
+        "fees": 14801.413061021443,
+        "lvr_pool_relative": -328200.7945792853,
+        "net_markout_pool_relative": 650472.3453308613,
+        "lp_profit_pool_relative": 665273.7583918828,
+        "lvr_bp_of_volume": 1.1086806145677426
+      },
+      "USDS \u2192 USDT": {
+        "swaps": 90916,
+        "volume": 3145586239.855598,
+        "median_size": 1052.4386595268957,
+        "fees": 15727.931199277993,
+        "lvr_pool_relative": -320624.83665501414,
+        "net_markout_pool_relative": 1331993.5826156628,
+        "lp_profit_pool_relative": 1347721.5138149408,
+        "lvr_bp_of_volume": 1.019284839794228
+      }
+    },
+    "lvr_bp_of_volume": 1.0626262157848518,
+    "net_markout_bp_of_volume": 3.2468203559231643,
+    "lvr_to_fee_ratio": 21.252524315697038
+  },
+  {
+    "pair": "PYUSD/USDS",
+    "category": "Fiat-backed minor",
+    "fee_bp": 0.05,
+    "fee_source": "StateView lpFee 5",
+    "days": 186.9,
+    "window": [
+      "2026-02-19",
+      "2026-08-25"
+    ],
+    "swaps": 28014,
+    "volume": 3389021602.326669,
+    "volume_per_day": 18135987.478298627,
+    "pool_price_dev_bp_median": 0.9735590861348342,
+    "pool_price_dev_bp_p99": 48.904017025390715,
+    "pool_price_dev_bp_max": 10034.338102447964,
+    "dirs": {
+      "PYUSD \u2192 USDS": {
+        "swaps": 18359,
+        "volume": 1694389831.547667,
+        "median_size": 1396.4763579483335,
+        "fees": 8471.949157738336,
+        "lvr_pool_relative": -115558.83845289896,
+        "net_markout_pool_relative": -86217.77092284516,
+        "lp_profit_pool_relative": -77745.82176510683,
+        "lvr_bp_of_volume": 0.6820085691103724
+      },
+      "USDS \u2192 PYUSD": {
+        "swaps": 9655,
+        "volume": 1694631770.7790022,
+        "median_size": 4944.71204000222,
+        "fees": 8473.15885389501,
+        "lvr_pool_relative": -12160.085529087586,
+        "net_markout_pool_relative": 130739.46229178032,
+        "lp_profit_pool_relative": 139212.62114567534,
+        "lvr_bp_of_volume": 0.07175650627332296
+      }
+    },
+    "lvr_bp_of_volume": 0.37686075501644334,
+    "net_markout_bp_of_volume": 0.13137033808922793,
+    "lvr_to_fee_ratio": 7.537215100328868
+  },
+  {
+    "pair": "FRAX/USDC",
+    "category": "Fractional / algorithmic",
+    "fee_bp": 5.0,
+    "fee_source": "v3 fee() 500",
+    "days": 213.5,
+    "window": [
+      "2026-01-24",
+      "2026-08-25"
+    ],
+    "swaps": 11484,
+    "volume": 4832932.623691142,
+    "volume_per_day": 22638.969510050923,
+    "pool_price_dev_bp_median": 77.66648700569311,
+    "pool_price_dev_bp_p99": 111.34345384544719,
+    "pool_price_dev_bp_max": 280.93751432443304,
+    "dirs": {
+      "FRAX \u2192 USDC": {
+        "swaps": 6054,
+        "volume": 2308217.9016443295,
+        "median_size": 52.8347702512183,
+        "fees": 1154.1089508221648,
+        "lvr_pool_relative": -2976.1536735014183,
+        "net_markout_pool_relative": -2875.9559609172043,
+        "lp_profit_pool_relative": -1721.8470100950394,
+        "lvr_bp_of_volume": 12.89372927651789
+      },
+      "USDC \u2192 FRAX": {
+        "swaps": 5430,
+        "volume": 2524714.722046812,
+        "median_size": 81.75404824229295,
+        "fees": 1262.357361023406,
+        "lvr_pool_relative": -402.96483854979147,
+        "net_markout_pool_relative": 2396.353547186517,
+        "lp_profit_pool_relative": 3658.710908209923,
+        "lvr_bp_of_volume": 1.5960806780700505
+      }
+    },
+    "lvr_bp_of_volume": 6.991859343303683,
+    "net_markout_bp_of_volume": -0.9923631282995025,
+    "lvr_to_fee_ratio": 1.3983718686607367
+  },
+  {
+    "pair": "AUSD/USDC",
+    "category": "Fiat-backed, Monad",
+    "fee_bp": 0.5,
+    "fee_source": "pool_config tier 50",
+    "days": 213.6,
+    "window": [
+      "2026-01-24",
+      "2026-08-25"
+    ],
+    "swaps": 121365,
+    "volume": 51331027.5983575,
+    "volume_per_day": 240334.2191918186,
+    "pool_price_dev_bp_median": 0.9999000099991662,
+    "pool_price_dev_bp_p99": 2.000099999999172,
+    "pool_price_dev_bp_max": 11.005501650329652,
+    "dirs": {
+      "AUSD \u2192 USDC": {
+        "swaps": 60319,
+        "volume": 25636454.20145067,
+        "median_size": 79.340841,
+        "fees": 1281.8227100725335,
+        "lvr_pool_relative": -1717.4187088179715,
+        "net_markout_pool_relative": -1559.836054928362,
+        "lp_profit_pool_relative": -278.01334485582856,
+        "lvr_bp_of_volume": 0.6699127325965342
+      },
+      "USDC \u2192 AUSD": {
+        "swaps": 61046,
+        "volume": 25694573.39690683,
+        "median_size": 85.54160142317656,
+        "fees": 1284.7286698453415,
+        "lvr_pool_relative": -271.8136843141436,
+        "net_markout_pool_relative": 972.2200960726149,
+        "lp_profit_pool_relative": 2256.9487659179563,
+        "lvr_bp_of_volume": 0.10578641649947187
+      }
+    },
+    "lvr_bp_of_volume": 0.38753021051847536,
+    "net_markout_bp_of_volume": -0.11447578323457329,
+    "lvr_to_fee_ratio": 0.7750604210369505
+  }
+]

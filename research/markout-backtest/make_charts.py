@@ -23,9 +23,11 @@ T0, T1 = a.names.split(",")
 INK, INK2, MUTED, GRID, SURF = "#0b0b0b", "#52514e", "#8a8986", "#e6e5e1", "#fcfcfb"
 POL = {  # name -> (label, color); slots 1-3 of the validated categorical palette, vanilla as neutral
     "vanilla": ("Vanilla 1 bp (today)", MUTED),
-    "markout": ("Markout fee", "#2a78d6"),
-    "oscillon_hook": ("Oscillon hook, 3 bp base", "#eb6834"),
-    "oscillon_hook_poolfee": ("Oscillon surcharge on 1 bp", "#1baf7a"),
+    "markout": ("Markout fee (linear)", "#2a78d6"),
+    "oscillon_hook": ("Oscillon · oracle trigger, 3 bp", "#eb6834"),
+    "oscillon_hook_poolfee": ("Oscillon · oracle trigger, 1 bp", "#e87ba4"),
+    "markout_hook": ("Oscillon · markout trigger, 3 bp", "#6250d6"),
+    "markout_hook_poolfee": ("Oscillon · markout trigger, 1 bp", "#1baf7a"),
 }
 DIRS = {-1: f"{T0} → {T1}  (trader sells {T0})", 1: f"{T1} → {T0}  (trader buys {T0})"}
 DKEY = {-1: "sell_token0", 1: "buy_token0"}
@@ -50,6 +52,107 @@ def save(fig, name):
     plt.close(fig)
     print("wrote", os.path.join(a.out, name))
 
+
+# ------------------------------------------------------------------ 0. one-page results summary
+van_all = daily[(daily.elasticity == eps_list[0]) & (daily.policy == "vanilla")]
+
+
+def edge_vs_flat(p: str, e: str, period: str = "test", n_boot: int = 500):
+    """Rule minus its flat-fee control (same average fee), summed over days, with a 90% bootstrap range by day."""
+    d = daily[(daily.elasticity == e) & (daily.period == period)]
+    a_ = d[d.policy == p].groupby("day").lp_pnl.sum()
+    b_ = d[d.policy == f"flat_{p}"].groupby("day").lp_pnl.sum()
+    if b_.empty:
+        return None
+    diff = (a_ - b_).dropna().values
+    boots = np.random.default_rng(0).choice(diff, size=(n_boot, len(diff)), replace=True).sum(axis=1)
+    return diff.sum(), np.percentile(boots, 5), np.percentile(boots, 95)
+
+
+fig = plt.figure(figsize=(15, 14.5))
+fig.text(0.04, 0.965, f"{T0}/{T1} 1 bp pool · fee rule backtest results", fontsize=19, color=INK, va="top")
+fig.text(0.04, 0.925, f"{daily.day.min():%b %-d, %Y} – {daily.day.max():%b %-d, %Y} · {van_all.volume.sum() / 1e9:,.2f}B traded · "
+         f"fitted on {cfg['train_days']} days, scored on the last {cfg['test_days']} days (out of sample) · amounts in {T1}",
+         fontsize=10.5, color=INK2, va="top")
+
+tiles = [(f"{van_all.fee_rev.sum():,.0f}", "LP fees at 1 bp, full year"),
+         (sgn(van_all.markout.sum()), "LP markout at 1 bp, full year"),
+         (f"{(res[eps_list[0]]['vanilla']['test']['lp_pnl']):,.0f}", f"LP profit at 1 bp, test {cfg['test_days']} days")]
+for i, (v, lab) in enumerate(tiles):
+    x = 0.04 + i * 0.31
+    fig.text(x, 0.87, v, fontsize=24, color=INK, va="top", family="DejaVu Serif")
+    fig.text(x, 0.825, lab, fontsize=10, color=INK2, va="top")
+
+ax = fig.add_axes([0.03, 0.40, 0.94, 0.39]); ax.set_axis_off()
+ax.text(0, 1.0, f"LP profit by fee rule, test period ({cfg['test_days']} days). Line 1–2: vs today's 1 bp with 90% range. "
+        "Line 3: vs a flat fee at the rule's own average fee.", fontsize=11.5, color=INK, va="bottom", transform=ax.transAxes)
+cols = [eps_name.get(e, e) for e in eps_list]
+cells, colors = [], []
+for p in pols:
+    row, crow = [], []
+    for e in eps_list:
+        t = res[e][p]["test"]
+        if p == "vanilla":
+            row.append(f"{t['lp_pnl']:,.0f}"); crow.append(INK)
+        else:
+            lo, hi = t["edge_vs_vanilla_ci90"]
+            fv = edge_vs_flat(p, e)
+            fline = "" if fv is None else (f"\nvs flat {res[e]['flat_' + p]['params']['fee_test'] * 1e4:.2f} bp: {sgn(fv[0])} "
+                                           f"[{sgn(fv[1])} to {sgn(fv[2])}]")
+            row.append(f"{t['lp_pnl']:,.0f}".replace("-", "−") + f"   {sgn(t['edge_vs_vanilla'])} vs today\n[{sgn(lo)} to {sgn(hi)}]\n"
+                       f"avg fee {t['avg_fee_bps']:.2f} bp · kept {t['volume_kept_pct']:.0f}% of volume" + fline)
+            crow.append("#1f7a4d" if lo > 0 else "#b5402f" if hi < 0 else INK2)
+    cells.append(row); colors.append(crow)
+tb = ax.table(cellText=cells, rowLabels=[POL[p][0] for p in pols], colLabels=cols, cellLoc="left", rowLoc="left",
+              bbox=[0.17, 0, 0.83, 0.95])
+tb.auto_set_font_size(False); tb.set_fontsize(8.6)
+for (r, c), cell in tb.get_celld().items():
+    cell.set_edgecolor(GRID); cell.set_facecolor(SURF if r % 2 else "white")
+    if r == 0:
+        cell.set_text_props(color=INK2, fontweight="bold")
+    elif c >= 0:
+        cell.set_text_props(color=colors[r - 1][c])
+    else:
+        cell.set_text_props(color=INK)
+
+ax2 = fig.add_axes([0.04, 0.22, 0.92, 0.13]); ax2.set_axis_off()
+ax2.text(0, 1.0, f"Both directions at today's 1 bp: fees, markout and LP profit ({T1})", fontsize=12, color=INK,
+         va="bottom", transform=ax2.transAxes)
+drows = []
+for dr in (-1, 1):
+    r = []
+    for per in ("train", "test"):
+        b = res[eps_list[0]]["vanilla"][per]["by_direction"][DKEY[dr]]
+        r += [f"{b['fee_revenue']:,.0f}", sgn(b["markout_loss"]), f"{b['lp_pnl']:,.0f}"]
+    drows.append(r)
+tb2 = ax2.table(cellText=drows, rowLabels=[DIRS[d] for d in (-1, 1)],
+                colLabels=["Fit: fees", "Fit: markout", "Fit: LP profit", "Test: fees", "Test: markout", "Test: LP profit"],
+                cellLoc="right", rowLoc="left", bbox=[0.27, 0, 0.73, 0.88])
+tb2.auto_set_font_size(False); tb2.set_fontsize(10)
+for (r, c), cell in tb2.get_celld().items():
+    cell.set_edgecolor(GRID); cell.set_facecolor("white")
+    if r == 0:
+        cell.set_text_props(color=INK2, fontweight="bold")
+    elif c in (1, 4):
+        cell.set_text_props(color="#1f7a4d" if not cell.get_text().get_text().startswith("−") else "#b5402f")
+
+e2 = eps_list[min(1, len(eps_list) - 1)]
+hook2, mk2 = res[e2]["oscillon_hook"]["test"], res[e2]["markout"]["test"]
+fv_mk, fv_mh = edge_vs_flat("markout", e2), edge_vs_flat("markout_hook_poolfee", e2)
+notes = ["What it means",
+         f"• At 1 bp, LPs lost almost nothing to price moves over the year (markout {sgn(van_all.markout.sum())}): little toxic flow to defend against.",
+         f"• A 3 bp base only pays if traders stay, whichever trigger it uses. At elasticity {float(e2):g} the oracle-triggered hook "
+         f"costs LPs {sgn(hook2['edge_vs_vanilla'])}: arbitrage stays at 3 bp, ordinary flow leaves.",
+         f"• Flat-fee control: the linear markout fee beats a flat fee at its own average by {sgn(fv_mk[0])} [{sgn(fv_mk[1])} to {sgn(fv_mk[2])}],"
+         " so its gain comes from when and on which side it charges, not from charging more.",
+         f"• The Oscillon curve with a markout trigger on a 1 bp base beats its flat control by {sgn(fv_mh[0])}, but is not clearly better"
+         " than today: its 3 bp dead band rarely opens in calm months.",
+         "Elasticity = how much ordinary flow leaves when the fee rises (assumed, not measured). Per-minute pool data; markout priced "
+         "on Binance 5 min after each trade; hook fees use on-chain whole-bp rounding."]
+for i, n in enumerate(notes):
+    fig.text(0.04, 0.175 - i * 0.028, n, fontsize=12 if i == 0 else 10.5, color=INK if i < len(notes) - 1 else INK2,
+             fontweight="bold" if i == 0 else "normal", va="top")
+save(fig, "00_results_summary.png")
 
 # ------------------------------------------------------------------ 1. how one swap is scored
 fig, ax = plt.subplots(figsize=(13, 7.4)); ax.set_axis_off(); ax.set_xlim(0, 13); ax.set_ylim(0, 7.4)
@@ -230,8 +333,55 @@ ax.axhline(0, color=INK2, lw=1)
 ax.set_xticks(x); ax.set_xticklabels([pd.Timestamp(t).strftime("%b\n%y") for t in months])
 ax.yaxis.set_major_formatter(k_fmt); ax.set_ylabel("USDT per month"); ax.grid(axis="x", visible=False)
 ax.legend(frameon=False, ncol=3, loc="upper center", bbox_to_anchor=(0.5, -0.14), fontsize=9)
-ax.set_title("Which direction hurts LPs? Monthly markout at today's 1 bp fee, by trade direction", loc="left", fontsize=13)
-ax.text(0, 1.01, "Below zero = traders that way left LPs worse off 5 min later. The losing side flips from month to month.",
+ax.set_title("Which direction hurts LPs? Monthly markout at today's 1 bp fee, by trade direction", loc="left", fontsize=13,
+             pad=26)
+ax.text(0, 1.025, "Below zero = traders that way left LPs worse off 5 min later. The losing side flips from month to month.",
         transform=ax.transAxes, fontsize=9.5, color=INK2)
-ax.title.set_position((0, 1.07))
 save(fig, "06_monthly_markout_by_direction.png")
+
+# ------------------------------------------------------------------ 7. Oscillon hook fee by depeg
+import backtest as _bt
+
+
+def _onchain_fee_bps(dev: float, k: int = 45) -> float:
+    """Integer path of OscillonFeePolicy.sol (select_fee_pips / 100): truncates depeg and each surcharge leg."""
+    d = int(dev)
+    if d < 3:
+        return 3.0
+    ex = d - 3
+    piece = 1 if d <= 3 else (10_000 + 204 * ex * ex) // 10_000 if d <= 20 else min((10_000 + 204 * 289 + 1100 * (d - 20)) // 10_000, 100)
+    quad = min(1 + (k * ex * ex) // 10_000, 100)
+    return float(min(3 + max(piece, quad), 100))
+
+
+devs = np.linspace(0, 100, 1001)
+float_fee = np.where(devs >= 3, 3 + _bt._hybrid_surcharge_bps(devs, 45), 3.0)
+chain_fee = np.array([_onchain_fee_bps(d) for d in devs])
+fig, (ax, axt) = plt.subplots(1, 2, figsize=(14, 5.6), gridspec_kw={"width_ratios": [1.6, 1]})
+ax.plot(devs, float_fee, color="#eb6834", lw=2, label="Backtest fee (float, select_fee_bps)")
+ax.step(devs, chain_fee, where="post", color=INK, lw=1.2, ls=(0, (4, 3)), label="On-chain fee (integer, select_fee_pips)")
+if orc is not None:
+    seen = np.maximum(0, (1 - orc.price) * 1e4).max()
+    ax.axvspan(0, seen, color="#2a78d6", alpha=0.12, lw=0)
+    ax.text(seen + 1, 30, f"Depeg Chainlink showed\n{daily.day.min():%b %Y}–{daily.day.max():%b %Y}: 0–{seen:.1f} bp",
+            fontsize=9, color=INK2, va="center")
+for d in (10, 20, 50):
+    f = 3 + float(_bt._hybrid_surcharge_bps(np.array([d]), 45)[0])
+    ax.plot(d, f, "o", ms=7, color="#eb6834", mec="white", mew=1.5)
+    ax.annotate(f"{d} bp depeg → {f:.2f} bp fee", (d, f), xytext=(8, -14), textcoords="offset points", fontsize=9, color=INK)
+ax.set_xlabel(f"{T0} depeg on the oracle (bp below $1)"); ax.set_ylabel("Fee on a drain swap (bp)")
+ax.set_xlim(0, 100); ax.set_ylim(0, 50); ax.legend(frameon=False, loc="upper left", fontsize=9)
+axt.set_axis_off()
+rows = [[f"{d:g}", f"{3 + float(_bt._hybrid_surcharge_bps(np.array([d]), 45)[0]) if d >= 3 else 3:.2f}", f"{_onchain_fee_bps(d):.0f}"]
+        for d in (0, 3, 5, 7, 10, 15, 20, 25, 30, 50, 100)]
+t = axt.table(cellText=rows, colLabels=["Depeg", "Backtest fee", "On-chain fee"], cellLoc="right",
+              bbox=[0.05, 0.02, 0.95, 0.9])
+t.auto_set_font_size(False); t.set_fontsize(10)
+for (r, c), cell in t.get_celld().items():
+    cell.set_edgecolor(GRID); cell.set_facecolor("white" if r % 2 else SURF)
+    if r == 0:
+        cell.set_text_props(color=INK2, fontweight="bold")
+axt.text(0.05, 0.96, "All values in bp. Drain swaps only; every other swap pays 3 bp.", fontsize=9.5, color=INK2, transform=axt.transAxes)
+fig.suptitle("Oscillon hook fee by depeg: 3 bp base + hybrid surcharge (k = 45, max 100 bp)", x=0.06, ha="left", fontsize=14)
+fig.subplots_adjust(top=0.88, wspace=0.08)
+save(fig, "07_hook_fee_by_depeg.png")

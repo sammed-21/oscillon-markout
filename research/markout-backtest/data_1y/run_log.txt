@@ -1,39 +1,81 @@
 
 === elasticity 0.5 ===
 OUT-OF-SAMPLE (test period), amounts in token1 units
-policy                 LP PnL   PnL bps/vol  fees     markout  vol kept %  avg fee bps  win % days  vs vanilla [90% CI]       
-vanilla                207,970  0.87         239,110  -31,140  100.0       1.00         0           0 [0, 0]                  
-markout                484,023  4.03         409,721  74,302   50.2        2.95         97          276,053 [226,006, 330,794]
-oscillon_hook          301,197  2.77         339,350  -38,153  45.4        3.12         93          93,227 [76,293, 111,515]  
-oscillon_hook_poolfee  221,672  0.98         246,011  -24,338  94.7        1.09         35          13,702 [10,165, 18,072]   
+policy                      LP PnL   fees     markout  loss ratio  capture %  bp/yr@TVL  vol kept %  avg fee bps  win % days  vs vanilla [90% CI]       
+vanilla                     207,970  239,110  -31,140  0.130       44.5       +0.000     100.0       1.00         0           0 [0, 0]                  
+markout                     484,023  409,721  74,302   -0.181      74.3       +12.517    50.2        2.95         97          276,053 [226,006, 330,794]
+flat_markout                310,607  355,929  -45,322  0.127       65.2       +4.654     43.6        3.41         92          102,637 [84,178, 121,895] 
+oscillon_hook               301,125  339,276  -38,151  0.112       63.9       +4.224     45.4        3.12         93          93,155 [76,255, 111,427]  
+flat_oscillon_hook          298,346  339,881  -41,536  0.122       63.8       +4.098     45.5        3.12         91          90,376 [72,637, 108,656]  
+oscillon_hook_poolfee       221,576  245,918  -24,342  0.099       46.1       +0.617     94.7        1.09         35          13,606 [10,102, 17,940]   
+flat_oscillon_hook_poolfee  212,166  246,160  -33,994  0.138       45.9       +0.190     94.8        1.09         86          4,196 [1,797, 6,370]      
+markout_hook                299,792  338,489  -38,696  0.114       63.7       +4.163     46.2        3.01         92          91,822 [75,314, 108,871]  
+flat_markout_hook           295,899  336,393  -40,494  0.120       63.5       +3.987     45.9        3.06         91          87,929 [70,654, 106,176]  
+markout_hook_poolfee        214,961  245,157  -30,196  0.123       45.3       +0.317     99.4        1.00         22          6,991 [1,235, 15,506]     
+flat_markout_hook_poolfee   209,700  241,713  -32,013  0.132       45.0       +0.078     98.0        1.03         87          1,730 [780, 2,613]        
 
 config: {'f0': 0.0001, 'fmin': 0.0001, 'fmax': 0.01, 'h_decision_s': 60, 'h_eval_s': 300, 'elasticity': 0.5, 'train_frac': 0.6, 'train_days': 204, 'test_days': 161, 'swaps': 348509}
 markout fitted params: {'base': 0.0001, 'kappa': 16.0, 'h': 12, 'lookback': 3600, 'directional': True}
+flat_markout fitted params: {'fee_train': 0.0003225539108971298, 'fee_test': 0.0003411345744876885}
 oscillon_hook fitted params: {'base': 0.0003, 'k': 45}
+flat_oscillon_hook fitted params: {'fee_train': 0.00030213104355597797, 'fee_test': 0.0003122580345634873}
 oscillon_hook_poolfee fitted params: {'base': 0.0001, 'k': 45}
+flat_oscillon_hook_poolfee fitted params: {'fee_train': 0.00010166313975841417, 'fee_test': 0.0001085839547194743}
+markout_hook fitted params: {'base': 0.0003, 'curve': 'hybrid', 'k': 45, 'h': 60, 'lookback': 900, 'directional': True}
+flat_markout_hook fitted params: {'fee_train': 0.00030657902416921185, 'fee_test': 0.0003063899919395282}
+markout_hook_poolfee fitted params: {'base': 0.0001, 'curve': 'hybrid', 'k': 45, 'h': 60, 'lookback': 900, 'directional': True}
+flat_markout_hook_poolfee fitted params: {'fee_train': 0.00010357704660157307, 'fee_test': 0.00010314411362438924}
 
 === elasticity 2.0 ===
 OUT-OF-SAMPLE (test period), amounts in token1 units
-policy                 LP PnL   PnL bps/vol  fees     markout   vol kept %  avg fee bps  win % days  vs vanilla [90% CI]          
-vanilla                207,970  0.87         239,110  -31,140   100.0       1.00         0           0 [0, 0]                     
-markout                227,964  1.07         232,220  -4,255    89.3        1.03         83          19,995 [11,513, 32,751]      
-oscillon_hook          -36,356  -1.14        99,754   -136,110  13.3        3.08         4           -244,326 [-313,855, -174,459]
-oscillon_hook_poolfee  199,377  0.92         226,587  -27,211   90.7        1.03         8           -8,593 [-14,310, -3,332]     
+policy                      LP PnL   fees     markout   loss ratio  capture %  bp/yr@TVL  vol kept %  avg fee bps  win % days  vs vanilla [90% CI]          
+vanilla                     207,970  239,110  -31,140   0.130       44.5       +0.000     100.0       1.00         0           0 [0, 0]                     
+markout                     227,964  232,220  -4,255    0.018       46.6       +0.907     89.3        1.03         83          19,995 [11,513, 32,751]      
+flat_markout                168,085  225,905  -57,820   0.256       44.3       -1.808     86.9        1.09         11          -39,885 [-52,871, -26,646]   
+oscillon_hook               -36,373  99,736   -136,109  1.365       37.7       -11.079    13.3        3.08         4           -244,343 [-313,871, -174,473]
+flat_oscillon_hook          -39,423  99,601   -139,024  1.396       37.5       -11.217    13.3        3.13         4           -247,393 [-318,182, -175,847]
+oscillon_hook_poolfee       199,391  226,603  -27,212   0.120       44.3       -0.389     90.7        1.03         8           -8,578 [-14,268, -3,350]     
+flat_oscillon_hook_poolfee  186,280  232,018  -45,738   0.197       44.4       -0.983     92.8        1.05         14          -21,690 [-28,703, -14,458]   
+markout_hook                -31,569  104,875  -136,443  1.301       38.7       -10.861    13.8        3.01         4           -239,538 [-307,304, -172,724]
+flat_markout_hook           -40,081  99,469   -139,551  1.403       37.5       -11.247    13.1        3.17         4           -248,051 [-319,044, -176,441]
+markout_hook_poolfee        212,269  243,136  -30,867   0.127       45.1       +0.195     99.2        1.00         7           4,299 [-693, 13,086]         
+flat_markout_hook_poolfee   195,719  235,013  -39,294   0.167       44.5       -0.555     95.9        1.02         13          -12,251 [-16,275, -8,109]    
 
 config: {'f0': 0.0001, 'fmin': 0.0001, 'fmax': 0.01, 'h_decision_s': 60, 'h_eval_s': 300, 'elasticity': 2.0, 'train_frac': 0.6, 'train_days': 204, 'test_days': 161, 'swaps': 348509}
 markout fitted params: {'base': 6e-05, 'kappa': 0.5, 'h': 60, 'lookback': 900, 'directional': True}
+flat_markout fitted params: {'fee_train': 0.00011241079628203055, 'fee_test': 0.00010871107359861426}
 oscillon_hook fitted params: {'base': 0.0003, 'k': 45}
+flat_oscillon_hook fitted params: {'fee_train': 0.0003008670679425631, 'fee_test': 0.0003127807418785913}
 oscillon_hook_poolfee fitted params: {'base': 0.0001, 'k': 45}
+flat_oscillon_hook_poolfee fitted params: {'fee_train': 0.00010072967229725165, 'fee_test': 0.00010451212737205686}
+markout_hook fitted params: {'base': 0.0003, 'curve': 'hybrid', 'k': 45, 'h': 60, 'lookback': 900, 'directional': True}
+flat_markout_hook fitted params: {'fee_train': 0.00031808811869848334, 'fee_test': 0.0003170754719235405}
+markout_hook_poolfee fitted params: {'base': 0.0001, 'curve': 'hybrid', 'k': 45, 'h': 60, 'lookback': 900, 'directional': True}
+flat_markout_hook_poolfee fitted params: {'fee_train': 0.00010306213339202994, 'fee_test': 0.00010249113049489823}
 
 === elasticity 5.0 ===
 OUT-OF-SAMPLE (test period), amounts in token1 units
-policy                 LP PnL    PnL bps/vol  fees     markout   vol kept %  avg fee bps  win % days  vs vanilla [90% CI]          
-vanilla                207,970   0.87         239,110  -31,140   100.0       1.00         0           0 [0, 0]                     
-markout                212,550   0.90         241,864  -29,315   98.4        1.00         42          4,580 [-908, 13,468]         
-oscillon_hook          -110,266  -7.31        48,078   -158,345  6.3         3.09         2           -318,236 [-400,900, -235,068]
-oscillon_hook_poolfee  188,789   0.89         217,367  -28,577   88.7        1.01         4           -19,181 [-27,786, -11,121]   
+policy                      LP PnL    fees     markout   loss ratio  capture %  bp/yr@TVL  vol kept %  avg fee bps  win % days  vs vanilla [90% CI]          
+vanilla                     207,970   239,110  -31,140   0.130       44.5       +0.000     100.0       1.00         0           0 [0, 0]                     
+markout                     212,550   241,864  -29,315   0.121       45.1       +0.208     98.4        1.00         42          4,580 [-908, 13,468]         
+flat_markout                165,211   221,590  -56,378   0.254       43.4       -1.939     90.1        1.03         2           -42,758 [-54,792, -30,477]   
+oscillon_hook               -110,295  48,050   -158,345  3.295       23.2       -14.431    6.3         3.09         2           -318,265 [-400,909, -235,074]
+flat_oscillon_hook          -110,902  48,942   -159,844  3.266       23.3       -14.458    6.4         3.18         2           -318,872 [-402,169, -235,767]
+oscillon_hook_poolfee       188,775   217,360  -28,585   0.132       43.4       -0.870     88.7        1.01         4           -19,195 [-27,801, -11,169]   
+flat_oscillon_hook_poolfee  170,770   223,840  -53,070   0.237       43.6       -1.687     91.4        1.02         2           -37,200 [-47,636, -26,552]   
+markout_hook                -101,943  52,716   -154,659  2.934       25.3       -14.052    6.2         3.15         2           -309,913 [-386,897, -231,847]
+flat_markout_hook           -106,326  50,049   -156,375  3.124       24.2       -14.251    5.9         3.56         2           -314,295 [-396,154, -233,356]
+markout_hook_poolfee        211,513   242,737  -31,225   0.129       45.0       +0.161     99.1        1.00         6           3,543 [-2,128, 12,307]       
+flat_markout_hook_poolfee   171,151   224,063  -52,912   0.236       43.6       -1.669     91.5        1.02         2           -36,819 [-47,141, -26,280]   
 
 config: {'f0': 0.0001, 'fmin': 0.0001, 'fmax': 0.01, 'h_decision_s': 60, 'h_eval_s': 300, 'elasticity': 5.0, 'train_frac': 0.6, 'train_days': 204, 'test_days': 161, 'swaps': 348509}
 markout fitted params: {'base': 6e-05, 'kappa': 0.25, 'h': 60, 'lookback': 900, 'directional': True}
+flat_markout fitted params: {'fee_train': 0.00010338961034045677, 'fee_test': 0.0001028281438903479}
 oscillon_hook fitted params: {'base': 0.0003, 'k': 45}
+flat_oscillon_hook fitted params: {'fee_train': 0.0003001429999002058, 'fee_test': 0.00031839142637092246}
 oscillon_hook_poolfee fitted params: {'base': 0.0001, 'k': 45}
+flat_oscillon_hook_poolfee fitted params: {'fee_train': 0.00010027665992857446, 'fee_test': 0.00010243241694252228}
+markout_hook fitted params: {'base': 0.0003, 'curve': 'hybrid', 'k': 45, 'h': 60, 'lookback': 3600, 'directional': True}
+flat_markout_hook fitted params: {'fee_train': 0.0003358103081559751, 'fee_test': 0.0003560044519950643}
+markout_hook_poolfee fitted params: {'base': 0.0001, 'curve': 'hybrid', 'k': 45, 'h': 60, 'lookback': 900, 'directional': True}
+flat_markout_hook_poolfee fitted params: {'fee_train': 0.00010301625135522062, 'fee_test': 0.00010240557563365314}
