@@ -74,6 +74,13 @@ Fitted parameters are printed. Everything is written to `results.json`.
 
 The one input that decides whether dynamic fees help LPs is **how much flow leaves when the fee rises**. For a pair with a cheaper pool on the same chain, elasticity is high. That number has to come from real routing data. Don't assume it.
 
+## One-year run and the Oscillon hook
+
+`prepare_minute_year.py` rebuilds two-way flow (token0 sold / token0 bought) from per-minute pool bars when
+per-swap logs aren't available. `--policies hook,hook_poolfee` with `--oracle` replays the on-chain Oscillon fee
+(3 bp base, or the pool's own fee, plus the hybrid drain surcharge). Results now include a `by_direction` split, and
+`--daily-out` writes per-day, per-direction rows for `make_charts.py`. See `REPORT_1Y.md` for the full run.
+
 ## Limits (state these when showing results)
 
 1. **First-order counterfactual.** The price path doesn't change when trades are dropped, and informed trade sizes stay fixed.

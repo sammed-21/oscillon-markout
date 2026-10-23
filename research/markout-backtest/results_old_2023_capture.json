@@ -1,0 +1,71 @@
+{
+  "file": "prepared_swaps_2023-03.csv",
+  "rows": 6232,
+  "window": [
+    "2023-03-10 00:00:00",
+    "2023-03-15 23:59:00"
+  ],
+  "minutes_with_keeper_fee": 5988,
+  "results": [
+    {
+      "rule": "Static 3 bp (old)",
+      "lp_income_usd": 214645.4938598412,
+      "lvr_usd": 1237699.5080197467,
+      "lp_capture_pct": 14.779235896570885
+    },
+    {
+      "rule": "Oscillon hybrid, float (old)",
+      "lp_income_usd": 578826.0440731785,
+      "lvr_usd": 873518.9578064093,
+      "lp_capture_pct": 39.85458298985962
+    },
+    {
+      "rule": "  flat 8.09 bp (hybrid's average fee)",
+      "lp_income_usd": 578826.0440731784,
+      "lvr_usd": 1095640.312501896,
+      "lp_capture_pct": 34.5677918102278
+    },
+    {
+      "rule": "Oscillon hybrid, on-chain rounding",
+      "lp_income_usd": 563029.7507709309,
+      "lvr_usd": 889315.2511086571,
+      "lp_capture_pct": 38.76694243050185
+    },
+    {
+      "rule": "Markout-triggered curve, 3 bp base",
+      "lp_income_usd": 301898.14391239703,
+      "lvr_usd": 1203377.3909837336,
+      "lp_capture_pct": 20.056005489601546
+    },
+    {
+      "rule": "  flat 4.22 bp (same average fee)",
+      "lp_income_usd": 301898.143912397,
+      "lvr_usd": 1203123.961119912,
+      "lp_capture_pct": 20.059382709592562
+    },
+    {
+      "rule": "Markout-triggered curve, 1 bp base",
+      "lp_income_usd": 137033.38621833752,
+      "lvr_usd": 1271952.2829998368,
+      "lp_capture_pct": 9.725676365067313
+    },
+    {
+      "rule": "  flat 1.92 bp (same average fee)",
+      "lp_income_usd": 137033.38621833752,
+      "lvr_usd": 1268454.8038891265,
+      "lp_capture_pct": 9.749878169226019
+    },
+    {
+      "rule": "Oracle-triggered hook, 3 bp (keeper run)",
+      "lp_income_usd": 541195.1107071886,
+      "lvr_usd": 911149.8911723993,
+      "lp_capture_pct": 37.26353655686408
+    },
+    {
+      "rule": "  flat 7.56 bp (same average fee)",
+      "lp_income_usd": 541195.1107071887,
+      "lvr_usd": 1109464.489150563,
+      "lp_capture_pct": 32.78659699151946
+    }
+  ]
+}

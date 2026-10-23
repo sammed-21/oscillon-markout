@@ -1,0 +1,1625 @@
+{
+  "0.5": {
+    "vanilla": {
+      "params": {
+        "fee": 0.0001
+      },
+      "stress": {
+        "lp_pnl": 240196.18831642094,
+        "lp_pnl_bps_of_volume": 0.6033464866781157,
+        "fee_revenue": 398106.55008349323,
+        "markout_loss": -157910.3617670723,
+        "markout_loss_floor": 1842980.7504973747,
+        "loss_ratio": 0.3966535133218843,
+        "capture_pct": 17.763991165373515,
+        "gain_bp_per_year_tvl": 0.0,
+        "volume_kept_pct": 100.0,
+        "avg_fee_bps": 1.0000000000000002,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": 0.0,
+        "edge_vs_vanilla_ci90": [
+          0.0,
+          0.0
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": 540119.9272466085,
+            "fee_revenue": 200724.7901523794,
+            "markout_loss": 339395.1370942291,
+            "lp_pnl_bps_of_volume": 2.6908481350837574,
+            "volume": 2007247901.5237937,
+            "volume_kept_pct": 100.0,
+            "avg_fee_bps": 1.0000000000000002,
+            "edge_vs_vanilla": 0.0
+          },
+          "buy_token0": {
+            "lp_pnl": -299923.73893018754,
+            "fee_revenue": 197381.75993111386,
+            "markout_loss": -497305.4988613014,
+            "lp_pnl_bps_of_volume": -1.5195109164841818,
+            "volume": 1973817599.3111384,
+            "volume_kept_pct": 100.0,
+            "avg_fee_bps": 1.0,
+            "edge_vs_vanilla": 0.0
+          }
+        }
+      }
+    },
+    "markout": {
+      "params": {
+        "base": 0.0001,
+        "kappa": 16.0,
+        "h": 12,
+        "lookback": 3600,
+        "directional": true
+      },
+      "stress": {
+        "lp_pnl": 1281771.7406037247,
+        "lp_pnl_bps_of_volume": 6.064153406892116,
+        "fee_revenue": 817382.1205430239,
+        "markout_loss": 464389.6200607008,
+        "markout_loss_floor": 711788.8089461836,
+        "loss_ratio": -0.5681426206780567,
+        "capture_pct": 53.452632716216755,
+        "gain_bp_per_year_tvl": 475.21884573108235,
+        "volume_kept_pct": 53.09347975717462,
+        "avg_fee_bps": 3.5674225605041823,
+        "win_pct_days_vs_vanilla": 100.0,
+        "edge_vs_vanilla": 1041575.5522873037,
+        "edge_vs_vanilla_ci90": [
+          570758.18544538,
+          1570798.9546920692
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": 842330.7376865431,
+            "fee_revenue": 405236.40823259647,
+            "markout_loss": 437094.32945394673,
+            "lp_pnl_bps_of_volume": 7.292467314433911,
+            "volume": 1155069610.006103,
+            "volume_kept_pct": 57.54494046944759,
+            "avg_fee_bps": 3.5385947579235997,
+            "edge_vs_vanilla": 302210.8104399346
+          },
+          "buy_token0": {
+            "lp_pnl": 439441.00291718164,
+            "fee_revenue": 412145.7123104274,
+            "markout_loss": 27295.290606754177,
+            "lp_pnl_bps_of_volume": 4.584116369805353,
+            "volume": 958616595.7995539,
+            "volume_kept_pct": 48.566625210663375,
+            "avg_fee_bps": 3.5924545030188964,
+            "edge_vs_vanilla": 739364.7418473691
+          }
+        }
+      }
+    },
+    "flat_markout": {
+      "params": {
+        "fee": 0.0003867093035370729
+      },
+      "stress": {
+        "lp_pnl": 32656.898942319676,
+        "lp_pnl_bps_of_volume": 0.1614012107236234,
+        "fee_revenue": 782443.1173127886,
+        "markout_loss": -749786.2183704689,
+        "markout_loss_floor": 1617906.2752883462,
+        "loss_ratio": 0.958262909827265,
+        "capture_pct": 32.5970510678404,
+        "gain_bp_per_year_tvl": -94.68980077693371,
+        "volume_kept_pct": 50.82399867345826,
+        "avg_fee_bps": 3.867093035370729,
+        "win_pct_days_vs_vanilla": 68.75,
+        "edge_vs_vanilla": -207539.28937410127,
+        "edge_vs_vanilla_ci90": [
+          -517638.4433678324,
+          55790.596813819255
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": 320747.9821417641,
+            "fee_revenue": 370727.21549804416,
+            "markout_loss": -49979.233356280034,
+            "lp_pnl_bps_of_volume": 3.3457546033767644,
+            "volume": 958671570.8858124,
+            "volume_kept_pct": 47.7604968553232,
+            "avg_fee_bps": 3.8670930353707305,
+            "edge_vs_vanilla": -219371.94510484446
+          },
+          "buy_token0": {
+            "lp_pnl": -288091.08319944434,
+            "fee_revenue": 411715.9018147444,
+            "markout_loss": -699806.9850141889,
+            "lp_pnl_bps_of_volume": -2.705931484507658,
+            "volume": 1064665106.448038,
+            "volume_kept_pct": 53.939386639353394,
+            "avg_fee_bps": 3.8670930353707305,
+            "edge_vs_vanilla": 11832.655730743194
+          }
+        }
+      }
+    },
+    "oscillon_hook": {
+      "params": {
+        "base": 0.0003,
+        "k": 45
+      },
+      "stress": {
+        "lp_pnl": 113358.68172168908,
+        "lp_pnl_bps_of_volume": 0.5892179646488669,
+        "fee_revenue": 873711.4916386494,
+        "markout_loss": -760352.8099169602,
+        "markout_loss_floor": 1391523.5651229683,
+        "loss_ratio": 0.8702561625816727,
+        "capture_pct": 38.57045603416134,
+        "gain_bp_per_year_tvl": -57.869612383846395,
+        "volume_kept_pct": 48.325848053347606,
+        "avg_fee_bps": 4.361864249186365,
+        "win_pct_days_vs_vanilla": 68.75,
+        "edge_vs_vanilla": -126837.50659473184,
+        "edge_vs_vanilla_ci90": [
+          -355283.5985137498,
+          88472.6835025595
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": 432535.6234674654,
+            "fee_revenue": 515854.6769357267,
+            "markout_loss": -83319.05346826138,
+            "lp_pnl_bps_of_volume": 5.91681646633225,
+            "volume": 731027615.8279895,
+            "volume_kept_pct": 36.41939868379152,
+            "avg_fee_bps": 6.610451107946411,
+            "edge_vs_vanilla": -107584.30377914314
+          },
+          "buy_token0": {
+            "lp_pnl": -319176.9417457763,
+            "fee_revenue": 357856.8147029224,
+            "markout_loss": -677033.7564486988,
+            "lp_pnl_bps_of_volume": -2.675737294627825,
+            "volume": 1192856049.0097418,
+            "volume_kept_pct": 60.43395546914001,
+            "avg_fee_bps": 2.9999999999999996,
+            "edge_vs_vanilla": -19253.20281558874
+          }
+        }
+      }
+    },
+    "flat_oscillon_hook": {
+      "params": {
+        "fee": 0.00045413946155228776
+      },
+      "stress": {
+        "lp_pnl": 60273.42150396886,
+        "lp_pnl_bps_of_volume": 0.3248361854214088,
+        "fee_revenue": 842656.7117889347,
+        "markout_loss": -782383.2902849659,
+        "markout_loss_floor": 1582604.5869952098,
+        "loss_ratio": 0.9284721516357354,
+        "capture_pct": 34.74498653862096,
+        "gain_bp_per_year_tvl": -82.08976235818125,
+        "volume_kept_pct": 46.60817741869358,
+        "avg_fee_bps": 4.5413946155228775,
+        "win_pct_days_vs_vanilla": 68.75,
+        "edge_vs_vanilla": -179922.76681245206,
+        "edge_vs_vanilla_ci90": [
+          -492312.55932308757,
+          97884.28452091388
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": 322613.89042539423,
+            "fee_revenue": 395289.01451454626,
+            "markout_loss": -72675.12408915201,
+            "lp_pnl_bps_of_volume": 3.706444983476408,
+            "volume": 870413271.648789,
+            "volume_kept_pct": 43.36351633438095,
+            "avg_fee_bps": 4.541394615522877,
+            "edge_vs_vanilla": -217506.0368212143
+          },
+          "buy_token0": {
+            "lp_pnl": -262340.4689214254,
+            "fee_revenue": 447367.6972743884,
+            "markout_loss": -709708.1661958139,
+            "lp_pnl_bps_of_volume": -2.66311492817234,
+            "volume": 985088800.1347585,
+            "volume_kept_pct": 49.907792922636524,
+            "avg_fee_bps": 4.5413946155228775,
+            "edge_vs_vanilla": 37583.270008762134
+          }
+        }
+      }
+    },
+    "oscillon_hook_poolfee": {
+      "params": {
+        "base": 0.0001,
+        "k": 45
+      },
+      "stress": {
+        "lp_pnl": 63879.19516269627,
+        "lp_pnl_bps_of_volume": 0.20025213630015257,
+        "fee_revenue": 663419.9829050247,
+        "markout_loss": -599540.7877423284,
+        "markout_loss_floor": 1549242.5100712613,
+        "loss_ratio": 0.9037122836080727,
+        "capture_pct": 29.98288193571937,
+        "gain_bp_per_year_tvl": -80.44462812638687,
+        "volume_kept_pct": 80.12775125931357,
+        "avg_fee_bps": 1.8556016834077615,
+        "win_pct_days_vs_vanilla": 56.25,
+        "edge_vs_vanilla": -176316.99315372464,
+        "edge_vs_vanilla_ci90": [
+          -380834.6289271746,
+          1311.9584962764256
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": 363802.93409288384,
+            "fee_revenue": 466038.22297391086,
+            "markout_loss": -102235.28888102698,
+            "lp_pnl_bps_of_volume": 2.991503600429616,
+            "volume": 1216120662.6682224,
+            "volume_kept_pct": 60.58647074658838,
+            "avg_fee_bps": 3.244849549387994,
+            "edge_vs_vanilla": -176316.9931537247
+          },
+          "buy_token0": {
+            "lp_pnl": -299923.73893018754,
+            "fee_revenue": 197381.75993111386,
+            "markout_loss": -497305.4988613014,
+            "lp_pnl_bps_of_volume": -1.5195109164841818,
+            "volume": 1973817599.3111384,
+            "volume_kept_pct": 100.0,
+            "avg_fee_bps": 1.0,
+            "edge_vs_vanilla": 0.0
+          }
+        }
+      }
+    },
+    "flat_oscillon_hook_poolfee": {
+      "params": {
+        "fee": 0.00020797267170097884
+      },
+      "stress": {
+        "lp_pnl": 25933.50748924374,
+        "lp_pnl_bps_of_volume": 0.09141984029903642,
+        "fee_revenue": 589966.1191130097,
+        "markout_loss": -564032.611623766,
+        "markout_loss_floor": 1739689.0660153856,
+        "loss_ratio": 0.9560423782839705,
+        "capture_pct": 25.324182002517876,
+        "gain_bp_per_year_tvl": -97.75734812739958,
+        "volume_kept_pct": 71.25600624314833,
+        "avg_fee_bps": 2.0797267170097884,
+        "win_pct_days_vs_vanilla": 62.5,
+        "edge_vs_vanilla": -214262.6808271772,
+        "edge_vs_vanilla_ci90": [
+          -443874.37346840283,
+          -14200.347555788883
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": 365210.0064192264,
+            "fee_revenue": 293321.4717577019,
+            "markout_loss": 71888.53466152457,
+            "lp_pnl_bps_of_volume": 2.5894354174548693,
+            "volume": 1410384688.3278816,
+            "volume_kept_pct": 70.26459896942445,
+            "avg_fee_bps": 2.0797267170097884,
+            "edge_vs_vanilla": -174909.92082738213
+          },
+          "buy_token0": {
+            "lp_pnl": -339276.49892998266,
+            "fee_revenue": 296644.6473553078,
+            "markout_loss": -635921.1462852905,
+            "lp_pnl_bps_of_volume": -2.378611600003315,
+            "volume": 1426363593.4908829,
+            "volume_kept_pct": 72.26420485807216,
+            "avg_fee_bps": 2.079726717009789,
+            "edge_vs_vanilla": -39352.75999979512
+          }
+        }
+      }
+    },
+    "markout_hook": {
+      "params": {
+        "base": 0.0003,
+        "curve": "hybrid",
+        "k": 45,
+        "h": 60,
+        "lookback": 900,
+        "directional": true
+      },
+      "stress": {
+        "lp_pnl": 208784.74665538027,
+        "lp_pnl_bps_of_volume": 0.9857074770895731,
+        "fee_revenue": 893920.4880345038,
+        "markout_loss": -685135.7413791234,
+        "markout_loss_floor": 1590753.3300576548,
+        "loss_ratio": 0.7664392421361288,
+        "capture_pct": 35.977377856417995,
+        "gain_bp_per_year_tvl": -14.331470257849803,
+        "volume_kept_pct": 53.20487079505614,
+        "avg_fee_bps": 3.9599826065406747,
+        "win_pct_days_vs_vanilla": 75.0,
+        "edge_vs_vanilla": -31411.441661040662,
+        "edge_vs_vanilla_ci90": [
+          -245734.01172542883,
+          144025.61412799696
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": 374569.8895970334,
+            "fee_revenue": 388721.7656656296,
+            "markout_loss": -14151.876068596255,
+            "lp_pnl_bps_of_volume": 3.746069999923507,
+            "volume": 999900935.1258304,
+            "volume_kept_pct": 49.81452138357,
+            "avg_fee_bps": 3.963574231283572,
+            "edge_vs_vanilla": -165550.03764957516
+          },
+          "buy_token0": {
+            "lp_pnl": -165785.14294165306,
+            "fee_revenue": 505198.722368874,
+            "markout_loss": -670983.8653105272,
+            "lp_pnl_bps_of_volume": -1.482580972443849,
+            "volume": 1118219820.8599496,
+            "volume_kept_pct": 56.65264213117808,
+            "avg_fee_bps": 3.9568365758346427,
+            "edge_vs_vanilla": 134138.59598853448
+          }
+        }
+      }
+    },
+    "flat_markout_hook": {
+      "params": {
+        "fee": 0.0004220347142665482
+      },
+      "stress": {
+        "lp_pnl": 44650.7586862148,
+        "lp_pnl_bps_of_volume": 0.23126411932216842,
+        "fee_revenue": 814833.2840889123,
+        "markout_loss": -770182.5254026975,
+        "markout_loss_floor": 1599436.2204780162,
+        "loss_ratio": 0.9452025836964428,
+        "capture_pct": 33.75071766211441,
+        "gain_bp_per_year_tvl": -89.21760226878152,
+        "volume_kept_pct": 48.49771336462366,
+        "avg_fee_bps": 4.220347142665482,
+        "win_pct_days_vs_vanilla": 68.75,
+        "edge_vs_vanilla": -195545.4296302061,
+        "edge_vs_vanilla_ci90": [
+          -510589.5630793475,
+          72765.45436552388
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": 320775.5019079017,
+            "fee_revenue": 383247.6989209296,
+            "markout_loss": -62472.19701302788,
+            "lp_pnl_bps_of_volume": 3.5323994813949477,
+            "volume": 908095201.5688417,
+            "volume_kept_pct": 45.24080961197992,
+            "avg_fee_bps": 4.220347142665483,
+            "edge_vs_vanilla": -219344.42533870682
+          },
+          "buy_token0": {
+            "lp_pnl": -276124.7432216869,
+            "fee_revenue": 431585.58516798273,
+            "markout_loss": -707710.3283896698,
+            "lp_pnl_bps_of_volume": -2.700141782124881,
+            "volume": 1022630533.8840026,
+            "volume_kept_pct": 51.809778889442484,
+            "avg_fee_bps": 4.220347142665482,
+            "edge_vs_vanilla": 23798.995708500617
+          }
+        }
+      }
+    },
+    "markout_hook_poolfee": {
+      "params": {
+        "base": 0.0001,
+        "curve": "hybrid",
+        "k": 45,
+        "h": 60,
+        "lookback": 900,
+        "directional": true
+      },
+      "stress": {
+        "lp_pnl": 318822.06115112023,
+        "lp_pnl_bps_of_volume": 0.8437156819280593,
+        "fee_revenue": 593093.8054892763,
+        "markout_loss": -274271.744338156,
+        "markout_loss_floor": 1787142.8578867589,
+        "loss_ratio": 0.46244243625490894,
+        "capture_pct": 24.917430044458484,
+        "gain_bp_per_year_tvl": 35.87305448083156,
+        "volume_kept_pct": 94.91894897580823,
+        "avg_fee_bps": 1.4391395729142034,
+        "win_pct_days_vs_vanilla": 93.75,
+        "edge_vs_vanilla": 78625.87283469932,
+        "edge_vs_vanilla_ci90": [
+          -14023.401219619307,
+          181430.4410390196
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": 522784.3047385856,
+            "fee_revenue": 244423.27594779016,
+            "markout_loss": 278361.02879079536,
+            "lp_pnl_bps_of_volume": 2.7254538632812384,
+            "volume": 1918155033.852575,
+            "volume_kept_pct": 95.5614417330523,
+            "avg_fee_bps": 1.3779789426549462,
+            "edge_vs_vanilla": -17335.622508022934
+          },
+          "buy_token0": {
+            "lp_pnl": -203962.24358746535,
+            "fee_revenue": 348670.5295414862,
+            "markout_loss": -552632.7731289516,
+            "lp_pnl_bps_of_volume": -1.0961996154148648,
+            "volume": 1860630497.5784392,
+            "volume_kept_pct": 94.26557439896162,
+            "avg_fee_bps": 1.5012122574996698,
+            "edge_vs_vanilla": 95961.49534272219
+          }
+        }
+      }
+    },
+    "flat_markout_hook_poolfee": {
+      "params": {
+        "fee": 0.0001569535504346746
+      },
+      "stress": {
+        "lp_pnl": 70882.0146106174,
+        "lp_pnl_bps_of_volume": 0.21712927612255328,
+        "fee_revenue": 512376.0394622946,
+        "markout_loss": -441494.02485167724,
+        "markout_loss_floor": 1791279.5267665212,
+        "loss_ratio": 0.8616601691894035,
+        "capture_pct": 22.241868401406744,
+        "gain_bp_per_year_tvl": -77.24959175327288,
+        "volume_kept_pct": 82.00084825709345,
+        "avg_fee_bps": 1.5695355043467463,
+        "win_pct_days_vs_vanilla": 50.0,
+        "edge_vs_vanilla": -169314.17370580355,
+        "edge_vs_vanilla_ci90": [
+          -343843.2535875918,
+          -23605.799075005187
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": 411871.5336525594,
+            "fee_revenue": 256307.9130575296,
+            "markout_loss": 155563.6205950297,
+            "lp_pnl_bps_of_volume": 2.5221499702677512,
+            "volume": 1633017617.9366336,
+            "volume_kept_pct": 81.35605057536416,
+            "avg_fee_bps": 1.5695355043467463,
+            "edge_vs_vanilla": -128248.39359404915
+          },
+          "buy_token0": {
+            "lp_pnl": -340989.519041942,
+            "fee_revenue": 256068.12640476497,
+            "markout_loss": -597057.645446707,
+            "lp_pnl_bps_of_volume": -2.090049879540532,
+            "volume": 1631489862.4185166,
+            "volume_kept_pct": 82.65656679664352,
+            "avg_fee_bps": 1.569535504346746,
+            "edge_vs_vanilla": -41065.78011175449
+          }
+        }
+      }
+    },
+    "_config": {
+      "f0": 0.0001,
+      "fmin": 0.0001,
+      "fmax": 0.01,
+      "h_decision_s": 60,
+      "h_eval_s": 300,
+      "elasticity": 0.5,
+      "train_frac": 0.6,
+      "train_days": 204,
+      "test_days": 161,
+      "swaps": 22167,
+      "window": [
+        "2023-03-10 00:01:00",
+        "2023-03-25 23:50:00"
+      ],
+      "params_from": "results_usdc_usdt_1year.json"
+    }
+  },
+  "2.0": {
+    "vanilla": {
+      "params": {
+        "fee": 0.0001
+      },
+      "stress": {
+        "lp_pnl": 240196.18831642094,
+        "lp_pnl_bps_of_volume": 0.6033464866781157,
+        "fee_revenue": 398106.55008349323,
+        "markout_loss": -157910.3617670723,
+        "markout_loss_floor": 1842980.7504973747,
+        "loss_ratio": 0.3966535133218843,
+        "capture_pct": 17.763991165373515,
+        "gain_bp_per_year_tvl": 0.0,
+        "volume_kept_pct": 100.0,
+        "avg_fee_bps": 1.0000000000000002,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": 0.0,
+        "edge_vs_vanilla_ci90": [
+          0.0,
+          0.0
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": 540119.9272466085,
+            "fee_revenue": 200724.7901523794,
+            "markout_loss": 339395.1370942291,
+            "lp_pnl_bps_of_volume": 2.6908481350837574,
+            "volume": 2007247901.5237937,
+            "volume_kept_pct": 100.0,
+            "avg_fee_bps": 1.0000000000000002,
+            "edge_vs_vanilla": 0.0
+          },
+          "buy_token0": {
+            "lp_pnl": -299923.73893018754,
+            "fee_revenue": 197381.75993111386,
+            "markout_loss": -497305.4988613014,
+            "lp_pnl_bps_of_volume": -1.5195109164841818,
+            "volume": 1973817599.3111384,
+            "volume_kept_pct": 100.0,
+            "avg_fee_bps": 1.0,
+            "edge_vs_vanilla": 0.0
+          }
+        }
+      }
+    },
+    "markout": {
+      "params": {
+        "base": 6e-05,
+        "kappa": 0.5,
+        "h": 60,
+        "lookback": 900,
+        "directional": true
+      },
+      "stress": {
+        "lp_pnl": 201564.4871347873,
+        "lp_pnl_bps_of_volume": 0.6448757944275414,
+        "fee_revenue": 708823.6606661209,
+        "markout_loss": -507259.1735313335,
+        "markout_loss_floor": 1649498.272178423,
+        "loss_ratio": 0.7156352160347383,
+        "capture_pct": 30.05627224995347,
+        "gain_bp_per_year_tvl": -17.62571366412034,
+        "volume_kept_pct": 78.51246608872415,
+        "avg_fee_bps": 1.7674132583166078,
+        "win_pct_days_vs_vanilla": 68.75,
+        "edge_vs_vanilla": -38631.701181633616,
+        "edge_vs_vanilla_ci90": [
+          -296090.13680648897,
+          140585.8122846915
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": 380343.5016507196,
+            "fee_revenue": 252539.02883813303,
+            "markout_loss": 127804.47281258664,
+            "lp_pnl_bps_of_volume": 2.3913215503250353,
+            "volume": 1590515928.7299619,
+            "volume_kept_pct": 79.23863950847966,
+            "avg_fee_bps": 1.692715813196301,
+            "edge_vs_vanilla": -159776.42559588893
+          },
+          "buy_token0": {
+            "lp_pnl": -178779.0145159323,
+            "fee_revenue": 456284.6318279879,
+            "markout_loss": -635063.6463439201,
+            "lp_pnl_bps_of_volume": -1.1645955389772848,
+            "volume": 1535116772.5829606,
+            "volume_kept_pct": 77.77399356043414,
+            "avg_fee_bps": 1.8418420226312107,
+            "edge_vs_vanilla": 121144.72441425524
+          }
+        }
+      }
+    },
+    "flat_markout": {
+      "params": {
+        "fee": 0.00022677765700633326
+      },
+      "stress": {
+        "lp_pnl": -962859.5549049814,
+        "lp_pnl_bps_of_volume": -6.04357660697222,
+        "fee_revenue": 361301.01111915347,
+        "markout_loss": -1324160.5660241346,
+        "markout_loss_floor": 1678597.3800034928,
+        "loss_ratio": 3.664978854951058,
+        "capture_pct": 17.711716068382874,
+        "gain_bp_per_year_tvl": -548.8941828447648,
+        "volume_kept_pct": 40.01930939587512,
+        "avg_fee_bps": 2.2677765700633326,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": -1203055.7432214024,
+        "edge_vs_vanilla_ci90": [
+          -2025108.4959266395,
+          -515033.8211376413
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": -239838.11641574503,
+            "fee_revenue": 168752.22794789914,
+            "markout_loss": -408590.3443636442,
+            "lp_pnl_bps_of_volume": -3.2230641789433023,
+            "volume": 744130749.8083304,
+            "volume_kept_pct": 37.07218970030691,
+            "avg_fee_bps": 2.2677765700633326,
+            "edge_vs_vanilla": -779958.0436623535
+          },
+          "buy_token0": {
+            "lp_pnl": -723021.4384892362,
+            "fee_revenue": 192548.78317125433,
+            "markout_loss": -915570.2216604905,
+            "lp_pnl_bps_of_volume": -8.515509944308809,
+            "volume": 849064170.2232465,
+            "volume_kept_pct": 43.01634408972589,
+            "avg_fee_bps": 2.2677765700633317,
+            "edge_vs_vanilla": -423097.69955904863
+          }
+        }
+      }
+    },
+    "oscillon_hook": {
+      "params": {
+        "base": 0.0003,
+        "k": 45
+      },
+      "stress": {
+        "lp_pnl": -901646.8864627334,
+        "lp_pnl_bps_of_volume": -9.490577205260237,
+        "fee_revenue": 345843.5376428118,
+        "markout_loss": -1247490.4241055453,
+        "markout_loss_floor": 1358252.9050741105,
+        "loss_ratio": 3.6070947938138347,
+        "capture_pct": 20.294833612316975,
+        "gain_bp_per_year_tvl": -520.9659028679891,
+        "volume_kept_pct": 23.86407128880576,
+        "avg_fee_bps": 4.10080390724015,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": -1141843.0747791543,
+        "edge_vs_vanilla_ci90": [
+          -1883597.132515367,
+          -507173.6299153748
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": -162058.58815650802,
+            "fee_revenue": 141300.32662828057,
+            "markout_loss": -303358.91478478856,
+            "lp_pnl_bps_of_volume": -6.041695919431497,
+            "volume": 268233605.79152948,
+            "volume_kept_pct": 13.363252520423666,
+            "avg_fee_bps": 6.50499387405705,
+            "edge_vs_vanilla": -702178.5154031166
+          },
+          "buy_token0": {
+            "lp_pnl": -739588.2983062253,
+            "fee_revenue": 204543.21101453126,
+            "markout_loss": -944131.5093207567,
+            "lp_pnl_bps_of_volume": -10.847414020312065,
+            "volume": 681810703.381771,
+            "volume_kept_pct": 34.54274111345054,
+            "avg_fee_bps": 2.9999999999999996,
+            "edge_vs_vanilla": -439664.5593760378
+          }
+        }
+      }
+    },
+    "flat_oscillon_hook": {
+      "params": {
+        "fee": 0.0003640288503425218
+      },
+      "stress": {
+        "lp_pnl": -1058211.5134440064,
+        "lp_pnl_bps_of_volume": -10.256062559527129,
+        "fee_revenue": 375601.7657092011,
+        "markout_loss": -1433813.2791532075,
+        "markout_loss_floor": 1589966.7466104035,
+        "loss_ratio": 3.817376301322546,
+        "capture_pct": 19.109065054463372,
+        "gain_bp_per_year_tvl": -592.3985139281951,
+        "volume_kept_pct": 25.917463643178156,
+        "avg_fee_bps": 3.640288503425218,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": -1298407.7017604276,
+        "edge_vs_vanilla_ci90": [
+          -2170442.55412499,
+          -565835.559464807
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": -324414.02604096755,
+            "fee_revenue": 157189.27177563644,
+            "markout_loss": -481603.29781660397,
+            "lp_pnl_bps_of_volume": -7.512985053028704,
+            "volume": 431804434.25770795,
+            "volume_kept_pct": 21.512262333412107,
+            "avg_fee_bps": 3.640288503425218,
+            "edge_vs_vanilla": -864533.9532875761
+          },
+          "buy_token0": {
+            "lp_pnl": -733797.487403039,
+            "fee_revenue": 218412.49393356463,
+            "markout_loss": -952209.9813366035,
+            "lp_pnl_bps_of_volume": -12.230227809440764,
+            "volume": 599986769.5322942,
+            "volume_kept_pct": 30.397275297458553,
+            "avg_fee_bps": 3.640288503425218,
+            "edge_vs_vanilla": -433873.74847285147
+          }
+        }
+      }
+    },
+    "oscillon_hook_poolfee": {
+      "params": {
+        "base": 0.0001,
+        "k": 45
+      },
+      "stress": {
+        "lp_pnl": -424982.77540447935,
+        "lp_pnl_bps_of_volume": -1.474616095459905,
+        "fee_revenue": 385677.82665211824,
+        "markout_loss": -810660.6020565976,
+        "markout_loss_floor": 1540368.7542776105,
+        "loss_ratio": 2.1019113520047243,
+        "capture_pct": 20.024324981068027,
+        "gain_bp_per_year_tvl": -303.48790219766073,
+        "volume_kept_pct": 72.39241008006019,
+        "avg_fee_bps": 1.335419649182232,
+        "win_pct_days_vs_vanilla": 12.5,
+        "edge_vs_vanilla": -665178.9637209002,
+        "edge_vs_vanilla_ci90": [
+          -1249993.6503240045,
+          -194971.55563082412
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": -125059.03647429179,
+            "fee_revenue": 188296.06672100443,
+            "markout_loss": -313355.10319529613,
+            "lp_pnl_bps_of_volume": -1.3770418246403473,
+            "volume": 908171663.6090877,
+            "volume_kept_pct": 45.244618909286345,
+            "avg_fee_bps": 2.0728200271963035,
+            "edge_vs_vanilla": -665178.9637209004
+          },
+          "buy_token0": {
+            "lp_pnl": -299923.73893018754,
+            "fee_revenue": 197381.75993111386,
+            "markout_loss": -497305.4988613014,
+            "lp_pnl_bps_of_volume": -1.5195109164841818,
+            "volume": 1973817599.3111384,
+            "volume_kept_pct": 100.0,
+            "avg_fee_bps": 1.0,
+            "edge_vs_vanilla": 0.0
+          }
+        }
+      }
+    },
+    "flat_oscillon_hook_poolfee": {
+      "params": {
+        "fee": 0.0001338234779755298
+      },
+      "stress": {
+        "lp_pnl": -454049.87225274445,
+        "lp_pnl_bps_of_volume": -1.6235980563568462,
+        "fee_revenue": 374246.1555759119,
+        "markout_loss": -828296.0278286565,
+        "markout_loss_floor": 1785167.7512990322,
+        "loss_ratio": 2.2132385743656497,
+        "capture_pct": 17.330913466122514,
+        "gain_bp_per_year_tvl": -316.74976513468164,
+        "volume_kept_pct": 70.24666520374001,
+        "avg_fee_bps": 1.338234779755298,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": -694246.0605691653,
+        "edge_vs_vanilla_ci90": [
+          -1173999.5009550038,
+          -300713.94346647366
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": 98579.68216466029,
+            "fee_revenue": 184073.93588262657,
+            "markout_loss": -85494.25371796629,
+            "lp_pnl_bps_of_volume": 0.7166835359792113,
+            "volume": 1375498071.5438085,
+            "volume_kept_pct": 68.52656667368315,
+            "avg_fee_bps": 1.3382347797552978,
+            "edge_vs_vanilla": -441540.24508194823
+          },
+          "buy_token0": {
+            "lp_pnl": -552629.5544174048,
+            "fee_revenue": 190172.21969328535,
+            "markout_loss": -742801.7741106901,
+            "lp_pnl_bps_of_volume": -3.888833454406781,
+            "volume": 1421067682.3693013,
+            "volume_kept_pct": 71.99589682781496,
+            "avg_fee_bps": 1.338234779755298,
+            "edge_vs_vanilla": -252705.81548721727
+          }
+        }
+      }
+    },
+    "markout_hook": {
+      "params": {
+        "base": 0.0003,
+        "curve": "hybrid",
+        "k": 45,
+        "h": 60,
+        "lookback": 900,
+        "directional": true
+      },
+      "stress": {
+        "lp_pnl": -821398.0140245857,
+        "lp_pnl_bps_of_volume": -8.028788139264648,
+        "fee_revenue": 554577.0764153004,
+        "markout_loss": -1375975.0904398859,
+        "markout_loss_floor": 1530347.2721558725,
+        "loss_ratio": 2.4811250752266467,
+        "capture_pct": 26.59938605424027,
+        "gain_bp_per_year_tvl": -484.3523548180843,
+        "volume_kept_pct": 25.698296009380233,
+        "avg_fee_bps": 5.528027236427374,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": -1061594.2023410066,
+        "edge_vs_vanilla_ci90": [
+          -1802899.959301381,
+          -471011.3441903076
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": -277006.4098874887,
+            "fee_revenue": 179015.9727195871,
+            "markout_loss": -456022.38260707585,
+            "lp_pnl_bps_of_volume": -6.58712437217755,
+            "volume": 420527068.01392424,
+            "volume_kept_pct": 20.950430073668674,
+            "avg_fee_bps": 5.104256042316584,
+            "edge_vs_vanilla": -817126.3371340972
+          },
+          "buy_token0": {
+            "lp_pnl": -544391.6041370969,
+            "fee_revenue": 375561.1036957133,
+            "markout_loss": -919952.7078328104,
+            "lp_pnl_bps_of_volume": -9.034961530127553,
+            "volume": 602538928.7179525,
+            "volume_kept_pct": 30.52657595758789,
+            "avg_fee_bps": 5.94536034476174,
+            "edge_vs_vanilla": -244467.86520690937
+          }
+        }
+      }
+    },
+    "flat_markout_hook": {
+      "params": {
+        "fee": 0.0005420736083369634
+      },
+      "stress": {
+        "lp_pnl": -1016878.8930072419,
+        "lp_pnl_bps_of_volume": -13.495413063269552,
+        "fee_revenue": 408452.2705528711,
+        "markout_loss": -1425331.1635601132,
+        "markout_loss_floor": 1507169.1492056074,
+        "loss_ratio": 3.4895905013107638,
+        "capture_pct": 21.322181217015665,
+        "gain_bp_per_year_tvl": -573.5405058539212,
+        "volume_kept_pct": 18.92708480166374,
+        "avg_fee_bps": 5.420736083369634,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": -1257075.081323663,
+        "edge_vs_vanilla_ci90": [
+          -2086998.7551353313,
+          -560325.9474153704
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": -329297.4833400408,
+            "fee_revenue": 152553.57257522194,
+            "markout_loss": -481851.05591526267,
+            "lp_pnl_bps_of_volume": -11.701035380367742,
+            "volume": 281425935.94114196,
+            "volume_kept_pct": 14.020487241635607,
+            "avg_fee_bps": 5.420736083369633,
+            "edge_vs_vanilla": -869417.4105866493
+          },
+          "buy_token0": {
+            "lp_pnl": -687581.4096672012,
+            "fee_revenue": 255898.69797764916,
+            "markout_loss": -943480.1076448503,
+            "lp_pnl_bps_of_volume": -14.565128260100407,
+            "volume": 472073707.41166496,
+            "volume_kept_pct": 23.916784791888496,
+            "avg_fee_bps": 5.420736083369634,
+            "edge_vs_vanilla": -387657.6707370137
+          }
+        }
+      }
+    },
+    "markout_hook_poolfee": {
+      "params": {
+        "base": 0.0001,
+        "curve": "hybrid",
+        "k": 45,
+        "h": 60,
+        "lookback": 900,
+        "directional": true
+      },
+      "stress": {
+        "lp_pnl": 52613.008449444285,
+        "lp_pnl_bps_of_volume": 0.14827535279677537,
+        "fee_revenue": 580793.5398785982,
+        "markout_loss": -528180.5314291539,
+        "markout_loss_floor": 1765140.540495466,
+        "loss_ratio": 0.9094118566462673,
+        "capture_pct": 24.757453533647013,
+        "gain_bp_per_year_tvl": -85.58482581430809,
+        "volume_kept_pct": 89.13019293316815,
+        "avg_fee_bps": 1.4605610491320475,
+        "win_pct_days_vs_vanilla": 68.75,
+        "edge_vs_vanilla": -187583.17986697666,
+        "edge_vs_vanilla_ci90": [
+          -547186.1881924776,
+          14320.142656318274
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": 369790.37029945414,
+            "fee_revenue": 224504.1856824223,
+            "markout_loss": 145286.18461703192,
+            "lp_pnl_bps_of_volume": 2.0536005424932062,
+            "volume": 1800692796.129204,
+            "volume_kept_pct": 89.70953686199974,
+            "avg_fee_bps": 1.3844562106856293,
+            "edge_vs_vanilla": -170329.5569471544
+          },
+          "buy_token0": {
+            "lp_pnl": -317177.3618500099,
+            "fee_revenue": 356289.3541961758,
+            "markout_loss": -673466.7160461858,
+            "lp_pnl_bps_of_volume": -1.814891065580466,
+            "volume": 1747638565.5607677,
+            "volume_kept_pct": 88.54103672855551,
+            "avg_fee_bps": 1.5386418159585005,
+            "edge_vs_vanilla": -17253.622919822345
+          }
+        }
+      }
+    },
+    "flat_markout_hook_poolfee": {
+      "params": {
+        "fee": 0.00016368075038008354
+      },
+      "stress": {
+        "lp_pnl": -730215.5886917462,
+        "lp_pnl_bps_of_volume": -3.2658087913628284,
+        "fee_revenue": 365980.5063064411,
+        "markout_loss": -1096196.0949981874,
+        "markout_loss_floor": 1747158.847452322,
+        "loss_ratio": 2.9952308281696447,
+        "capture_pct": 17.319279282525805,
+        "gain_bp_per_year_tvl": -442.7503732599763,
+        "volume_kept_pct": 56.16438699316476,
+        "avg_fee_bps": 1.6368075038008356,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": -970411.7770081671,
+        "edge_vs_vanilla_ci90": [
+          -1642115.660852924,
+          -416368.0052910316
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": -80757.68341038856,
+            "fee_revenue": 176828.18439626528,
+            "markout_loss": -257585.86780665384,
+            "lp_pnl_bps_of_volume": -0.7475323158862227,
+            "volume": 1080323642.124392,
+            "volume_kept_pct": 53.82113695594196,
+            "avg_fee_bps": 1.6368075038008354,
+            "edge_vs_vanilla": -620877.6106569971
+          },
+          "buy_token0": {
+            "lp_pnl": -649457.9052813575,
+            "fee_revenue": 189152.32191017581,
+            "markout_loss": -838610.2271915334,
+            "lp_pnl_bps_of_volume": -5.620008055053696,
+            "volume": 1155617392.2159123,
+            "volume_kept_pct": 58.5473243636708,
+            "avg_fee_bps": 1.6368075038008356,
+            "edge_vs_vanilla": -349534.16635116993
+          }
+        }
+      }
+    },
+    "_config": {
+      "f0": 0.0001,
+      "fmin": 0.0001,
+      "fmax": 0.01,
+      "h_decision_s": 60,
+      "h_eval_s": 300,
+      "elasticity": 2.0,
+      "train_frac": 0.6,
+      "train_days": 204,
+      "test_days": 161,
+      "swaps": 22167,
+      "window": [
+        "2023-03-10 00:01:00",
+        "2023-03-25 23:50:00"
+      ],
+      "params_from": "results_usdc_usdt_1year.json"
+    }
+  },
+  "5.0": {
+    "vanilla": {
+      "params": {
+        "fee": 0.0001
+      },
+      "stress": {
+        "lp_pnl": 240196.18831642094,
+        "lp_pnl_bps_of_volume": 0.6033464866781157,
+        "fee_revenue": 398106.55008349323,
+        "markout_loss": -157910.3617670723,
+        "markout_loss_floor": 1842980.7504973747,
+        "loss_ratio": 0.3966535133218843,
+        "capture_pct": 17.763991165373515,
+        "gain_bp_per_year_tvl": 0.0,
+        "volume_kept_pct": 100.0,
+        "avg_fee_bps": 1.0000000000000002,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": 0.0,
+        "edge_vs_vanilla_ci90": [
+          0.0,
+          0.0
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": 540119.9272466085,
+            "fee_revenue": 200724.7901523794,
+            "markout_loss": 339395.1370942291,
+            "lp_pnl_bps_of_volume": 2.6908481350837574,
+            "volume": 2007247901.5237937,
+            "volume_kept_pct": 100.0,
+            "avg_fee_bps": 1.0000000000000002,
+            "edge_vs_vanilla": 0.0
+          },
+          "buy_token0": {
+            "lp_pnl": -299923.73893018754,
+            "fee_revenue": 197381.75993111386,
+            "markout_loss": -497305.4988613014,
+            "lp_pnl_bps_of_volume": -1.5195109164841818,
+            "volume": 1973817599.3111384,
+            "volume_kept_pct": 100.0,
+            "avg_fee_bps": 1.0,
+            "edge_vs_vanilla": 0.0
+          }
+        }
+      }
+    },
+    "markout": {
+      "params": {
+        "base": 6e-05,
+        "kappa": 0.25,
+        "h": 60,
+        "lookback": 900,
+        "directional": true
+      },
+      "stress": {
+        "lp_pnl": -220418.87225216103,
+        "lp_pnl_bps_of_volume": -0.6557310061889553,
+        "fee_revenue": 569645.3741082217,
+        "markout_loss": -790064.2463603828,
+        "markout_loss_floor": 1776227.4746571025,
+        "loss_ratio": 1.3869405111859745,
+        "capture_pct": 24.2828751101338,
+        "gain_bp_per_year_tvl": -210.15562138441553,
+        "volume_kept_pct": 84.43523825358406,
+        "avg_fee_bps": 1.4413216714963264,
+        "win_pct_days_vs_vanilla": 43.75,
+        "edge_vs_vanilla": -460615.0605685819,
+        "edge_vs_vanilla_ci90": [
+          -1039847.4867573356,
+          -87422.85071430974
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": 204366.05260207865,
+            "fee_revenue": 216183.1204221189,
+            "markout_loss": -11817.06782004024,
+            "lp_pnl_bps_of_volume": 1.214416956483733,
+            "volume": 1682832667.2398214,
+            "volume_kept_pct": 83.83780926921413,
+            "avg_fee_bps": 1.3582113247925676,
+            "edge_vs_vanilla": -335753.8746445299
+          },
+          "buy_token0": {
+            "lp_pnl": -424784.9248542397,
+            "fee_revenue": 353462.2536861028,
+            "markout_loss": -778247.1785403426,
+            "lp_pnl_bps_of_volume": -2.530606390545388,
+            "volume": 1678589473.4213936,
+            "volume_kept_pct": 85.04278581806246,
+            "avg_fee_bps": 1.5265439127034122,
+            "edge_vs_vanilla": -124861.18592405214
+          }
+        }
+      }
+    },
+    "flat_markout": {
+      "params": {
+        "fee": 0.00016946558637118055
+      },
+      "stress": {
+        "lp_pnl": -1306396.5721023844,
+        "lp_pnl_bps_of_volume": -8.670266358572269,
+        "fee_revenue": 255343.09093715885,
+        "markout_loss": -1561739.6630395432,
+        "markout_loss_floor": 1716468.9817751052,
+        "loss_ratio": 6.1162401430469675,
+        "capture_pct": 12.949666678220998,
+        "gain_bp_per_year_tvl": -705.6329469410799,
+        "volume_kept_pct": 37.8480291417053,
+        "avg_fee_bps": 1.6946558637118052,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": -1546592.7604188053,
+        "edge_vs_vanilla_ci90": [
+          -2580738.0769400904,
+          -701746.1900143025
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": -434598.6848346648,
+            "fee_revenue": 116865.06527270778,
+            "markout_loss": -551463.7501073725,
+            "lp_pnl_bps_of_volume": -6.302098988246592,
+            "volume": 689609423.217869,
+            "volume_kept_pct": 34.35596682872878,
+            "avg_fee_bps": 1.6946558637118052,
+            "edge_vs_vanilla": -974718.6120812733
+          },
+          "buy_token0": {
+            "lp_pnl": -871797.8872677197,
+            "fee_revenue": 138478.02566445107,
+            "markout_loss": -1010275.9129321707,
+            "lp_pnl_bps_of_volume": -10.668821963202426,
+            "volume": 817145407.6885121,
+            "volume_kept_pct": 41.399236078029475,
+            "avg_fee_bps": 1.6946558637118052,
+            "edge_vs_vanilla": -571874.1483375322
+          }
+        }
+      }
+    },
+    "oscillon_hook": {
+      "params": {
+        "base": 0.0003,
+        "k": 45
+      },
+      "stress": {
+        "lp_pnl": -1035786.3150519662,
+        "lp_pnl_bps_of_volume": -13.514091580241217,
+        "fee_revenue": 285782.50560837204,
+        "markout_loss": -1321568.8206603383,
+        "markout_loss_floor": 1351979.7767047896,
+        "loss_ratio": 4.624386709210876,
+        "capture_pct": 17.449571814826218,
+        "gain_bp_per_year_tvl": -582.1670171618266,
+        "volume_kept_pct": 19.252360621365305,
+        "avg_fee_bps": 4.658363010594056,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": -1275982.5033683872,
+        "edge_vs_vanilla_ci90": [
+          -2066266.2691525775,
+          -601135.4653813973
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": -199719.02246850354,
+            "fee_revenue": 116422.79299857079,
+            "markout_loss": -316141.81546707434,
+            "lp_pnl_bps_of_volume": -9.891158639447955,
+            "volume": 201916711.4274999,
+            "volume_kept_pct": 10.059380870405478,
+            "avg_fee_bps": 8.267311932267594,
+            "edge_vs_vanilla": -739838.9497151121
+          },
+          "buy_token0": {
+            "lp_pnl": -836067.2925834627,
+            "fee_revenue": 169359.71260980127,
+            "markout_loss": -1005427.0051932639,
+            "lp_pnl_bps_of_volume": -14.809908679575972,
+            "volume": 564532375.3660042,
+            "volume_kept_pct": 28.60104072245712,
+            "avg_fee_bps": 2.999999999999999,
+            "edge_vs_vanilla": -536143.5536532751
+          }
+        }
+      }
+    },
+    "flat_oscillon_hook": {
+      "params": {
+        "fee": 0.00037286560912214547
+      },
+      "stress": {
+        "lp_pnl": -1229374.0322278629,
+        "lp_pnl_bps_of_volume": -14.595531958049008,
+        "fee_revenue": 314062.75474104995,
+        "markout_loss": -1543436.7869689125,
+        "markout_loss_floor": 1577761.5161368593,
+        "loss_ratio": 4.914421604183858,
+        "capture_pct": 16.601053257198554,
+        "gain_bp_per_year_tvl": -670.4914131233295,
+        "volume_kept_pct": 21.15752116856298,
+        "avg_fee_bps": 3.728656091221455,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": -1469570.2205442837,
+        "edge_vs_vanilla_ci90": [
+          -2446088.1248075445,
+          -660099.7051418602
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": -428188.7716119778,
+            "fee_revenue": 123345.14554459737,
+            "markout_loss": -551533.9171565752,
+            "lp_pnl_bps_of_volume": -12.943911691168815,
+            "volume": 330803223.80761933,
+            "volume_kept_pct": 16.48043689852616,
+            "avg_fee_bps": 3.7286560912214552,
+            "edge_vs_vanilla": -968308.6988585864
+          },
+          "buy_token0": {
+            "lp_pnl": -801185.2606158849,
+            "fee_revenue": 190717.60919645254,
+            "markout_loss": -991902.8698123374,
+            "lp_pnl_bps_of_volume": -15.663704650969555,
+            "volume": 511491552.2658894,
+            "volume_kept_pct": 25.913820630862737,
+            "avg_fee_bps": 3.728656091221454,
+            "edge_vs_vanilla": -501261.5216856974
+          }
+        }
+      }
+    },
+    "oscillon_hook_poolfee": {
+      "params": {
+        "base": 0.0001,
+        "k": 45
+      },
+      "stress": {
+        "lp_pnl": -463214.7789508519,
+        "lp_pnl_bps_of_volume": -1.6513689360820867,
+        "fee_revenue": 365543.4542152254,
+        "markout_loss": -828758.2331660774,
+        "markout_loss_floor": 1538646.2633738536,
+        "loss_ratio": 2.2671948399276203,
+        "capture_pct": 19.196798031135526,
+        "gain_bp_per_year_tvl": -320.9312538156932,
+        "volume_kept_pct": 70.45940529344996,
+        "avg_fee_bps": 1.2978182953771236,
+        "win_pct_days_vs_vanilla": 12.5,
+        "edge_vs_vanilla": -703410.9672672728,
+        "edge_vs_vanilla_ci90": [
+          -1293447.0961241217,
+          -223193.46740516333
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": -163291.04002066434,
+            "fee_revenue": 168161.6942841116,
+            "markout_loss": -331452.73430477595,
+            "lp_pnl_bps_of_volume": -1.9644803502658745,
+            "volume": 831217476.9198601,
+            "volume_kept_pct": 41.410803134423254,
+            "avg_fee_bps": 2.035002481441524,
+            "edge_vs_vanilla": -703410.9672672729
+          },
+          "buy_token0": {
+            "lp_pnl": -299923.73893018754,
+            "fee_revenue": 197381.75993111386,
+            "markout_loss": -497305.4988613014,
+            "lp_pnl_bps_of_volume": -1.5195109164841818,
+            "volume": 1973817599.3111384,
+            "volume_kept_pct": 100.0,
+            "avg_fee_bps": 1.0,
+            "edge_vs_vanilla": 0.0
+          }
+        }
+      }
+    },
+    "flat_oscillon_hook_poolfee": {
+      "params": {
+        "fee": 0.00013031689240278232
+      },
+      "stress": {
+        "lp_pnl": -1007256.3823345997,
+        "lp_pnl_bps_of_volume": -4.735863304199832,
+        "fee_revenue": 277167.04044710984,
+        "markout_loss": -1284423.4227817096,
+        "markout_loss_floor": 1760909.9653852703,
+        "loss_ratio": 4.634113135204504,
+        "capture_pct": 13.599439062112905,
+        "gain_bp_per_year_tvl": -569.1502353595282,
+        "volume_kept_pct": 53.42463286280218,
+        "avg_fee_bps": 1.3031689240278233,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": -1247452.5706510209,
+        "edge_vs_vanilla_ci90": [
+          -2076712.0827690067,
+          -572338.8326548891
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": -240968.37475264186,
+            "fee_revenue": 132352.91576635928,
+            "markout_loss": -373321.29051900114,
+            "lp_pnl_bps_of_volume": -2.372614882209872,
+            "volume": 1015623633.4832481,
+            "volume_kept_pct": 50.59781767425149,
+            "avg_fee_bps": 1.3031689240278233,
+            "edge_vs_vanilla": -781088.3019992504
+          },
+          "buy_token0": {
+            "lp_pnl": -766288.0075819578,
+            "fee_revenue": 144814.12468075054,
+            "markout_loss": -911102.1322627085,
+            "lp_pnl_bps_of_volume": -6.895754958554426,
+            "volume": 1111245994.365491,
+            "volume_kept_pct": 56.299325467222275,
+            "avg_fee_bps": 1.3031689240278235,
+            "edge_vs_vanilla": -466364.2686517703
+          }
+        }
+      }
+    },
+    "markout_hook": {
+      "params": {
+        "base": 0.0003,
+        "curve": "hybrid",
+        "k": 45,
+        "h": 60,
+        "lookback": 3600,
+        "directional": true
+      },
+      "stress": {
+        "lp_pnl": -954914.9664410288,
+        "lp_pnl_bps_of_volume": -12.408858713204523,
+        "fee_revenue": 525413.3560690222,
+        "markout_loss": -1480328.3225100508,
+        "markout_loss_floor": 1506573.0828652661,
+        "loss_ratio": 2.817454686697351,
+        "capture_pct": 25.857129063547525,
+        "gain_bp_per_year_tvl": -545.2694643580863,
+        "volume_kept_pct": 19.330074918974162,
+        "avg_fee_bps": 7.97464375067582,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": -1195111.1547574496,
+        "edge_vs_vanilla_ci90": [
+          -1927834.9959435146,
+          -593909.9586538667
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": -358743.9605280224,
+            "fee_revenue": 162732.4219441623,
+            "markout_loss": -521476.3824721846,
+            "lp_pnl_bps_of_volume": -12.403516147027739,
+            "volume": 289227632.12912685,
+            "volume_kept_pct": 14.409163507385456,
+            "avg_fee_bps": 7.01513138456573,
+            "edge_vs_vanilla": -898863.8877746309
+          },
+          "buy_token0": {
+            "lp_pnl": -596171.0059130064,
+            "fee_revenue": 362680.93412485986,
+            "markout_loss": -958851.9400378662,
+            "lp_pnl_bps_of_volume": -12.412075803576174,
+            "volume": 480315311.7556994,
+            "volume_kept_pct": 24.33433119267602,
+            "avg_fee_bps": 9.006201972836722,
+            "edge_vs_vanilla": -296247.26698281884
+          }
+        }
+      }
+    },
+    "flat_markout_hook": {
+      "params": {
+        "fee": 0.0006827602802991308
+      },
+      "stress": {
+        "lp_pnl": -1024180.4336284351,
+        "lp_pnl_bps_of_volume": -17.175998811498207,
+        "fee_revenue": 407120.26567731274,
+        "markout_loss": -1431300.699305748,
+        "markout_loss_floor": 1455672.0335027184,
+        "loss_ratio": 3.515670478659518,
+        "capture_pct": 21.855376246536988,
+        "gain_bp_per_year_tvl": -576.8718337623407,
+        "volume_kept_pct": 14.978045658095718,
+        "avg_fee_bps": 6.827602802991306,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": -1264376.6219448561,
+        "edge_vs_vanilla_ci90": [
+          -2054749.4932560653,
+          -573209.6531919596
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": -353305.33117872046,
+            "fee_revenue": 142759.16427379858,
+            "markout_loss": -496064.4954525191,
+            "lp_pnl_bps_of_volume": -16.89718822422621,
+            "volume": 209091197.00292605,
+            "volume_kept_pct": 10.41680984417497,
+            "avg_fee_bps": 6.827602802991307,
+            "edge_vs_vanilla": -893425.258425329
+          },
+          "buy_token0": {
+            "lp_pnl": -670875.1024497147,
+            "fee_revenue": 264361.1014035141,
+            "markout_loss": -935236.2038532291,
+            "lp_pnl_bps_of_volume": -17.32656092603897,
+            "volume": 387194611.39082706,
+            "volume_kept_pct": 19.616534553443937,
+            "avg_fee_bps": 6.827602802991307,
+            "edge_vs_vanilla": -370951.36351952713
+          }
+        }
+      }
+    },
+    "markout_hook_poolfee": {
+      "params": {
+        "base": 0.0001,
+        "curve": "hybrid",
+        "k": 45,
+        "h": 60,
+        "lookback": 900,
+        "directional": true
+      },
+      "stress": {
+        "lp_pnl": -209183.41329142786,
+        "lp_pnl_bps_of_volume": -0.6172755813877505,
+        "fee_revenue": 575483.4643608802,
+        "markout_loss": -784666.8776523081,
+        "markout_loss_floor": 1759766.0907277293,
+        "loss_ratio": 1.363491614001008,
+        "capture_pct": 24.643339000188522,
+        "gain_bp_per_year_tvl": -205.029443233581,
+        "volume_kept_pct": 85.12337314493168,
+        "avg_fee_bps": 1.4801037010232698,
+        "win_pct_days_vs_vanilla": 56.25,
+        "edge_vs_vanilla": -449379.6016078488,
+        "edge_vs_vanilla_ci90": [
+          -1025372.592755699,
+          -83990.48808236008
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": 184602.28909096416,
+            "fee_revenue": 216819.86371303562,
+            "markout_loss": -32217.574622071414,
+            "lp_pnl_bps_of_volume": 1.0823329418938552,
+            "volume": 1705596142.790858,
+            "volume_kept_pct": 84.97187325472166,
+            "avg_fee_bps": 1.4021465563461273,
+            "edge_vs_vanilla": -355517.6381556444
+          },
+          "buy_token0": {
+            "lp_pnl": -393785.7023823921,
+            "fee_revenue": 358663.6006478446,
+            "markout_loss": -752449.3030302366,
+            "lp_pnl_bps_of_volume": -2.3394769867317686,
+            "volume": 1683221098.6290047,
+            "volume_kept_pct": 85.2774389698647,
+            "avg_fee_bps": 1.5598926324956295,
+            "edge_vs_vanilla": -93861.96345220454
+          }
+        }
+      }
+    },
+    "flat_markout_hook_poolfee": {
+      "params": {
+        "fee": 0.00016981838304144174
+      },
+      "stress": {
+        "lp_pnl": -1307330.371983156,
+        "lp_pnl_bps_of_volume": -8.69048171165217,
+        "fee_revenue": 255461.93782730997,
+        "markout_loss": -1562792.3098104661,
+        "markout_loss_floor": 1716279.7185519554,
+        "loss_ratio": 6.117515286629118,
+        "capture_pct": 12.956156654742387,
+        "gain_bp_per_year_tvl": -706.0589931366819,
+        "volume_kept_pct": 37.786979478466606,
+        "avg_fee_bps": 1.6981838304144175,
+        "win_pct_days_vs_vanilla": 0.0,
+        "edge_vs_vanilla": -1547526.560299577,
+        "edge_vs_vanilla_ci90": [
+          -2582293.8381157494,
+          -702114.4175572846
+        ],
+        "days": 16,
+        "by_direction": {
+          "sell_token0": {
+            "lp_pnl": -435264.013327702,
+            "fee_revenue": 116841.95745899048,
+            "markout_loss": -552105.9707866925,
+            "lp_pnl_bps_of_volume": -6.326137677501859,
+            "volume": 688040690.0970013,
+            "volume_kept_pct": 34.27781339687431,
+            "avg_fee_bps": 1.6981838304144175,
+            "edge_vs_vanilla": -975383.9405743105
+          },
+          "buy_token0": {
+            "lp_pnl": -872066.3586554541,
+            "fee_revenue": 138619.9803683195,
+            "markout_loss": -1010686.3390237737,
+            "lp_pnl_bps_of_volume": -10.68337324375734,
+            "volume": 816283713.7278081,
+            "volume_kept_pct": 41.35557986779988,
+            "avg_fee_bps": 1.6981838304144175,
+            "edge_vs_vanilla": -572142.6197252666
+          }
+        }
+      }
+    },
+    "_config": {
+      "f0": 0.0001,
+      "fmin": 0.0001,
+      "fmax": 0.01,
+      "h_decision_s": 60,
+      "h_eval_s": 300,
+      "elasticity": 5.0,
+      "train_frac": 0.6,
+      "train_days": 204,
+      "test_days": 161,
+      "swaps": 22167,
+      "window": [
+        "2023-03-10 00:01:00",
+        "2023-03-25 23:50:00"
+      ],
+      "params_from": "results_usdc_usdt_1year.json"
+    }
+  }
+}
