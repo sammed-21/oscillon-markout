@@ -1,0 +1,23 @@
+poolId 0xb67e0601a0363a1ad259dd848cad1c52d6cc4eb18bc526a0dd4f4bdf83773546
+  blocks 100,880,765-101,380,764: 9,237 Core logs, 801 pool swaps (total 801)
+  blocks 101,380,765-101,880,764: 8,056 Core logs, 608 pool swaps (total 1,409)
+  blocks 101,880,765-102,380,764: 3,724 Core logs, 389 pool swaps (total 1,798)
+  blocks 102,380,765-102,880,764: 1,692 Core logs, 185 pool swaps (total 1,983)
+  blocks 102,880,765-103,880,764: 4,870 Core logs, 222 pool swaps (total 2,205)
+  blocks 103,880,765-104,380,764: 5,717 Core logs, 373 pool swaps (total 2,578)
+  blocks 104,380,765-104,880,764: 5,936 Core logs, 430 pool swaps (total 3,008)
+  blocks 104,880,765-105,380,764: 7,349 Core logs, 364 pool swaps (total 3,372)
+  blocks 105,380,765-105,630,764: 5,449 Core logs, 54 pool swaps (total 3,426)
+  blocks 105,630,765-105,880,764: 5,033 Core logs, 193 pool swaps (total 3,619)
+  blocks 105,880,765-106,130,764: 7,789 Core logs, 244 pool swaps (total 3,863)
+  blocks 106,130,765-106,380,764: 4,001 Core logs, 327 pool swaps (total 4,190)
+  blocks 106,380,765-106,630,764: 3,148 Core logs, 204 pool swaps (total 4,394)
+  blocks 106,630,765-106,880,764: 5,454 Core logs, 354 pool swaps (total 4,748)
+  blocks 106,880,765-107,130,764: 5,911 Core logs, 444 pool swaps (total 5,192)
+  blocks 107,130,765-107,143,207: 261 Core logs, 24 pool swaps (total 5,216)
+fee events: 4,007 in 4,007 txs; 9 txs with fees but no pool swap (0.000074 token0, 0.63 token1, not in the swap rows)
+wrote 5,216 swaps -> data_swaps/eth_usdg_ekubo_robinhood_nov.csv | 2026-10-29 11:59:55 .. 2026-11-05 23:57:18
+             swaps      token0         token1
+direction                                    
+buy token0    2484  209.782657  480590.614872
+sell token0   2732  216.312228  495962.005373
