@@ -36,6 +36,9 @@ ap.add_argument("--source", choices=["rpc", "dune"], default="rpc")
 ap.add_argument("--tx-from", action="store_true", help="rpc source: look up tx from/to (one call per tx)")
 ap.add_argument("--chunk-blocks", type=int, default=10_000)
 ap.add_argument("--env", default="../../../research-backtest/.env")
+ap.add_argument("--rpc-url", default="", help="override ETH_RPC_URL (e.g. a public L2 endpoint)")
+ap.add_argument("--blocks-per-day", type=int, default=7200, help="bounds the start-block search (Robinhood Chain: ~864000)")
+ap.add_argument("--gecko-network", default="eth")
 ap.add_argument("--check-gecko", action="store_true"); ap.add_argument("--usd-token", type=int, default=0,
                 help="which token is the USD stable, for USD volume (0 or 1)")
 ap.add_argument("--out", required=True)
@@ -52,7 +55,7 @@ def s256(h: str) -> int:
 def rpc(method: str, params: list, tries: int = 6):
     for i in range(tries):
         try:
-            r = requests.post(env["ETH_RPC_URL"], json={"jsonrpc": "2.0", "id": 1, "method": method, "params": params}, timeout=120).json()
+            r = requests.post(a.rpc_url or env["ETH_RPC_URL"], json={"jsonrpc": "2.0", "id": 1, "method": method, "params": params}, timeout=120).json()
             if "result" in r:
                 return r["result"]
             err = r.get("error")
@@ -73,10 +76,34 @@ def block_at(ts: int, lo: int, hi: int) -> int:
     return lo
 
 
+def block_ts(blocks, every: int = 200):
+    """Timestamps from anchor blocks every `every` blocks, interpolated. L2 blocks aren't evenly spaced, so anchors must
+    be dense (200 blocks ≈ 20 s on Robinhood Chain); public RPCs rate-limit, hence small batches on 2 threads."""
+    import numpy as np
+    anchors = list(range(int(blocks.min()) // every * every, int(blocks.max()) + every, every))
+
+    def get(chunk):
+        for i in range(10):
+            try:
+                r = requests.post(a.rpc_url or env["ETH_RPC_URL"], timeout=60, json=[
+                    {"jsonrpc": "2.0", "id": b, "method": "eth_getBlockByNumber", "params": [hex(b), False]} for b in chunk]).json()
+                if isinstance(r, list) and all("result" in x for x in r):
+                    return {x["id"]: int(x["result"]["timestamp"], 16) for x in r}
+            except Exception:
+                pass
+            time.sleep(1.5 * (i + 1))
+        raise RuntimeError(f"block timestamps {chunk[0]}-{chunk[-1]}")
+    got = {}
+    with ThreadPoolExecutor(2) as ex:
+        for d in ex.map(get, [anchors[i:i + 10] for i in range(0, len(anchors), 10)]):
+            got.update(d)
+    return np.round(np.interp(blocks, anchors, [got[b] for b in anchors])).astype("int64")
+
+
 def from_rpc() -> pd.DataFrame:
     head = int(rpc("eth_blockNumber", []), 16)
     t0, t1 = int(pd.Timestamp(a.start, tz="UTC").timestamp()), int(pd.Timestamp(a.end, tz="UTC").timestamp())
-    b0 = block_at(t0, head - 400 * 7200, head) + 1
+    b0 = block_at(t0, max(0, head - 400 * a.blocks_per_day), head) + 1
     b1 = block_at(t1, b0, head)
     rows, b, step = [], b0, a.chunk_blocks
     while b <= b1:
@@ -96,6 +123,8 @@ def from_rpc() -> pd.DataFrame:
         print(f"  blocks {b:,}-{e:,}: {len(logs):,} swaps (total {len(rows):,})", flush=True)
         b = e + 1
     sw = pd.DataFrame(rows)
+    if len(sw) and (sw.ts == 0).any():                          # some L2 RPCs return blockTimestamp 0x0
+        sw["ts"] = block_ts(sw.block.values)
     if a.tx_from and len(sw):
         hashes = sw.tx_hash.unique().tolist()
 
@@ -146,7 +175,7 @@ print(f"wrote {len(sw):,} swaps -> {a.out} | {pd.to_datetime(sw.ts.min(), unit='
 if a.check_gecko:
     usd = sw["amount0" if a.usd_token == 0 else "amount1"].abs()
     mine = usd.groupby(pd.to_datetime(sw.ts, unit="s").dt.floor("D")).sum()
-    g = requests.get(f"https://api.geckoterminal.com/api/v2/networks/eth/pools/{a.pool}/ohlcv/day", params={"limit": 1000}, timeout=60).json()
+    g = requests.get(f"https://api.geckoterminal.com/api/v2/networks/{a.gecko_network}/pools/{a.pool}/ohlcv/day", params={"limit": 1000}, timeout=60).json()
     gk = pd.Series({pd.Timestamp(x[0], unit="s"): x[5] for x in g["data"]["attributes"]["ohlcv_list"]})
     j = pd.concat({"onchain": mine, "gecko": gk}, axis=1).dropna()
     j = j[(j.index > j.index.min()) & (j.index < j.index.max())]          # drop partial edge days
