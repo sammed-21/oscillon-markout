@@ -20,6 +20,7 @@ from concurrent.futures import ThreadPoolExecutor
 import pandas as pd
 import requests
 from Crypto.Hash import keccak
+from flow_lib import attribute_fees
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--rpc-url", required=True); ap.add_argument("--core", required=True)
@@ -84,7 +85,8 @@ while b <= head:
     for l in logs:
         d = l["data"][2:]
         if l["topics"] and l["topics"][0] == FEES_TOPIC and d[0:64] == pool_id:
-            fees.append({"tx_hash": l["transactionHash"], "fee0": int(d[64:128], 16) / 10**a.dec0, "fee1": int(d[128:192], 16) / 10**a.dec1})
+            fees.append({"tx_hash": l["transactionHash"], "block": int(l["blockNumber"], 16),
+                         "log_index": int(l["logIndex"], 16), "fee0": int(d[64:128], 16) / 10**a.dec0, "fee1": int(d[128:192], 16) / 10**a.dec1})
         if l["topics"] or len(d) != 232 or d[40:104] != pool_id:
             continue
         bu, st = int(d[104:168], 16), int(d[168:232], 16)
@@ -134,14 +136,17 @@ tx = dict(zip(hashes, batch("eth_getTransactionByHash", [[h] for h in hashes], l
 sw["tx_from"] = sw.tx_hash.map(lambda h: tx[h][0]); sw["tx_to"] = sw.tx_hash.map(lambda h: tx[h][1])
 sw["direction"] = (sw.amount0 > 0).map({True: "sell token0", False: "buy token0"})
 sw = sw.drop_duplicates(["tx_hash", "log_index"]).sort_values(["block", "log_index"])
-# Fee events carry no swap id: sum them per tx and split across that tx's pool swaps by |amount| of the token paid.
-fe = pd.DataFrame(fees, columns=["tx_hash", "fee0", "fee1"]).groupby("tx_hash").sum()
-w0 = sw.amount0.clip(lower=0); w1 = sw.amount1.clip(lower=0)
-sw["fee0"] = (w0 / w0.groupby(sw.tx_hash).transform("sum")).fillna(0) * sw.tx_hash.map(fe.fee0).fillna(0)
-sw["fee1"] = (w1 / w1.groupby(sw.tx_hash).transform("sum")).fillna(0) * sw.tx_hash.map(fe.fee1).fillna(0)
-orphan = fe[~fe.index.isin(sw.tx_hash)]
-print(f"fee events: {len(fees):,} in {len(fe):,} txs; {len(orphan):,} txs with fees but no pool swap "
-      f"({orphan.fee0.sum():.6f} token0, {orphan.fee1.sum():.2f} token1, not in the swap rows)")
+# Fee events carry no swap id, and the extension pays a swap's fee in at the pool's next interaction in a later block
+# (logged before that interaction's own swap). So each fee event pays for the swaps since the previous one; see
+# flow_lib.attribute_fees. Splitting by same transaction instead credits each swap with the previous swap's fee.
+fe = pd.DataFrame(fees)
+if len(fe) and "block" not in fe:
+    raise SystemExit(f"{scan_path} predates fee block/log_index: delete it and rescan")
+fe = fe.rename(columns={"fee0": "amount0", "fee1": "amount1"}) if len(fe) else pd.DataFrame(columns=["block", "log_index", "amount0", "amount1"])
+sw = sw.reset_index(drop=True)
+sw["fee0"], sw["fee1"] = attribute_fees(sw, fe) if len(fe) else (0.0, 0.0)
+print(f"fee events: {len(fe):,}; swaps after the last fee event (fee not paid in yet, 0 here): "
+      f"{(sw.block * 1_000_000 + sw.log_index > (fe.block * 1_000_000 + fe.log_index).max()).sum() if len(fe) else len(sw):,}")
 sw.to_csv(a.out, index=False)
 print(f"wrote {len(sw):,} swaps -> {a.out} | {pd.to_datetime(sw.ts.min(), unit='s')} .. {pd.to_datetime(sw.ts.max(), unit='s')}")
 print(sw.groupby("direction").agg(swaps=("ts", "size"), token0=("amount0", lambda x: x.abs().sum()),

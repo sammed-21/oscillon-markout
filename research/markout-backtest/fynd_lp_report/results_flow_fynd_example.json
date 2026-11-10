@@ -1,0 +1,7 @@
+{
+  "tx_hash": "0x7fdb209dd1e43d5d4437f71184e0d81d45ed6fba5d604a2e96a34f36bf7ad0dd",
+  "raw": "data_swaps/eth_usdg_ekubo_robinhood_to1108.csv",
+  "klines": "klines_eth_1s",
+  "mk_0": -0.409304749714181,
+  "fee": 0.0754342803730443
+}
