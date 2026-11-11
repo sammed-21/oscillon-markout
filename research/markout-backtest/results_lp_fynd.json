@@ -1,0 +1,58 @@
+{
+ "period": {
+  "start_utc": "2026-10-02 06:06:47",
+  "end_utc": "2026-11-11 05:53:02",
+  "days": 39.990451388888886,
+  "snapshot_block": 111478410,
+  "eth_start": 2722.82,
+  "eth_end": 2067.76
+ },
+ "positions": 174,
+ "open_positions": 6,
+ "owners": 8,
+ "totals": {
+  "cost_usd": 1793772.4398569663,
+  "capital_days_usd": 746684.7070417622,
+  "hold_usd": 1791465.599162449,
+  "lp_usd": 1787775.8780504426,
+  "fees_usd": 1948.4587394561318,
+  "il_usd": -5638.179851462294,
+  "lp_minus_hold_usd": -3689.721112006181,
+  "hold_pnl_usd": -2306.8406945173783,
+  "lp_pnl_usd": -5996.5618065235585
+ },
+ "avg_capital_usd": 18671.574866224797,
+ "lp_minus_hold_per_30d_pct": -14.82441414914293,
+ "fees_per_30d_pct": 7.8284397192581885,
+ "il_per_30d_pct": -22.652853868401042,
+ "positions_in_range_share_capital_weighted": 0.819767781504275,
+ "positions_beating_hold": 42,
+ "positions_with_il_above_zero": {
+  "positions": 19,
+  "usd": 80.23364067184474
+ },
+ "inside_markout_window": {
+  "positions": 160,
+  "fees_usd": 1548.2062496390538,
+  "il_usd": -4656.503759253009,
+  "lp_minus_hold_usd": -3108.297509613972,
+  "capital_days_usd": 616566.3221794992
+ },
+ "checks": {
+  "deposit_amounts_vs_liquidity_math_max_rel_err": 0.0005223240005313769,
+  "deposits_checked": 176,
+  "fees_paid_in_eth": 0.39731260323007017,
+  "fees_paid_in_usdg": 1026.2423170000002,
+  "fees_to_positions_share_eth": 1.0000000000000435,
+  "fees_to_positions_share_usdg": 0.9999999249689875,
+  "holdings_on_chain": [
+   2.841752417748635,
+   9103.616095
+  ],
+  "holdings_from_flows": [
+   2.8417524177485625,
+   9103.61774699999
+  ],
+  "swaps_used": 24275
+ }
+}
