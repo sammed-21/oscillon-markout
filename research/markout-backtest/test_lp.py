@@ -7,7 +7,7 @@ import io, json, zipfile
 import pandas as pd
 
 PREFIX = "results_lp_fynd"
-EVENTS = "data_swaps/eth_usdg_ekubo_robinhood_lp_events.csv"
+EVENTS = "data_swaps/eth_usdg_ekubo_robinhood_lp_to1113_events.csv"
 res = json.load(open(PREFIX + ".json"))
 P = pd.read_csv(PREFIX + "_positions.csv")
 
@@ -56,13 +56,35 @@ def test_one_position_by_hand():
 
 def test_split_adds_up():
     s = json.load(open(PREFIX + "_split.json"))
-    for c in ["swaps", "volume", "fee", "capture", "lag", "after", "markout_12"]:
-        assert abs(s["bot"][c] + s["external"][c] - s["all"][c]) < 1e-6
-    for g in ["bot", "external", "all"]:                          # capture + lag + after is the 12 s markout
+    for c in ["swaps", "volume", "fee", "loss_12s", "lp_net", "capture", "lag", "after"]:
+        assert abs(s["bot"][c] + s["other"][c] - s["all"][c]) < 1e-6
+    for g in ["bot", "other", "all"]:                             # fees - loss is the LP side; capture + lag + after is the markout
+        assert abs(s[g]["fee"] - s[g]["loss_12s"] - s[g]["lp_net"]) < 1e-6
         assert abs(s[g]["capture"] + s[g]["lag"] + s[g]["after"] - s[g]["markout_12"]) < 1e-6
-    assert abs(sum(s["buckets"].values()) - res["totals"]["lp_minus_hold_usd"]) < 1e-6
+    assert abs(sum(s["rows"].values()) - res["totals"]["lp_minus_hold_usd"]) < 1e-6
     d = pd.read_csv(PREFIX + "_split_daily.csv")
-    assert abs(d.pool_lag.sum() - s["all"]["lag"]) < 1e-6 and abs(d.bot_net_own_view.sum() - s["bot"]["trader_net_own_view"]) < 1e-6
+    assert abs(d.bot_lp_net.sum() - s["bot"]["lp_net"]) < 1e-6 and abs(d.lp_net.sum() - s["all"]["lp_net"]) < 1e-6
+
+
+def test_sensitivities():
+    s = json.load(open(PREFIX + "_split.json"))
+    b = s["bot"]
+    h = pd.read_csv(PREFIX + "_split_h_sensitivity.csv").set_index("h_bp")
+    assert abs(h.bot_capture_usd[0] - (b["loss_12s"] - b["fee"])) < 1e-6           # h = 0: the upper bound
+    assert abs(h.bot_capture_usd[8] - (b["loss_12s"] - b["fee"] - 8e-4 * b["volume"])) < 1e-6
+    assert (h.ci_low <= h.bot_capture_usd).all() and (h.bot_capture_usd <= h.ci_high).all()
+    f = pd.read_csv(PREFIX + "_split_fee_sensitivity.csv").set_index("fee_bp")
+    f0 = s["fee_sensitivity"]["actual_fee_bp"]                     # at the actual fee the fee line gives back today's result
+    assert abs((f0 * 1e-4 * b["volume"] - b["loss_12s"]) - b["lp_net"]) < 1e-6
+    assert abs(f.lp_minus_hold_all_usd[0] - (s["lp_minus_hold"] - b["fee"])) < 1e-6
+    be = s["fee_sensitivity"]["breakeven_fee_bp_lp_minus_hold"]
+    assert abs(be * 1e-4 * b["volume"] - b["loss_12s"] + s["rows"]["other_swaps"] + s["rows"]["later_price_moves"]) < 1e-6
+
+
+def test_markout_report_reconciles():
+    flow = json.load(open("results_flow_fynd.json"))
+    inside, mk = res["inside_markout_window"]["lp_minus_hold_usd"], flow["all"]["lp_pnl"]
+    assert abs(inside - mk) / abs(mk) < 0.05                      # -3,108 vs -3,196
 
 
 def test_capture_on_one_swap_by_hand():

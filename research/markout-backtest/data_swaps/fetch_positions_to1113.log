@@ -1,0 +1,3 @@
+pool changed while reading (0 position, 2 fee, 2 swap events); catching up to 113,153,559
+538 position events in blocks 72,277,109-113,153,559; lockers ['0x02d9876a21af7545f8632c3af76ec90b5ad4b66d', '0x0db596af023b61c681c91c39e540829bf81becd5']
+wrote data_swaps/eth_usdg_ekubo_robinhood_lp_to1113_events.csv (538 rows, 179 positions, 7 owners) and data_swaps/eth_usdg_ekubo_robinhood_lp_to1113_open.json (6 open, state at block 113,153,559)

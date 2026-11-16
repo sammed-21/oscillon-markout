@@ -3,8 +3,9 @@ F8: LP return vs holding for the Fynd AMM ETH/USDG pool, from lp_returns.py.
 
   A  per $1,000 of LP capital for 30 days: fees, impermanent loss, and the net (LP minus holding), main LP vs the rest
   B  running totals in dollars, each position counted on the day it closed (open ones at the snapshot)
-  C  where LP minus holding comes from (lp_split.py): fees, traders' capture, the pool lagging Binance, later price moves
-  D  how stale the price is that Fynd's bot moves the pool to
+  C  LP minus holding split by the wallet that sent each swap (lp_split.py): the bot wallet's swaps, all others, later moves
+  D  LPs' result on the bot wallet's swaps at other fees (same swaps: a transfer, not a forecast)
+  E  the bot wallet's capture for a range of h, its cost per $ traded
 
   python3 lp_chart.py --prefix results_lp_fynd --split results_lp_fynd_split \
       --main 0x6c6a40d2d1fc442e281e1f80314fd86516e17127 --png charts_flow/F8_fynd_lp_vs_hold.png
@@ -34,8 +35,10 @@ main = P.owner.str.lower() == a.main.lower()
 groups = [(f"Main LP {a.main[:6]}…{a.main[-4:]}\n{main.sum()} positions\nranges ~{width(P[main]):.1f}% wide", P[main]),
           (f"Other {P[~main].owner.nunique()} LPs\n{(~main).sum()} positions\nranges ~{width(P[~main]):.0f}% wide", P[~main]),
           (f"All LPs\n{len(P)} positions", P)]
-fig, axs = plt.subplots(2, 2, figsize=(16, 13), constrained_layout=True, gridspec_kw={"width_ratios": [1, 1.25]})
-axs = axs.ravel()
+fig = plt.figure(figsize=(21, 13.5), constrained_layout=True)
+gs = fig.add_gridspec(2, 6)
+axs = [fig.add_subplot(gs[0, :3]), fig.add_subplot(gs[0, 3:]), fig.add_subplot(gs[1, :2]),
+       fig.add_subplot(gs[1, 2:4]), fig.add_subplot(gs[1, 4:])]
 
 ax = axs[0]
 ax.set_axisbelow(True)
@@ -71,46 +74,67 @@ ax.set_title(f"B. All {res['positions']} positions, {pr['start_utc'][:10]} to {p
              f"(ETH ${pr['eth_start']:,.0f} → ${pr['eth_end']:,.0f})\n"
              "each position counted when it closed; the 6 still open at the snapshot", fontsize=11.5, loc="left")
 
+span_lbl = "$, " + " – ".join(pd.Timestamp(t).strftime("%b %-d") for t in sp["swaps_period"])
 ax = axs[2]
 ax.set_axisbelow(True)
-pk, ci, bk = sp["per_1000_per_30d"], sp["ci95_per_1000_per_30d"], sp["buckets"]
-per = lambda v: 30_000 * v / res["totals"]["capital_days_usd"]
-bars = [("Fees paid\nto LPs", pk["fees"], FEE, None),
-        ("Traders' capture\nat the price they\nleft the pool", pk["trader_capture"], BOT, ci["trader_capture"]),
-        ("Pool still behind\nBinance after\nthe trade", pk["pool_lag"], MK, ci["pool_lag"]),
-        ("Price moves\nafter trades", pk["price_moves_after_trades"], GREY, None),
-        ("Total\nLP minus holding", per(sp["lp_minus_hold"]), LP, ci["lp_net_of_swaps"])]
-for i, (lab, v, col, c) in enumerate(bars):
-    ax.bar(i, v, 0.6, color=col)
-    if c:
-        ax.errorbar(i, v, yerr=[[v - c[0]], [c[1] - v]], color="#333", capsize=5, lw=1.2)
-    if c:
-        ax.text(i + 0.33, v / 2, money(v), va="center", fontsize=9.5, color="#222")
-    else:
-        ax.text(i, v + (6 if v >= 0 else -6), money(v), ha="center", va="bottom" if v >= 0 else "top", fontsize=9.5, color="#222")
-ax.set_xticks(range(len(bars))); ax.set_xticklabels([b[0] for b in bars], fontsize=9.5)
+b, o, ci = sp["bot"], sp["other"], sp["ci95_usd_over_period"]
+groups_c = [("Swaps by the\nbot wallet", b, ci["bot_lp_net"]), ("All other\nswaps", o, ci["other_lp_net"])]
+w = 0.26
+for i, (lab, g, c) in enumerate(groups_c):
+    for j, (v, col, name) in enumerate([(g["fee"], FEE, "Fees paid to LPs"), (-g["loss_12s"], MK, "Loss at Binance 12 s later"),
+                                        (g["lp_net"], LP, "Net for LPs")]):
+        ax.bar(i + (j - 1) * w, v, w * 0.92, color=col, label=name if i == 0 else None)
+        if j == 2:
+            ax.errorbar(i + (j - 1) * w, v, yerr=[[v - c[0]], [c[1] - v]], color="#333", capsize=4, lw=1.1)
+        xo = i + (j - 1) * w + (0.15 if j == 2 else 0)
+        ax.text(xo, v + (60 if v >= 0 else -60), money(v), ha="left" if j == 2 else "center",
+                va="bottom" if v >= 0 else "top", fontsize=9.5, color="#222")
+ax.bar(2, sp["drift"], w * 0.92, color=GREY, label="Later price moves")
+ax.text(2, sp["drift"] - 60, money(sp["drift"]), ha="center", va="top", fontsize=9.5, color="#222")
+ax.bar(3, sp["lp_minus_hold"], w * 1.4, color=LP)
+ax.text(3, sp["lp_minus_hold"] - 60, money(sp["lp_minus_hold"]), ha="center", va="top", fontsize=9.5, color="#222")
+ax.set_xticks(range(4)); ax.set_xticklabels([g[0] for g in groups_c] + ["Later price\nmoves", "Total:\nLP minus holding"], fontsize=9.5)
 ax.axhline(0, color="#999", lw=1)
-ax.set_ylim(min(c[0] for *_, c in bars if c) * 1.18, pk["fees"] * 1.5)
-ax.set_ylabel("$ per $1,000 of LP capital, per 30 days")
-b = sp["bot"]
-ax.text(0.99, 0.97, f"Fynd's bot: capture {money(-b['capture'])} ({b['capture_bp']:.2f} bp), fees paid {money(-b['fee'])} ({b['fee_bp']:.2f} bp)\n"
-        f"= {money(b['trader_net_own_view'])} for the bot over {(pd.Timestamp(sp['swaps_period'][1]) - pd.Timestamp(sp['swaps_period'][0])).days} days, before its costs elsewhere",
-        transform=ax.transAxes, ha="right", va="top", fontsize=9.5, color="#333")
-ax.set_title(f"C. Most of the loss is the pool lagging the market, not what traders capture\n"
-             "per swap, valued at Binance 12 s later; whiskers = 95% intervals", fontsize=11.5, loc="left")
+ax.set_ylim(-b["loss_12s"] * 1.3, o["fee"] * 1.7)
+ax.set_ylabel(span_lbl)
+ax.legend(loc="upper right", fontsize=9, facecolor="white", edgecolor="none", framealpha=0.9)
+ax.set_title("C. Loss occurred on swaps by the bot wallet: an upper bound\non its capture, before hedging and other costs\n"
+             "LP side of each swap at Binance 12 s later; whiskers = 95% intervals", fontsize=11.5, loc="left")
 
 ax = axs[3]
-lg = pd.read_csv(a.split + "_bot_lag.csv")
-g = sp["bot_gap_bp"]
-ax.plot(lg.seconds_earlier, lg.median_gap_after_bot_swap_bp, color=BOT, lw=2.4, marker="o", ms=5)
-ax.axvline(g["best_match_seconds_earlier"], color=GREY, ls=":", lw=1)
-ax.text(g["best_match_seconds_earlier"] + 1, lg.median_gap_after_bot_swap_bp.max() * 0.97,
-        f"closest match: Binance\n~{g['best_match_seconds_earlier']} s before the trade", fontsize=9.5, color="#333", va="top")
-ax.set_xlabel("Binance price taken this many seconds before the bot's trade")
-ax.set_ylabel("Median gap between the pool price the bot\nleaves and Binance, bp")
-ax.set_ylim(0, lg.median_gap_after_bot_swap_bp.max() * 1.15)
-ax.set_title(f"D. The bot moves the pool toward a price ~{g['best_match_seconds_earlier']} s old\n"
-             f"gap to Binance {g['median_before']:.1f} bp before its trade, {g['median_after']:.1f} bp after (medians); same side {g['same_side_after']:.0%} of the time", fontsize=11.5, loc="left")
+fd = pd.read_csv(a.split + "_fee_sensitivity.csv")
+fs = sp["fee_sensitivity"]
+ax.plot(fd.fee_bp, fd.lp_on_bot_wallet_swaps_usd, color=LP, lw=2.4, label="LPs on the bot wallet's swaps")
+ax.plot(fd.fee_bp, fd.lp_minus_hold_all_usd, color=LP, lw=1.6, ls="--", label="LP minus holding, all positions")
+ax.axhline(0, color="#999", lw=1)
+for xv, txt in [(fs["actual_fee_bp"], f"actual {fs['actual_fee_bp']:.2f} bp\n{money(b['lp_net'])}"),
+                (fs["breakeven_fee_bp_bot_wallet_swaps"], f"{fs['breakeven_fee_bp_bot_wallet_swaps']:.1f} bp:\nLPs break even\non these swaps")]:
+    ax.axvline(xv, color=GREY, ls=":", lw=1)
+    ax.text(xv + 0.2, -b["loss_12s"] * (0.45 if xv > 5 else 0.6), txt, fontsize=9.5, color="#333", va="bottom")
+ax.set_xlabel("Fee on the bot wallet's swaps, bp")
+ax.set_ylabel(span_lbl)
+ax.legend(loc="upper left", fontsize=9, facecolor="white", edgecolor="none", framealpha=0.9)
+ax.set_title("D. If the bot wallet's swaps had paid a different fee\n"
+             "assumes identical swaps at every fee: a transfer from\nthe bot wallet to LPs, not a forecast", fontsize=11.5, loc="left")
+
+ax = axs[4]
+hd = pd.read_csv(a.split + "_h_sensitivity.csv")
+hs = sp["h_sensitivity"]
+ax.fill_between(hd.h_bp, hd.ci_low, hd.ci_high, color=BOT, alpha=0.15, lw=0, label="95% interval")
+ax.plot(hd.h_bp, hd.bot_capture_usd, color=BOT, lw=2.4, label="Bot wallet's capture")
+ax.axhline(0, color="#999", lw=1)
+ax.axvline(hs["breakeven_h_bp"], color=GREY, ls=":", lw=1)
+ax.text(0.2, hs["upper_bound_at_h0"] * 1.04, f"h = 0: {money(hs['upper_bound_at_h0'])}, the upper bound", fontsize=9.5, color="#333", va="bottom")
+lo_, hi_ = hs["breakeven_h_bp_ci95"]
+ax.text(hs["breakeven_h_bp"] + 0.2, hs["upper_bound_at_h0"] * 0.45,
+        f"zero at h = {hs['breakeven_h_bp']:.1f} bp\n(95%: {lo_:.1f} to {hi_:.1f} bp)", fontsize=9.5, color="#333")
+ax.set_ylim(min(hd.ci_low) * 1.1, hs["upper_bound_at_h0"] * 1.25)
+ax.set_xlabel("h: the bot wallet's cost per $ traded, bp\n(hedging, exchange fees, gas, hedge price vs Binance 12 s later)")
+ax.set_ylabel(span_lbl)
+ax.legend(loc="lower left", fontsize=9, facecolor="white", edgecolor="none", framealpha=0.9)
+ax.set_title(f"E. Bot wallet's capture = loss on its swaps − fees it paid − h × volume\n"
+             f"{money(b['loss_12s'])[1:]} − {money(b['fee'])[1:]} − h × ${b['volume'] / 1e6:.2f}M; "
+             "we can't see h, Fynd can", fontsize=11.5, loc="left")
 
 t = res["totals"]
 fig.suptitle(f"Fynd AMM ETH/USDG LPs vs simply holding the same tokens: {money(t['lp_minus_hold_usd'])} "

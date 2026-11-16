@@ -1,0 +1,12 @@
+poolId 0xb67e0601a0363a1ad259dd848cad1c52d6cc4eb18bc526a0dd4f4bdf83773546
+  blocks 111,478,411-111,978,410: 9,067 Core logs, 892 pool swaps (total 892)
+  blocks 111,978,411-112,478,410: 8,663 Core logs, 1,040 pool swaps (total 1,932)
+  blocks 112,478,411-112,728,410: 8,165 Core logs, 911 pool swaps (total 2,843)
+  blocks 112,728,411-112,978,410: 3,550 Core logs, 263 pool swaps (total 3,106)
+  blocks 112,978,411-113,144,572: 3,227 Core logs, 656 pool swaps (total 3,762)
+fee events: 3,752; swaps after the last fee event (fee not paid in yet, 0 here): 1
+wrote 3,762 swaps -> data_swaps/eth_usdg_ekubo_robinhood_nov11_13.csv | 2026-11-11 05:55:36 .. 2026-11-13 06:20:00
+             swaps      token0         token1
+direction                                    
+buy token0    1653  148.550290  300486.018515
+sell token0   2109  159.105204  321616.402897
