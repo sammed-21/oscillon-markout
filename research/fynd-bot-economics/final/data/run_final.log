@@ -1,0 +1,455 @@
+24,199 complete txs; single direct hedge: 22,413 (92.6%); split check max |gap| $1.41e-13
+v3 protocol shares (token0, token1): {'0x16679e2ac1a798865ecf1c1639e67693ddb1c220': (nan, nan), '0x69bfaf19c9f377bb306a89aed9f6b07e2c1a8d9a': (0.25, 0.25), '0x7615926023bb149f36095645c2a81dc367d39750': (nan, nan), '0x9b050cb1f265094b0977160a2bd7da8c9e529c3c': (0.25, 0.25), '0xa9188730fe85be88ad499d7d52b099e800fb0334': (0.16666666666666666, 0.16666666666666666), '0xfae65eaa11943f45e83d5b45dc7a7c801c51bfb0': (nan, nan)}
+h_total_usd                1489.0
+h_basis_usd                -299.3
+h_own_dev_usd               406.4
+h_impact_usd                486.1
+h_fee_lp_usd                665.0
+h_fee_protocol_usd          189.9
+h_fee_split_unknown_usd      55.2
+h_move_12s_usd              439.9
+{
+ "external_swaps": 3843,
+ "external_swaps_fee_observed_in_usdg": 2434,
+ "external_usdg_input_swaps_checked": 1367,
+ "external_usdg_input_fee_max_usdg": 0.0,
+ "external_output_fee_bp_median": 5.387981353379695,
+ "external_output_fee_bp_volume_weighted": 20.462908005508766,
+ "external_output_fee_usd_observed": 893.1504950000001,
+ "fa_intervals_usdg_checkable": 22202,
+ "fa_intervals_usdg_checkable_with_external_fees": 2426,
+ "match_80pct_with_external_fees": 2426,
+ "match_80pct_all_checkable": 22186,
+ "lp_share_median_with_external_fees": 0.7999935913354855,
+ "external_fee_usd_with_80pct_verified": 893.1504949999998
+}
+{
+ "trades": 22413,
+ "check_max_abs_bp": 4.508393658397836e-12,
+ "median_bp": {
+  "gap_after_signed": 5.06442379925115,
+  "basis": -1.1376662506594362,
+  "hedge_dev": 0.9197694290418125,
+  "hedge_impact": 1.816608689074814,
+  "fynd_vs_hedge_after": 2.496807206415145,
+  "marginal_fees_bp": 2.571912189795338,
+  "left_minus_fees_bp": -0.43899603380754026,
+  "gap_before_signed": 7.925933866112377,
+  "fynd_vs_hedge_before": 7.585997836339751
+ },
+ "mean_bp": {
+  "gap_after_signed": 4.940698759155698,
+  "basis": -0.8561366148447929,
+  "hedge_dev": 1.0367716320508376,
+  "hedge_impact": 2.3253795958259866,
+  "fynd_vs_hedge_after": 2.4825507801247686,
+  "marginal_fees_bp": 3.3100586496256716,
+  "left_minus_fees_bp": -0.8275078695009027,
+  "gap_before_signed": 8.335679241026444,
+  "fynd_vs_hedge_before": 8.202910857821495
+ },
+ "by_direction_median_bp": {
+  "bot_buys_eth": {
+   "gap_after_signed": 5.128238856630693,
+   "basis": 1.590650204624146,
+   "hedge_dev": 0.5521274025063093,
+   "hedge_impact": 1.624544672965859,
+   "fynd_vs_hedge_after": 1.2666476563832718,
+   "marginal_fees_bp": 1.9063405090412093,
+   "left_minus_fees_bp": -0.4926235792485443,
+   "gap_before_signed": 8.199338967456235,
+   "fynd_vs_hedge_before": 5.962187394828008
+  },
+  "bot_sells_eth": {
+   "gap_after_signed": 4.989743879134298,
+   "basis": -2.8130600239170147,
+   "hedge_dev": 1.780410931850021,
+   "hedge_impact": 2.9111215891792037,
+   "fynd_vs_hedge_after": 2.5261675195883906,
+   "marginal_fees_bp": 3.204531513183802,
+   "left_minus_fees_bp": -0.37202523963168327,
+   "gap_before_signed": 7.638154131010731,
+   "fynd_vs_hedge_before": 8.588129001455986
+  }
+ },
+ "share_left_within_1bp_of_fees": 0.6932583768348726,
+ "share_left_within_2bp_of_fees": 0.8788203274885111,
+ "mean_fee_bp_unweighted": 1.014415210159702,
+ "median_fee_bp": 0.5035798325504075,
+ "volume_weighted_fee_bp": 1.6984932650231455,
+ "trades_gross_below_gas": 792,
+ "gross_per_trade_usd_quantiles": {
+  "0.01": 0.006800404368434148,
+  "0.05": 0.017214593737078322,
+  "0.25": 0.0266721782429845,
+  "0.5": 0.030644
+ },
+ "active_seconds": 2157049,
+ "active_wide_binance_gap_no_trade": {
+  "seconds": 267331,
+  "median_gap_vs_onchain_bp": 11.267821003257783,
+  "median_gap_vs_binance_bp": 10.721311418471446
+ }
+}
+vs_binance {'[0.0, 2.0)': 0.0014, '[2.0, 4.0)': 0.0019, '[4.0, 6.0)': 0.0051, '[6.0, 8.0)': 0.0227, '[8.0, 10.0)': 0.0515, '[10.0, 12.0)': 0.0661, '[12.0, 15.0)': 0.0519, '[15.0, 20.0)': 0.0301, '[20.0, 1000000000.0)': 0.0087}
+vs_onchain {'[0.0, 2.0)': 0.0001, '[2.0, 4.0)': 0.0011, '[4.0, 6.0)': 0.0123, '[6.0, 8.0)': 0.0184, '[8.0, 10.0)': 0.0255, '[10.0, 12.0)': 0.0503, '[12.0, 15.0)': 0.0788, '[15.0, 20.0)': 0.0367, '[20.0, 1000000000.0)': 0.009}
+period                              before        from
+fynd_loss_over_lvr                   0.780       0.881
+fynd_loss_bot_over_lvr               0.195       0.822
+fynd_loss_external_over_lvr          0.215       0.037
+fynd_fees_over_lvr                   0.207       0.136
+uniswap_loss_over_lvr                0.941       0.957
+fynd_lvr_usd                       278.506     164.053
+fynd_loss_usd                      144.737     160.613
+eth_vol_ann_pct                     46.514      49.137
+fynd_depth_usd_per_1pct          10748.144    4947.689
+mean_abs_gap_bp                     14.551       6.264
+bot_trades                         320.000     835.000
+bot_volume_usd                   56668.638  135938.380
+bot_idle_hours                      24.000       1.274
+bot_loss_bp                          7.900       9.154
+bot_fee_bp                           1.230       1.655
+bot_gap_before_abs_bp                7.339       8.610
+bot_gap_after_abs_bp                 4.897       5.666
+hedge_cost_bp                        3.613       4.260
+hedge_share_v4_eth_usdg_1bp          0.424       0.422
+hedge_share_v4_weth_usdg_2bp         0.498       0.324
+bot_trade_size_median_usd          191.181     155.967
+external_swaps                     133.000      61.000
+external_volume_usd              33250.907    6962.528
+external_loss_bp                    18.325       4.896
+external_fee_bp_lp                  12.097       3.042
+external_trade_size_median_usd      55.020      51.604
+bot_share_of_volume                  0.494       0.934
+active_positions                     9.000       7.000
+active_lps                           2.000       4.000
+range_width_bp_capital_weighted    121.862     507.943
+{
+ "sums": {
+  "fynd_loss_usd": {
+   "before": 2702.1950736064177,
+   "from": 2924.550995193836
+  },
+  "fynd_lvr_usd": {
+   "before": 5602.829137825341,
+   "from": 3330.7551369452003
+  },
+  "bot_volume_usd": {
+   "before": 1226128.4544729756,
+   "from": 2875690.2106295847
+  },
+  "external_volume_usd": {
+   "before": 697662.5576217696,
+   "from": 205642.62918071065
+  },
+  "bot_trades": {
+   "before": 5621,
+   "from": 16209
+  },
+  "bot_idle_hours": {
+   "before": 254.99722222222223,
+   "from": 51.89972222222222
+  }
+ },
+ "loss_over_lvr_on_days_bot_idle_lt_2h": {
+  "before": 0.8574111695289361,
+  "from": 0.9419117205633301
+ }
+}
+cut 0.0 {'bot_trades': 23657.0, 'lp_fees_usd': 1479.3, 'protocol_fees_usd': 369.8, 'lp_net_trading_12s_usd': -3441.8, 'bot_net_usd': 802.8, 'mean_abs_gap_bp': 9.2}
+cut 0.1 {'bot_trades': 24950.0, 'lp_fees_usd': 1515.9, 'protocol_fees_usd': 379.0, 'lp_net_trading_12s_usd': -3407.7, 'bot_net_usd': 824.8, 'mean_abs_gap_bp': 9.0}
+cut 0.25 {'bot_trades': 27038.0, 'lp_fees_usd': 1591.5, 'protocol_fees_usd': 397.9, 'lp_net_trading_12s_usd': -3349.2, 'bot_net_usd': 869.9, 'mean_abs_gap_bp': 8.4}
+cut 0.5 {'bot_trades': 31565.0, 'lp_fees_usd': 1716.1, 'protocol_fees_usd': 429.0, 'lp_net_trading_12s_usd': -3241.5, 'bot_net_usd': 968.5, 'mean_abs_gap_bp': 8.1}
+{
+ "trades": 24199,
+ "hedge_notional_usd": 4477209.3117793575,
+ "hedge_cost_usd": 1875.9886429603712,
+ "hedge_cost_bp_vw": 4.190084743245576,
+ "single_direct": {
+  "trades": 22413,
+  "cost_bp_mean": {
+   "cost_fee_bp": 2.0888726876767674,
+   "cost_impact_bp": 1.1877898656617212,
+   "cost_own_dev_bp": 1.036589229923375,
+   "cost_basis_bp": -0.8559446819757783
+  },
+  "cost_usd": {
+   "cost_fee_bp": -910.0796040435807,
+   "cost_impact_bp": -486.1223090429952,
+   "cost_own_dev_bp": -406.3527187060711,
+   "cost_basis_bp": 299.25144309765955
+  }
+ },
+ "counterfactual_uni1bp": {
+  "trades": 23543,
+  "actual_cost_usd": 1863.987896896048,
+  "cf_cost_usd": 137.00414137881876,
+  "actual_bp_vw": 4.257614162398509,
+  "cf_bp_vw": 0.31293699578900047,
+  "share_trades_cf_cheaper": 0.9471605148027015,
+  "best_of_both_cost_usd": 122.7618468359571,
+  "by_direction_bp": {
+   "bot_buys_eth": {
+    "actual": 4.75061170480701,
+    "cf": 2.5493832503820686,
+    "uni1bp_mid_vs_binance_bp_median": -1.622095593933114
+   },
+   "bot_sells_eth": {
+    "actual": 3.7850355714861115,
+    "cf": -1.8308802218050662,
+    "uni1bp_mid_vs_binance_bp_median": -2.7949509909893875
+   }
+  }
+ },
+ "splitting_rough": {
+  "impact_cost_usd_single_direct": -486.1223090429952,
+  "saving_if_impact_halved_usd": -243.0611545214976,
+  "note": "impact is linear in size on constant liquidity; two pools of equal depth halve it; extra hop gas not deducted"
+ },
+ "netting": {
+  "30s": {
+   "pairs": 719,
+   "netted_notional_usd": 98651.26367865132,
+   "hedge_cost_saved_usd": 43.287920262038924,
+   "inventory_pnl_mean_usd": 0.14384100714850717,
+   "inventory_pnl_std_usd": 0.11645710032651768
+  },
+  "60s": {
+   "pairs": 1435,
+   "netted_notional_usd": 199787.7121690431,
+   "hedge_cost_saved_usd": 102.31247742581564,
+   "inventory_pnl_mean_usd": 0.1535487223259779,
+   "inventory_pnl_std_usd": 0.105880088545814
+  }
+ }
+}
+A {'bot_trades': 23657.0, 'lp_fees_usd': 1479.3, 'protocol_fees_usd': 369.8, 'lp_net_trading_12s_usd': -3441.8, 'bot_net_usd': 802.8, 'mean_abs_gap_bp': 9.2, 'share_time_gap_over_10bp': 0.1}
+H50 {'bot_trades': 31565.0, 'lp_fees_usd': 1716.1, 'protocol_fees_usd': 429.0, 'lp_net_trading_12s_usd': -3241.5, 'bot_net_usd': 968.5, 'mean_abs_gap_bp': 8.1, 'share_time_gap_over_10bp': 0.1}
+Hdeep {'bot_trades': 37548.0, 'lp_fees_usd': 1883.5, 'protocol_fees_usd': 470.9, 'lp_net_trading_12s_usd': -3072.0, 'bot_net_usd': 1095.9, 'mean_abs_gap_bp': 7.8, 'share_time_gap_over_10bp': 0.1}
+H50+D2.5 {'bot_trades': 27720.0, 'lp_fees_usd': 1987.9, 'protocol_fees_usd': 497.0, 'lp_net_trading_12s_usd': -2954.1, 'bot_net_usd': 885.6, 'mean_abs_gap_bp': 8.3, 'share_time_gap_over_10bp': 0.1}
+Hdeep+D2.5 {'bot_trades': 32432.0, 'lp_fees_usd': 2176.8, 'protocol_fees_usd': 544.2, 'lp_net_trading_12s_usd': -2776.8, 'bot_net_usd': 977.2, 'mean_abs_gap_bp': 8.0, 'share_time_gap_over_10bp': 0.1}
+H50+D3 {'bot_trades': 25832.0, 'lp_fees_usd': 2124.3, 'protocol_fees_usd': 531.1, 'lp_net_trading_12s_usd': -2806.4, 'bot_net_usd': 841.2, 'mean_abs_gap_bp': 8.9, 'share_time_gap_over_10bp': 0.1}
+Hdeep+D3 {'bot_trades': 29767.0, 'lp_fees_usd': 2325.6, 'protocol_fees_usd': 581.4, 'lp_net_trading_12s_usd': -2663.5, 'bot_net_usd': 958.8, 'mean_abs_gap_bp': 8.8, 'share_time_gap_over_10bp': 0.1}
+H50+D4 {'bot_trades': 22583.0, 'lp_fees_usd': 2340.4, 'protocol_fees_usd': 585.1, 'lp_net_trading_12s_usd': -2580.3, 'bot_net_usd': 774.7, 'mean_abs_gap_bp': 9.6, 'share_time_gap_over_10bp': 0.2}
+Hdeep+D4 {'bot_trades': 25646.0, 'lp_fees_usd': 2550.0, 'protocol_fees_usd': 637.5, 'lp_net_trading_12s_usd': -2377.8, 'bot_net_usd': 836.1, 'mean_abs_gap_bp': 8.9, 'share_time_gap_over_10bp': 0.1}
+H50+D5 {'bot_trades': 20128.0, 'lp_fees_usd': 2523.9, 'protocol_fees_usd': 631.0, 'lp_net_trading_12s_usd': -2404.8, 'bot_net_usd': 724.1, 'mean_abs_gap_bp': 9.7, 'share_time_gap_over_10bp': 0.2}
+Hdeep+D5 {'bot_trades': 22422.0, 'lp_fees_usd': 2716.1, 'protocol_fees_usd': 679.0, 'lp_net_trading_12s_usd': -2206.3, 'bot_net_usd': 773.3, 'mean_abs_gap_bp': 9.6, 'share_time_gap_over_10bp': 0.2}
+A0+Hdeep+D3 {'bot_trades': 34820.0, 'lp_fees_usd': 2608.1, 'protocol_fees_usd': 652.0, 'lp_net_trading_12s_usd': -2646.9, 'bot_net_usd': 1330.8, 'mean_abs_gap_bp': 4.9, 'share_time_gap_over_10bp': 0.1}
+A0+Hdeep+D4 {'bot_trades': 29985.0, 'lp_fees_usd': 2899.5, 'protocol_fees_usd': 724.9, 'lp_net_trading_12s_usd': -2349.0, 'bot_net_usd': 1204.0, 'mean_abs_gap_bp': 5.4, 'share_time_gap_over_10bp': 0.1}
+hedge cost in A: 3.8909245173932425 Fynd fee in A: 1.6984932650231463
+                                                                           step      usd                      metric
+0             1. Price edge captured: Fynd price vs hedge price, before any fee  1676.42             gross, realized
+1                                              2. less Fynd fee paid by the bot  -760.29                        cost
+2                                                           3. less router fees  -177.57                        cost
+3                                                        4. = Gross trading P&L   738.55             gross, realized
+4                                                      5. less gas on these txs  -443.46                        cost
+5                                         6. = Net realized P&L on complete txs   295.09               net, realized
+6                                               7. plus the incomplete txs, net     0.08               net, realized
+7                  8. less gas on the EOA's txs that were not trades (estimate)   -12.51               cost estimate
+8                                           9. = Net after all measurable costs   282.67               net, realized
+9                       10. ETH kept as profit, revalued to the Nov 13 snapshot   -64.67                  unrealized
+10                                            11. = Net, marked to the snapshot   218.00  net, realized + unrealized
+11       R1. Gross, trades without an on-chain reference price (Nov 13) removed   724.95             gross, realized
+12  R2. same trades, ETH profit valued at the on-chain price instead of Binance   724.84             gross, realized
+13                                              R3. Gross at Binance 12 s later   738.51                       gross
+                                                                                                                           section                                                                           item      usd
+0                                                                        A. LP results vs holding, by owner group (Oct 2 - Nov 13)                  0x6c6a...7127 (Fynd, confirmed by Edouard Nov 12): LP vs hold -3196.99
+1                                                                        A. LP results vs holding, by owner group (Oct 2 - Nov 13)                held through contract 0x0db596af (owner unresolved): LP vs hold  -510.54
+2                                                                        A. LP results vs holding, by owner group (Oct 2 - Nov 13)                                  other EOAs (ownership unresolved): LP vs hold  -217.36
+3                                                                        A. LP results vs holding, by owner group (Oct 2 - Nov 13)                                          all LPs other than 0x6c6a: LP vs hold  -727.91
+4                                                                        A. LP results vs holding, by owner group (Oct 2 - Nov 13)                                           all LPs: LP vs hold (checked report) -3924.90
+5                                                                                             B. Fynd fees: who paid, who received                                 LP fee income, position level (checked report)  2068.59
+6                                                                                             B. Fynd fees: who paid, who received                                same LP fees valued when paid (FeesAccumulated)  2085.81
+7                                                                                             B. Fynd fees: who paid, who received                                  gross Fynd fees, all payers (= LP fees / 0.8)  2607.27
+8                                                                                             B. Fynd fees: who paid, who received                                                    protocol (owner) share, 20%   521.45
+9                                                                                             B. Fynd fees: who paid, who received                                               paid by the bot (exact per swap)   760.29
+10                                                                                            B. Fynd fees: who paid, who received                             paid by everyone else (gross fees minus the bot's)  1846.97
+11                                                                                            B. Fynd fees: who paid, who received             B2. external traders' fees observed (charged on their USDG output)   893.15
+12                                                                                            B. Fynd fees: who paid, who received           B2. LP fee payments that include external fees and equal exactly 80%      NaN
+13                                                         C. The bot's swaps: where the LPs' swap-side result went (exact per tx)                                     Fynd LPs' swap side (Binance at execution) -3552.47
+14                                                         C. The bot's swaps: where the LPs' swap-side result went (exact per tx)                                 pools the bot hedged on (Binance at execution)  1876.05
+15                                                         C. The bot's swaps: where the LPs' swap-side result went (exact per tx)                                              bot, gross (Binance at execution)   738.55
+16                                                         C. The bot's swaps: where the LPs' swap-side result went (exact per tx)                                                Fynd fee (Binance at execution)   760.29
+17                                                         C. The bot's swaps: where the LPs' swap-side result went (exact per tx)                                             router fees (Binance at execution)   177.57
+18                                                         C. The bot's swaps: where the LPs' swap-side result went (exact per tx)                             residual: LPs' side + parts (Binance at execution)    -0.00
+19                                                         C. The bot's swaps: where the LPs' swap-side result went (exact per tx)                                       Fynd LPs' swap side (Binance 12 s later) -4028.02
+20                                                         C. The bot's swaps: where the LPs' swap-side result went (exact per tx)                                   pools the bot hedged on (Binance 12 s later)  2351.77
+21                                                         C. The bot's swaps: where the LPs' swap-side result went (exact per tx)                                                bot, gross (Binance 12 s later)   738.51
+22                                                         C. The bot's swaps: where the LPs' swap-side result went (exact per tx)                                                  Fynd fee (Binance 12 s later)   760.22
+23                                                         C. The bot's swaps: where the LPs' swap-side result went (exact per tx)                                               router fees (Binance 12 s later)   177.57
+24                                                         C. The bot's swaps: where the LPs' swap-side result went (exact per tx)                               residual: LPs' side + parts (Binance 12 s later)     0.05
+25  D. The hedge pools' result split (21,764 single direct ETH/USDG hedges with an on-chain reference price, Binance at execution)                                  fees charged by the hedge pools, to their LPs   662.31
+26  D. The hedge pools' result split (21,764 single direct ETH/USDG hedges with an on-chain reference price, Binance at execution)                            fees charged by the hedge pools, to their protocols   189.08
+27  D. The hedge pools' result split (21,764 single direct ETH/USDG hedges with an on-chain reference price, Binance at execution)                     fees charged by the hedge pools, LP/protocol split unknown    47.26
+28  D. The hedge pools' result split (21,764 single direct ETH/USDG hedges with an on-chain reference price, Binance at execution)                                 price impact of the bot's hedge on those pools   471.70
+29  D. The hedge pools' result split (21,764 single direct ETH/USDG hedges with an on-chain reference price, Binance at execution)                  those pools' price vs the on-chain reference before the hedge   406.35
+30  D. The hedge pools' result split (21,764 single direct ETH/USDG hedges with an on-chain reference price, Binance at execution)                                          on-chain reference vs Binance (basis)  -299.25
+31  D. The hedge pools' result split (21,764 single direct ETH/USDG hedges with an on-chain reference price, Binance at execution)                                             = hedge pools' result at execution  1477.46
+32  D. The hedge pools' result split (21,764 single direct ETH/USDG hedges with an on-chain reference price, Binance at execution)                              Binance move over the next 12 s on what they took   424.59
+33  D. The hedge pools' result split (21,764 single direct ETH/USDG hedges with an on-chain reference price, Binance at execution)  other bot trades (multi-hop hedges, or no on-chain reference on Nov 13), 12 s   449.72
+34                E. The Fynd pool's side split (23,543 complete bot swaps with an on-chain reference price, Binance at execution)            Fynd's price vs the on-chain reference before the trade (staleness) -4669.48
+35                E. The Fynd pool's side split (23,543 complete bot swaps with an on-chain reference price, Binance at execution)                                          on-chain reference vs Binance (basis)   316.04
+36                E. The Fynd pool's side split (23,543 complete bot swaps with an on-chain reference price, Binance at execution)                      Fynd's own curve (the pool gains from the trade's impact)   852.03
+37                E. The Fynd pool's side split (23,543 complete bot swaps with an on-chain reference price, Binance at execution)                                                          = Fynd LPs' swap side -3501.41
+38                                                                                 F. External traders (not the bot), whole period                                         LPs' swap side on external swaps, 12 s -1873.38
+39                                                                                 F. External traders (not the bot), whole period                                             fees external traders paid (gross)  1837.83
+40                                                                                 F. External traders (not the bot), whole period                                            external traders' result after fees    35.55
+{
+ "bot_event_vs_reconstruction": {
+  "eth_event": 0.18065553613993732,
+  "eth_rebuilt": 0.1806555361399373,
+  "usdg_event": 325.50235,
+  "usdg_rebuilt": 325.50235000000004
+ },
+ "independent": {
+  "lp_minus_hold_usd": -727.9050042402013,
+  "avg_capital_usd": 7969.822445424123,
+  "pct_30d": -6.520635885962261,
+  "fees_usd": 190.23444100652947,
+  "il_usd": -918.1394452467292,
+  "pct_period": -9.133265003389482
+ },
+ "split_pct_12s": {
+  "hedge": 58.38526288668221,
+  "bot": 18.334219391799056,
+  "fee": 18.873311061543063,
+  "router": 4.408334092529426
+ }
+}
+{
+ "direct_transfers_between_named_wallets": [
+  {
+   "block": 96098879,
+   "tx": "0x752a85c24edc3be14ceb94204238bb3c985fc8d4fd7e5e6c766b9dc8ab2910f7",
+   "token": "USDG",
+   "from": "bot_contract",
+   "to": "bot_owner_1",
+   "amount": 117.773593
+  },
+  {
+   "block": 110928712,
+   "tx": "0x0226985a92ffc2881e03e0d3669ef093ca69553ef3015ee35efce81de0150f2d",
+   "token": "USDG",
+   "from": "bot_contract",
+   "to": "bot_owner_1",
+   "amount": 158.694006
+  },
+  {
+   "block": 111713318,
+   "tx": "0xc429c1db23a3c028d45a3a0fc4b996e52aa95969cd16e393eb8223246e2c1672",
+   "token": "USDG",
+   "from": "bot_contract",
+   "to": "bot_owner_1",
+   "amount": 106.308022
+  }
+ ],
+ "bot_contract_out_not_trades": [
+  {
+   "block": 96098879,
+   "tx": "0x752a85c24edc3be14ceb94204238bb3c985fc8d4fd7e5e6c766b9dc8ab2910f7",
+   "token": "USDG",
+   "from": "bot_contract",
+   "to": "bot_owner_1",
+   "amount": 117.773593
+  },
+  {
+   "block": 110928712,
+   "tx": "0x0226985a92ffc2881e03e0d3669ef093ca69553ef3015ee35efce81de0150f2d",
+   "token": "USDG",
+   "from": "bot_contract",
+   "to": "bot_owner_1",
+   "amount": 158.694006
+  },
+  {
+   "block": 111713318,
+   "tx": "0xc429c1db23a3c028d45a3a0fc4b996e52aa95969cd16e393eb8223246e2c1672",
+   "token": "USDG",
+   "from": "bot_contract",
+   "to": "bot_owner_1",
+   "amount": 106.308022
+  }
+ ],
+ "bot_contract_in_not_trades": [],
+ "owner_1_transfers": [
+  {
+   "block": 96098885,
+   "tx": "0xc70365c0c1b9fe66d6b54f0b770b2efbc288e2eefd8d17a6596b2df051858702",
+   "token": "USDG",
+   "from": "bot_owner_1",
+   "to": "0x52e65b17fb6e5ba00ed806f37afcd2daa50271ca",
+   "amount": 117.773593
+  },
+  {
+   "block": 110928730,
+   "tx": "0x52c5a595105e8ac74f933aed5acd447eacf94f64d0d1f168d556e28c1b7b5fc7",
+   "token": "USDG",
+   "from": "bot_owner_1",
+   "to": "0x00000000000014aa86c5d3c41765bb24e11bd701",
+   "amount": 120.018088
+  },
+  {
+   "block": 110928730,
+   "tx": "0x52c5a595105e8ac74f933aed5acd447eacf94f64d0d1f168d556e28c1b7b5fc7",
+   "token": "USDG",
+   "from": "bot_owner_1",
+   "to": "0x00000000000014aa86c5d3c41765bb24e11bd701",
+   "amount": 12.967482
+  },
+  {
+   "block": 110928730,
+   "tx": "0x52c5a595105e8ac74f933aed5acd447eacf94f64d0d1f168d556e28c1b7b5fc7",
+   "token": "USDG",
+   "from": "bot_owner_1",
+   "to": "0x00000000000014aa86c5d3c41765bb24e11bd701",
+   "amount": 22.099485
+  },
+  {
+   "block": 110928730,
+   "tx": "0x52c5a595105e8ac74f933aed5acd447eacf94f64d0d1f168d556e28c1b7b5fc7",
+   "token": "USDG",
+   "from": "bot_owner_1",
+   "to": "0x00000000000014aa86c5d3c41765bb24e11bd701",
+   "amount": 2.088215
+  },
+  {
+   "block": 111713368,
+   "tx": "0x493b84ee35ae5cdb78ed8a6b3d4cc9ee0ceecc5b463d00498b792a68b49d2edf",
+   "token": "USDG",
+   "from": "bot_owner_1",
+   "to": "0x00000000000014aa86c5d3c41765bb24e11bd701",
+   "amount": 106.308022
+  },
+  {
+   "block": 110928730,
+   "tx": "0x52c5a595105e8ac74f933aed5acd447eacf94f64d0d1f168d556e28c1b7b5fc7",
+   "token": "USDG",
+   "from": "0x00000000000014aa86c5d3c41765bb24e11bd701",
+   "to": "bot_owner_1",
+  
+/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/numpy/lib/_nanfunctions_impl.py:1213: RuntimeWarning: Mean of empty slice
+  return np.nanmean(a, axis, out=out, keepdims=keepdims)
+/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/numpy/lib/_nanfunctions_impl.py:1213: RuntimeWarning: Mean of empty slice
+  return np.nanmean(a, axis, out=out, keepdims=keepdims)
+/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/numpy/lib/_nanfunctions_impl.py:1213: RuntimeWarning: Mean of empty slice
+  return np.nanmean(a, axis, out=out, keepdims=keepdims)
+wrote FINAL_FINDINGS.md, LVR_CHANGEPOINT_ANALYSIS.md, MECHANISM_RECOMMENDATIONS.md, EXEC_SUMMARY_FOR_FYND.md
+.....................                                                    [100%]
+=============================== warnings summary ===============================
+tests/test_outputs.py::test_value_conserved_in_every_complete_tx
+  /Users/sammedsbetadur/Desktop/oscillon/oscillon-markout/research/fynd-bot-economics/tests/test_outputs.py:16: DtypeWarning: Columns (10) have mixed types. Specify dtype option on import or set low_memory=False.
+    E = pd.read_csv(os.path.join(OUT, "bot_transaction_economics.csv"))
+
+tests/test_outputs.py::test_reconstruction_matches_bot_event_everywhere
+  /Users/sammedsbetadur/Desktop/oscillon/oscillon-markout/research/fynd-bot-economics/tests/test_outputs.py:23: DtypeWarning: Columns (10) have mixed types. Specify dtype option on import or set low_memory=False.
+    E = pd.read_csv(os.path.join(OUT, "bot_transaction_economics.csv"))
+
+tests/test_outputs.py::test_gross_net_gas_and_fee_split
+  /Users/sammedsbetadur/Desktop/oscillon/oscillon-markout/research/fynd-bot-economics/tests/test_outputs.py:30: DtypeWarning: Columns (10) have mixed types. Specify dtype option on import or set low_memory=False.
+    E = pd.read_csv(os.path.join(OUT, "bot_transaction_economics.csv"))
+
+tests/test_outputs.py::test_reconciliation_rows_come_from_the_csv
+  /Users/sammedsbetadur/Desktop/oscillon/oscillon-markout/research/fynd-bot-economics/tests/test_outputs.py:38: DtypeWarning: Columns (10) have mixed types. Specify dtype option on import or set low_memory=False.
+    E = pd.read_csv(os.path.join(OUT, "bot_transaction_economics.csv"))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+21 passed, 4 warnings in 1.17s

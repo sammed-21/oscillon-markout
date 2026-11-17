@@ -1,0 +1,18 @@
+{
+ "protocol_share": 0.2,
+ "fee_split_check": {
+  "intervals_with_only_bot_swaps": 18412,
+  "match_80pct": 18396,
+  "lp_share_eth_median": 0.7999999999999466,
+  "lp_share_usdg_median": 0.7999758988957314
+ },
+ "nonce": {
+  "txs_with_body": 10550,
+  "first_nonce": 0,
+  "last_nonce_seen": 13571,
+  "fynd_txs_up_to_that_nonce": 10550,
+  "non_fynd_txs_up_to_that_nonce": 3022,
+  "last_nonce_block": 98937663
+ },
+ "binance_last_ts": 1794614400
+}

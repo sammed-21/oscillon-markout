@@ -1,0 +1,17 @@
+section,item,intervals_checkable,intervals_equal_80pct_within_0.1pct_or_rounding,median_ratio,lp_paid,fees_charged,ratio_of_sums,label
+interval check: LP payment / fees charged,"bot only, ETH fees",8911.0,8911.0,0.7999999999999466,0.14822626907889275,0.18528283634863524,0.7999999999999167,recomputed: bot ETH fees come from the bot's own event; the LP payment is independent
+interval check: LP payment / fees charged,"bot only, USDG fees",9501.0,9485.0,0.7999757399320718,272.10835099999997,343.839839,0.7913811028744694,verified directly from on-chain data
+interval check: LP payment / fees charged,"mixed, ETH fees",3.0,3.0,0.7999999999999774,4.8139764932933e-05,6.0174706166168004e-05,0.7999999999999767,recomputed: bot ETH fees come from the bot's own event; the LP payment is independent
+interval check: LP payment / fees charged,"mixed, USDG fees",276.0,276.0,0.7999868032097007,10.594135999999999,13.242804999999999,0.7999918446280829,verified directly from on-chain data
+interval check: LP payment / fees charged,"external only, ETH fees",0.0,0.0,,0.0,0.0,,verified directly from on-chain data
+interval check: LP payment / fees charged,"external only, USDG fees",2154.0,2154.0,0.7999943723981551,704.5463100000001,880.683949,0.7999990357494299,verified directly from on-chain data
+interval check: LP payment / fees charged,"all, ETH fees",8914.0,8914.0,0.7999999999999466,0.14827440884382567,0.1853430110548014,0.7999999999999167,recomputed: bot ETH fees come from the bot's own event; the LP payment is independent
+interval check: LP payment / fees charged,"all, USDG fees",11931.0,11915.0,0.7999797908351437,987.248797,1237.7665929999998,0.7976049786633723,verified directly from on-chain data
+totals,"FeesAccumulated paid to LPs, valued when paid (USD)",,,,2085.8120531864743,,,verified directly from on-chain data
+totals,"position-level LP fee income (checked LP report, USD)",,,,2068.5869847060962,,,recomputed (checked report)
+totals,gross fees implied = LP payments / 0.8 (USD),,,,,2607.2650664830926,,inferred (80% verified on intervals)
+totals,Fynd 20% implied (USD),,,,,521.4530132966186,,inferred: where the 20% goes is not visible
+bot,"Fynd fees paid by the bot, complete txs, at exec (USD)",,,,,760.2934638936168,,USDG observed; ETH from bot event
+bot,  80% to LPs,,,,,608.2347711148935,,recomputed
+bot,  20% to Fynd,,,,,152.05869277872338,,recomputed
+bot,bot txs with zero Fynd fee,5511.0,,,,,,recomputed

@@ -1,0 +1,318 @@
+{
+ "bot_event_vs_reconstruction": {
+  "eth_event": 0.18065553613993732,
+  "eth_rebuilt": 0.1806555361399373,
+  "usdg_event": 325.50235,
+  "usdg_rebuilt": 325.50235000000004
+ },
+ "owner_groups": [
+  {
+   "group": "0x6c6a...7127 (Fynd, confirmed by Edouard Nov 12)",
+   "positions": 153,
+   "capital_days_usd": 442469.47886208026,
+   "fees_usd": 1878.3525436995667,
+   "il_usd": -5075.343387498407,
+   "lp_minus_hold_usd": -3196.990843798856,
+   "avg_capital_usd": 10529.941414672514,
+   "lp_minus_hold_pct_period": -30.36095565872893,
+   "lp_minus_hold_pct_30d": -21.67600928331176
+  },
+  {
+   "group": "held through contract 0x0db596af (owner unresolved)",
+   "positions": 1,
+   "capital_days_usd": 233712.52725377725,
+   "fees_usd": 75.15143872117517,
+   "il_usd": -585.6956193109672,
+   "lp_minus_hold_usd": -510.54418058979354,
+   "avg_capital_usd": 5561.918589698762,
+   "lp_minus_hold_pct_period": -9.179281795590702,
+   "lp_minus_hold_pct_30d": -6.553489279187222
+  },
+  {
+   "group": "other EOAs (ownership unresolved)",
+   "positions": 25,
+   "capital_days_usd": 101180.42657941306,
+   "fees_usd": 115.08300228535428,
+   "il_usd": -332.443825935762,
+   "lp_minus_hold_usd": -217.36082365040767,
+   "avg_capital_usd": 2407.903855725359,
+   "lp_minus_hold_pct_period": -9.026972697999593,
+   "lp_minus_hold_pct_30d": -6.4447491772474965
+  }
+ ],
+ "independent": {
+  "lp_minus_hold_usd": -727.9050042402013,
+  "avg_capital_usd": 7969.822445424123,
+  "pct_30d": -6.520635885962261,
+  "fees_usd": 190.23444100652947,
+  "il_usd": -918.1394452467292,
+  "pct_period": -9.133265003389482
+ },
+ "split_pct_12s": {
+  "hedge": 58.38526288668221,
+  "bot": 18.334219391799056,
+  "fee": 18.873311061543063,
+  "router": 4.408334092529426
+ },
+ "hedge_split": {
+  "fees charged by the hedge pools, to their LPs": 662.3089867726451,
+  "fees charged by the hedge pools, to their protocols": 189.08249368357522,
+  "fees charged by the hedge pools, LP/protocol split unknown": 47.26336688899694,
+  "price impact of the bot's hedge on those pools": 471.70144786417575,
+  "those pools' price vs the on-chain reference before the hedge": 406.3527187060711,
+  "on-chain reference vs Binance (basis)": -299.2514430976596,
+  "= hedge pools' result at execution": 1477.4575708178058,
+  "Binance move over the next 12 s on what they took": 424.59174435421096,
+  "other bot trades (multi-hop hedges, or no on-chain reference on Nov 13), 12 s": 449.7221699426555
+ },
+ "fynd_split": {
+  "f_own_dev_usd": -4669.479260430313,
+  "f_basis_usd": 316.0407607477475,
+  "f_impact_usd": 852.0280804968361,
+  "f_total_usd": -3501.4104191857314
+ },
+ "wallet_links": {
+  "direct_transfers_between_named_wallets": [
+   {
+    "block": 96098879,
+    "tx": "0x752a85c24edc3be14ceb94204238bb3c985fc8d4fd7e5e6c766b9dc8ab2910f7",
+    "token": "USDG",
+    "from": "bot_contract",
+    "to": "bot_owner_1",
+    "amount": 117.773593
+   },
+   {
+    "block": 110928712,
+    "tx": "0x0226985a92ffc2881e03e0d3669ef093ca69553ef3015ee35efce81de0150f2d",
+    "token": "USDG",
+    "from": "bot_contract",
+    "to": "bot_owner_1",
+    "amount": 158.694006
+   },
+   {
+    "block": 111713318,
+    "tx": "0xc429c1db23a3c028d45a3a0fc4b996e52aa95969cd16e393eb8223246e2c1672",
+    "token": "USDG",
+    "from": "bot_contract",
+    "to": "bot_owner_1",
+    "amount": 106.308022
+   }
+  ],
+  "bot_contract_out_not_trades": [
+   {
+    "block": 96098879,
+    "tx": "0x752a85c24edc3be14ceb94204238bb3c985fc8d4fd7e5e6c766b9dc8ab2910f7",
+    "token": "USDG",
+    "from": "bot_contract",
+    "to": "bot_owner_1",
+    "amount": 117.773593
+   },
+   {
+    "block": 110928712,
+    "tx": "0x0226985a92ffc2881e03e0d3669ef093ca69553ef3015ee35efce81de0150f2d",
+    "token": "USDG",
+    "from": "bot_contract",
+    "to": "bot_owner_1",
+    "amount": 158.694006
+   },
+   {
+    "block": 111713318,
+    "tx": "0xc429c1db23a3c028d45a3a0fc4b996e52aa95969cd16e393eb8223246e2c1672",
+    "token": "USDG",
+    "from": "bot_contract",
+    "to": "bot_owner_1",
+    "amount": 106.308022
+   }
+  ],
+  "bot_contract_in_not_trades": [],
+  "owner_1_transfers": [
+   {
+    "block": 96098885,
+    "tx": "0xc70365c0c1b9fe66d6b54f0b770b2efbc288e2eefd8d17a6596b2df051858702",
+    "token": "USDG",
+    "from": "bot_owner_1",
+    "to": "0x52e65b17fb6e5ba00ed806f37afcd2daa50271ca",
+    "amount": 117.773593
+   },
+   {
+    "block": 110928730,
+    "tx": "0x52c5a595105e8ac74f933aed5acd447eacf94f64d0d1f168d556e28c1b7b5fc7",
+    "token": "USDG",
+    "from": "bot_owner_1",
+    "to": "0x00000000000014aa86c5d3c41765bb24e11bd701",
+    "amount": 120.018088
+   },
+   {
+    "block": 110928730,
+    "tx": "0x52c5a595105e8ac74f933aed5acd447eacf94f64d0d1f168d556e28c1b7b5fc7",
+    "token": "USDG",
+    "from": "bot_owner_1",
+    "to": "0x00000000000014aa86c5d3c41765bb24e11bd701",
+    "amount": 12.967482
+   },
+   {
+    "block": 110928730,
+    "tx": "0x52c5a595105e8ac74f933aed5acd447eacf94f64d0d1f168d556e28c1b7b5fc7",
+    "token": "USDG",
+    "from": "bot_owner_1",
+    "to": "0x00000000000014aa86c5d3c41765bb24e11bd701",
+    "amount": 22.099485
+   },
+   {
+    "block": 110928730,
+    "tx": "0x52c5a595105e8ac74f933aed5acd447eacf94f64d0d1f168d556e28c1b7b5fc7",
+    "token": "USDG",
+    "from": "bot_owner_1",
+    "to": "0x00000000000014aa86c5d3c41765bb24e11bd701",
+    "amount": 2.088215
+   },
+   {
+    "block": 111713368,
+    "tx": "0x493b84ee35ae5cdb78ed8a6b3d4cc9ee0ceecc5b463d00498b792a68b49d2edf",
+    "token": "USDG",
+    "from": "bot_owner_1",
+    "to": "0x00000000000014aa86c5d3c41765bb24e11bd701",
+    "amount": 106.308022
+   },
+   {
+    "block": 110928730,
+    "tx": "0x52c5a595105e8ac74f933aed5acd447eacf94f64d0d1f168d556e28c1b7b5fc7",
+    "token": "USDG",
+    "from": "0x00000000000014aa86c5d3c41765bb24e11bd701",
+    "to": "bot_owner_1",
+    "amount": 0.014299
+   },
+   {
+    "block": 110928730,
+    "tx": "0x52c5a595105e8ac74f933aed5acd447eacf94f64d0d1f168d556e28c1b7b5fc7",
+    "token": "USDG",
+    "from": "0x00000000000014aa86c5d3c41765bb24e11bd701",
+    "to": "bot_owner_1",
+    "amount": 0.002501
+   },
+   {
+    "block": 110928730,
+    "tx": "0x52c5a595105e8ac74f933aed5acd447eacf94f64d0d1f168d556e28c1b7b5fc7",
+    "token": "USDG",
+    "from": "0x00000000000014aa86c5d3c41765bb24e11bd701",
+    "to": "bot_owner_1",
+    "amount": 0.001618
+   }
+  ]
+ },
+ "waterfall": [
+  {
+   "step": "1. Price edge captured: Fynd price vs hedge price, before any fee",
+   "usd": 1676.4154065253224,
+   "metric": "gross, realized",
+   "evidence": "calculated",
+   "note": "24,199 complete bot txs, valued at Binance at execution"
+  },
+  {
+   "step": "2. less Fynd fee paid by the bot",
+   "usd": -760.2934638936168,
+   "metric": "cost",
+   "evidence": "observed (USDG) / inferred from bot event (ETH)",
+   "note": "goes 80% to LPs ($608.23) and 20% to the protocol ($152.06)"
+  },
+  {
+   "step": "3. less router fees",
+   "usd": -177.56868605338468,
+   "metric": "cost",
+   "evidence": "observed (USDG) / router event (ETH)",
+   "note": "to 0xa5503d92..."
+  },
+  {
+   "step": "4. = Gross trading P&L",
+   "usd": 738.5532565783209,
+   "metric": "gross, realized",
+   "evidence": "calculated",
+   "note": "this is the $739 in the replay table (REAL row) and in out/ section 4"
+  },
+  {
+   "step": "5. less gas on these txs",
+   "usd": -443.4585631094759,
+   "metric": "cost",
+   "evidence": "observed",
+   "note": "gasUsed x effectiveGasPrice, includes the L1 part"
+  },
+  {
+   "step": "6. = Net realized P&L on complete txs",
+   "usd": 295.094693468845,
+   "metric": "net, realized",
+   "evidence": "calculated",
+   "note": "the reported $295"
+  },
+  {
+   "step": "7. plus the incomplete txs, net",
+   "usd": 0.08024147957276173,
+   "metric": "net, realized",
+   "evidence": "calculated",
+   "note": "59 txs; bot result confirmed by its event"
+  },
+  {
+   "step": "8. less gas on the EOA's txs that were not trades (estimate)",
+   "usd": -12.50930396555801,
+   "metric": "cost estimate",
+   "evidence": "assumed",
+   "note": "844 txs x median trade gas; reverts not listable"
+  },
+  {
+   "step": "9. = Net after all measurable costs",
+   "usd": 282.66563098285974,
+   "metric": "net, realized",
+   "evidence": "calculated",
+   "note": ""
+  },
+  {
+   "step": "10. ETH kept as profit, revalued to the Nov 13 snapshot",
+   "usd": -64.66944202055768,
+   "metric": "unrealized",
+   "evidence": "calculated",
+   "note": "ETH $1,935.91 at snapshot"
+  },
+  {
+   "step": "11. = Net, marked to the snapshot",
+   "usd": 217.99618896230206,
+   "metric": "net, realized + unrealized",
+   "evidence": "calculated",
+   "note": ""
+  },
+  {
+   "step": "R1. Gross, trades without an on-chain reference price (Nov 13) removed",
+   "usd": 724.9543411819327,
+   "metric": "gross, realized",
+   "evidence": "calculated",
+   "note": "23,543 txs"
+  },
+  {
+   "step": "R2. same trades, ETH profit valued at the on-chain price instead of Binance",
+   "usd": 724.8370166231791,
+   "metric": "gross, realized",
+   "evidence": "calculated",
+   "note": "this is the $725 in the on-chain column of the value split"
+  },
+  {
+   "step": "R3. Gross at Binance 12 s later",
+   "usd": 738.5064695376223,
+   "metric": "gross",
+   "evidence": "calculated",
+   "note": "differs from step 4 only by the 12 s move on ETH held as profit"
+  }
+ ],
+ "fee_split_all": {
+  "external_swaps": 3843,
+  "external_swaps_fee_observed_in_usdg": 2434,
+  "external_usdg_input_swaps_checked": 1367,
+  "external_usdg_input_fee_max_usdg": 0.0,
+  "external_output_fee_bp_median": 5.387981353379695,
+  "external_output_fee_bp_volume_weighted": 20.462908005508766,
+  "external_output_fee_usd_observed": 893.1504950000001,
+  "fa_intervals_usdg_checkable": 22202,
+  "fa_intervals_usdg_checkable_with_external_fees": 2426,
+  "match_80pct_with_external_fees": 2426,
+  "match_80pct_all_checkable": 22186,
+  "lp_share_median_with_external_fees": 0.7999935913354855,
+  "external_fee_usd_with_80pct_verified": 893.1504949999998
+ }
+}

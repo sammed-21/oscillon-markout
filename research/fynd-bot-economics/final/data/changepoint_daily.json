@@ -1,0 +1,186 @@
+{
+ "split": "2026-10-22",
+ "sums": {
+  "fynd_loss_usd": {
+   "before": 2702.1950736064177,
+   "from": 2924.550995193836
+  },
+  "fynd_lvr_usd": {
+   "before": 5602.829137825341,
+   "from": 3330.7551369452003
+  },
+  "bot_volume_usd": {
+   "before": 1226128.4544729756,
+   "from": 2875690.2106295847
+  },
+  "external_volume_usd": {
+   "before": 697662.5576217696,
+   "from": 205642.62918071065
+  },
+  "bot_trades": {
+   "before": 5621,
+   "from": 16209
+  },
+  "bot_idle_hours": {
+   "before": 254.99722222222223,
+   "from": 51.89972222222222
+  }
+ },
+ "medians": {
+  "fynd_loss_over_lvr": {
+   "before": 0.7797227032716207,
+   "from": 0.8808173310111538
+  },
+  "fynd_loss_bot_over_lvr": {
+   "before": 0.1951585979087634,
+   "from": 0.8224945588386932
+  },
+  "fynd_loss_external_over_lvr": {
+   "before": 0.2147548764035765,
+   "from": 0.03661191249255169
+  },
+  "fynd_fees_over_lvr": {
+   "before": 0.206894924590435,
+   "from": 0.13622121823308686
+  },
+  "uniswap_loss_over_lvr": {
+   "before": 0.9413981387855141,
+   "from": 0.9570430608222312
+  },
+  "fynd_lvr_usd": {
+   "before": 278.506371892726,
+   "from": 164.05316985091025
+  },
+  "fynd_loss_usd": {
+   "before": 144.7374660858902,
+   "from": 160.6131842977433
+  },
+  "eth_vol_ann_pct": {
+   "before": 46.51390364670916,
+   "from": 49.13679779435146
+  },
+  "fynd_depth_usd_per_1pct": {
+   "before": 10748.143541517611,
+   "from": 4947.689146643631
+  },
+  "mean_abs_gap_bp": {
+   "before": 14.550567490995551,
+   "from": 6.2639284905905965
+  },
+  "bot_trades": {
+   "before": 320.0,
+   "from": 835.0
+  },
+  "bot_volume_usd": {
+   "before": 56668.63814753613,
+   "from": 135938.3802904031
+  },
+  "bot_idle_hours": {
+   "before": 24.0,
+   "from": 1.2738888888888888
+  },
+  "bot_loss_bp": {
+   "before": 7.8997923091100475,
+   "from": 9.153872866371668
+  },
+  "bot_fee_bp": {
+   "before": 1.2295182936036255,
+   "from": 1.6553374487897607
+  },
+  "bot_gap_before_abs_bp": {
+   "before": 7.338863751507807,
+   "from": 8.610129593103943
+  },
+  "bot_gap_after_abs_bp": {
+   "before": 4.896934815972677,
+   "from": 5.666214900035808
+  },
+  "hedge_cost_bp": {
+   "before": 3.613313423162271,
+   "from": 4.260015854369919
+  },
+  "hedge_share_v4_eth_usdg_1bp": {
+   "before": 0.42430850302239353,
+   "from": 0.42220598977355733
+  },
+  "hedge_share_v4_weth_usdg_2bp": {
+   "before": 0.4976975823937554,
+   "from": 0.32367149758454106
+  },
+  "bot_trade_size_median_usd": {
+   "before": 191.180923438672,
+   "from": 155.96690046848292
+  },
+  "external_swaps": {
+   "before": 133.0,
+   "from": 61.0
+  },
+  "external_volume_usd": {
+   "before": 33250.90717937006,
+   "from": 6962.527832214303
+  },
+  "external_loss_bp": {
+   "before": 18.32529869115444,
+   "from": 4.895873648306378
+  },
+  "external_fee_bp_lp": {
+   "before": 12.097377547264433,
+   "from": 3.0419508039797005
+  },
+  "external_trade_size_median_usd": {
+   "before": 55.0198024679303,
+   "from": 51.604233095075
+  },
+  "bot_share_of_volume": {
+   "before": 0.49408414489156943,
+   "from": 0.9341378457111625
+  },
+  "active_positions": {
+   "before": 9.0,
+   "from": 7.0
+  },
+  "active_lps": {
+   "before": 2.0,
+   "from": 4.0
+  },
+  "range_width_bp_capital_weighted": {
+   "before": 121.86183506322243,
+   "from": 507.9431346257243
+  }
+ },
+ "loss_over_lvr_on_days_bot_idle_lt_2h": {
+  "before": 0.8574111695289361,
+  "from": 0.9419117205633301
+ },
+ "corr_with_loss_over_lvr": {
+  "fynd_loss_bot_over_lvr": 0.75,
+  "fynd_loss_external_over_lvr": -0.02,
+  "fynd_fees_over_lvr": 0.19,
+  "uniswap_loss_over_lvr": 0.27,
+  "fynd_lvr_usd": -0.61,
+  "fynd_loss_usd": 0.07,
+  "eth_vol_ann_pct": 0.26,
+  "fynd_depth_usd_per_1pct": -0.83,
+  "mean_abs_gap_bp": 0.09,
+  "bot_trades": 0.58,
+  "bot_volume_usd": 0.53,
+  "bot_idle_hours": -0.66,
+  "bot_loss_bp": -0.18,
+  "bot_fee_bp": -0.16,
+  "bot_gap_before_abs_bp": 0.13,
+  "bot_gap_after_abs_bp": -0.15,
+  "hedge_cost_bp": -0.03,
+  "hedge_share_v4_eth_usdg_1bp": -0.11,
+  "hedge_share_v4_weth_usdg_2bp": -0.19,
+  "bot_trade_size_median_usd": -0.42,
+  "external_swaps": -0.54,
+  "external_volume_usd": -0.48,
+  "external_loss_bp": 0.04,
+  "external_fee_bp_lp": 0.08,
+  "external_trade_size_median_usd": -0.0,
+  "bot_share_of_volume": 0.68,
+  "active_positions": -0.46,
+  "active_lps": 0.55,
+  "range_width_bp_capital_weighted": 0.63
+ }
+}

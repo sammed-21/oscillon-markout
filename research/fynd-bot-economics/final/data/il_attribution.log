@@ -1,0 +1,114 @@
+{
+ "lp_swap_side_on_bot_swaps_usd": {
+  "execution": -3560.8390572972494,
+  "12 s": -4037.2757482190414,
+  "60 s": -4031.0986834091445,
+  "5 min": -3731.3196388262973,
+  "30 min": -3834.098546452298,
+  "1 h": -3582.9442547192602
+ },
+ "lp_fees_on_bot_swaps_usd": 615.2670010853792,
+ "bot_gross_realized_usd": 738.5532565783209,
+ "bot_net_realized_usd": 295.094693468845,
+ "bot_gas_usd": 443.4585631094759,
+ "n_bot_swaps": 24258
+}
+{
+ "mode": "REAL",
+ "swaps": {
+  "bot": 24258,
+  "external": 2420
+ },
+ "volume_usd": {
+  "bot": 4484061.4248091085,
+  "external": 526288.6240055669
+ },
+ "lp_swap_side_at_execution_usd": {
+  "bot": -3560.8393269035196,
+  "external": -980.8088218810244
+ },
+ "lp_swap_side_12s_usd": {
+  "bot": -4037.276021361908,
+  "external": -1003.0166049271859
+ },
+ "lp_fees_usd": {
+  "bot": 615.267001085383,
+  "external": 871.9484058440386
+ },
+ "lp_vs_hold_ex_fees_usd": -4926.78679867702,
+ "lp_vs_hold_usd": -3439.571391747598,
+ "lp_vs_hold_ex_fees_by_group_usd": {
+  "0x6c6a...7127": -4172.724106611963,
+  "all other LPs": -754.0626920650562
+ },
+ "mean_abs_gap_bp": 9.051180844599516,
+ "arbitrageur_gross_usd": 0.0,
+ "arbitrageur_net_usd": 0.0,
+ "external_eth_unfilled": 8.832069436116863e-07
+}
+{
+ "mode": "NO_BOT",
+ "swaps": {
+  "bot": 0,
+  "external": 2420
+ },
+ "volume_usd": {
+  "bot": 0.0,
+  "external": 481328.719764576
+ },
+ "lp_swap_side_at_execution_usd": {
+  "bot": 0.0,
+  "external": -2394.6124021641212
+ },
+ "lp_swap_side_12s_usd": {
+  "bot": 0.0,
+  "external": -2391.4966068016793
+ },
+ "lp_fees_usd": {
+  "bot": 0.0,
+  "external": 836.9746810408247
+ },
+ "lp_vs_hold_ex_fees_usd": -2946.960757505472,
+ "lp_vs_hold_usd": -2109.9860764646473,
+ "lp_vs_hold_ex_fees_by_group_usd": {
+  "0x6c6a...7127": -2276.584758213962,
+  "all other LPs": -670.3759992915097
+ },
+ "mean_abs_gap_bp": 114.26081949195829,
+ "arbitrageur_gross_usd": 0.0,
+ "arbitrageur_net_usd": 0.0,
+ "external_eth_unfilled": 69.81702451466224
+}
+{
+ "mode": "OUTSIDE",
+ "swaps": {
+  "bot": 7528,
+  "external": 2420
+ },
+ "volume_usd": {
+  "bot": 1850170.0792093503,
+  "external": 485894.37210914085
+ },
+ "lp_swap_side_at_execution_usd": {
+  "bot": -5095.603812283746,
+  "external": 14.888403720502017
+ },
+ "lp_swap_side_12s_usd": {
+  "bot": -5083.116734122654,
+  "external": -3.296401278495511
+ },
+ "lp_fees_usd": {
+  "bot": 2927.4851795788254,
+  "external": 729.7671497742427
+ },
+ "lp_vs_hold_ex_fees_usd": -5200.523064824358,
+ "lp_vs_hold_usd": -1543.2707354712898,
+ "lp_vs_hold_ex_fees_by_group_usd": {
+  "0x6c6a...7127": -4442.610457986132,
+  "all other LPs": -757.9126068382258
+ },
+ "mean_abs_gap_bp": 13.220088334866542,
+ "arbitrageur_gross_usd": 642.9661172766446,
+ "arbitrageur_net_usd": 505.01181903754207,
+ "external_eth_unfilled": 17.07788440234441
+}

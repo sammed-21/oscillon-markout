@@ -1,0 +1,15 @@
+step,usd,metric,evidence,note
+"1. Price edge captured: Fynd price vs hedge price, before any fee",1676.4154065253224,"gross, realized",calculated,"24,199 complete bot txs, valued at Binance at execution"
+2. less Fynd fee paid by the bot,-760.2934638936168,cost,observed (USDG) / inferred from bot event (ETH),goes 80% to LPs ($608.23) and 20% to the protocol ($152.06)
+3. less router fees,-177.56868605338468,cost,observed (USDG) / router event (ETH),to 0xa5503d92...
+4. = Gross trading P&L,738.5532565783209,"gross, realized",calculated,this is the $739 in the replay table (REAL row) and in out/ section 4
+5. less gas on these txs,-443.4585631094759,cost,observed,"gasUsed x effectiveGasPrice, includes the L1 part"
+6. = Net realized P&L on complete txs,295.094693468845,"net, realized",calculated,the reported $295
+"7. plus the incomplete txs, net",0.08024147957276173,"net, realized",calculated,59 txs; bot result confirmed by its event
+8. less gas on the EOA's txs that were not trades (estimate),-12.50930396555801,cost estimate,assumed,844 txs x median trade gas; reverts not listable
+9. = Net after all measurable costs,282.66563098285974,"net, realized",calculated,
+"10. ETH kept as profit, revalued to the Nov 13 snapshot",-64.66944202055768,unrealized,calculated,"ETH $1,935.91 at snapshot"
+"11. = Net, marked to the snapshot",217.99618896230206,"net, realized + unrealized",calculated,
+"R1. Gross, trades without an on-chain reference price (Nov 13) removed",724.9543411819327,"gross, realized",calculated,"23,543 txs"
+"R2. same trades, ETH profit valued at the on-chain price instead of Binance",724.8370166231791,"gross, realized",calculated,this is the $725 in the on-chain column of the value split
+R3. Gross at Binance 12 s later,738.5064695376223,gross,calculated,differs from step 4 only by the 12 s move on ETH held as profit

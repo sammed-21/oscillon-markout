@@ -1,0 +1,73 @@
+{
+ "anchored": {
+  "swaps": 28100,
+  "usdg_err_bp_p50_p90_p99_max": [
+   4.18332035678759e-09,
+   2.636256657417948e-06,
+   0.0006785510887619112,
+   0.770056753479631
+  ],
+  "price_err_bp_p50_p90_p99_max": [
+   2.2204460492503127e-12,
+   4.440892098500627e-12,
+   1.267526849342771e-05,
+   0.27713388931965144
+  ],
+  "liquidity_err_pct_p50_p90_p99_max": [
+   0.0,
+   2.220446049250313e-14,
+   2.220446049250313e-14,
+   131290.79319270822
+  ],
+  "cum_usdg_err_usd": 0.000507223530599659,
+  "cum_abs_usdg_err_usd": 0.004104990320205157,
+  "max_abs_usdg_err_usd": 0.0020362687706665383,
+  "unfilled_swaps": 2,
+  "swaps_price_err_over_1bp": 0,
+  "swaps_liquidity_err_over_1pct": 1
+ },
+ "conservation": {
+  "positions_token_change_eth": 26.53775599912205,
+  "positions_token_change_usdg": -56602.02711449553,
+  "swaps_eth_to_pool": 26.537769871747276,
+  "swaps_usdg_to_pool": -56602.05750200001
+ },
+ "open_loop": {
+  "swaps": 28100,
+  "usdg_err_bp_p50_p90_p99_max": [
+   5.4770348451682604,
+   9999.986730974506,
+   9999.993279030492,
+   10000.0
+  ],
+  "price_err_bp_p50_p90_p99_max": [
+   5.475411341849519,
+   135320.87149961008,
+   142106.16949877216,
+   143233.7198994238
+  ],
+  "liquidity_err_pct_p50_p90_p99_max": [
+   2.220446049250313e-14,
+   99.99553069422227,
+   99.99575686261564,
+   131290.79319270822
+  ],
+  "cum_usdg_err_usd": 56093.47973819723,
+  "cum_abs_usdg_err_usd": 1881272.2482858656,
+  "max_abs_usdg_err_usd": 2428.9244451171285,
+  "unfilled_swaps": 6,
+  "swaps_price_err_over_1bp": 15531,
+  "swaps_liquidity_err_over_1pct": 11185
+ },
+ "positions": {
+  "positions": 179,
+  "simple_positions": 176,
+  "checked_il_usd_all": -5993.482832745136,
+  "replay_il_usd_all": -5804.038199098325,
+  "checked_il_usd_simple": -5360.3012529165735,
+  "replay_il_usd_simple": -5360.643489112641,
+  "simple_max_abs_diff_usd": 0.17587897300336408,
+  "simple_median_abs_diff_usd": 9.999992016673787e-07,
+  "simple_sum_abs_diff_usd": 0.5032428755891589
+ }
+}

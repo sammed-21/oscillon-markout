@@ -1,0 +1,42 @@
+section,item,usd,evidence,note
+"A. LP results vs holding, by owner group (Oct 2 - Nov 13)","0x6c6a...7127 (Fynd, confirmed by Edouard Nov 12): LP vs hold",-3196.990843798856,calculated,"153 positions, avg capital $10,530, -21.7% per 30 days (fees $1,878, IL $-5,075)"
+"A. LP results vs holding, by owner group (Oct 2 - Nov 13)",held through contract 0x0db596af (owner unresolved): LP vs hold,-510.54418058979354,calculated,"1 positions, avg capital $5,562, -6.6% per 30 days (fees $75, IL $-586)"
+"A. LP results vs holding, by owner group (Oct 2 - Nov 13)",other EOAs (ownership unresolved): LP vs hold,-217.36082365040767,calculated,"25 positions, avg capital $2,408, -6.4% per 30 days (fees $115, IL $-332)"
+"A. LP results vs holding, by owner group (Oct 2 - Nov 13)",all LPs other than 0x6c6a: LP vs hold,-727.9050042402013,calculated,"avg capital $7,970, -6.5% per 30 days"
+"A. LP results vs holding, by owner group (Oct 2 - Nov 13)",all LPs: LP vs hold (checked report),-3924.8958480390575,calculated,
+"B. Fynd fees: who paid, who received","LP fee income, position level (checked report)",2068.5869847060962,calculated,LPs' 80% share: every FeesAccumulated payment reached positions (checked report: 100.000%); valued at each position's end
+"B. Fynd fees: who paid, who received",same LP fees valued when paid (FeesAccumulated),2085.8120531864743,"observed tokens, Binance when paid",differs from the row above by valuation timing only ($17.23)
+"B. Fynd fees: who paid, who received","gross Fynd fees, all payers (= LP fees / 0.8)",2607.2650664830926,calculated,assumes the 20% share held for every payer (tested in B2)
+"B. Fynd fees: who paid, who received","protocol (owner) share, 20%",521.4530132966186,calculated,the $521
+"B. Fynd fees: who paid, who received",  paid by the bot (exact per swap),760.2934638936168,observed / inferred,"LPs $608.23, protocol $152.06"
+"B. Fynd fees: who paid, who received",  paid by everyone else (gross fees minus the bot's),1846.9716025894759,calculated,"includes Oct 2-13, before the bot"
+"B. Fynd fees: who paid, who received",B2. external traders' fees observed (charged on their USDG output),893.1504950000001,observed,"2,434 external swaps receiving USDG; 20.5 bp volume-weighted, median 5.4 bp; swaps paying USDG in are charged nothing on input (1,367 checked)"
+"B. Fynd fees: who paid, who received",B2. LP fee payments that include external fees and equal exactly 80%,,observed,"2,426 of 2,426 (median LP share 0.79999); all checkable payments: 22,186 of 22,202"
+C. The bot's swaps: where the LPs' swap-side result went (exact per tx),Fynd LPs' swap side (Binance at execution),-3552.468273056832,calculated,
+C. The bot's swaps: where the LPs' swap-side result went (exact per tx),  pools the bot hedged on (Binance at execution),1876.0528665315082,calculated,52.81% of the LPs' swap-side loss
+C. The bot's swaps: where the LPs' swap-side result went (exact per tx),"  bot, gross (Binance at execution)",738.5532565783209,calculated,20.79% of the LPs' swap-side loss
+C. The bot's swaps: where the LPs' swap-side result went (exact per tx),  Fynd fee (Binance at execution),760.2934638936168,calculated,21.40% of the LPs' swap-side loss
+C. The bot's swaps: where the LPs' swap-side result went (exact per tx),  router fees (Binance at execution),177.56868605338468,calculated,5.00% of the LPs' swap-side loss
+C. The bot's swaps: where the LPs' swap-side result went (exact per tx),  residual: LPs' side + parts (Binance at execution),-1.3642420526593924e-12,calculated,tokens are conserved; any residual is the fee valued at a different price than the swap (12 s) and float rounding
+C. The bot's swaps: where the LPs' swap-side result went (exact per tx),Fynd LPs' swap side (Binance 12 s later),-4028.022430384781,calculated,
+C. The bot's swaps: where the LPs' swap-side result went (exact per tx),  pools the bot hedged on (Binance 12 s later),2351.77148511468,calculated,58.39% of the LPs' swap-side loss
+C. The bot's swaps: where the LPs' swap-side result went (exact per tx),"  bot, gross (Binance 12 s later)",738.5064695376223,calculated,18.33% of the LPs' swap-side loss
+C. The bot's swaps: where the LPs' swap-side result went (exact per tx),  Fynd fee (Binance 12 s later),760.2212029152465,calculated,18.87% of the LPs' swap-side loss
+C. The bot's swaps: where the LPs' swap-side result went (exact per tx),  router fees (Binance 12 s later),177.56868605338468,calculated,4.41% of the LPs' swap-side loss
+C. The bot's swaps: where the LPs' swap-side result went (exact per tx),  residual: LPs' side + parts (Binance 12 s later),0.04541323615285364,calculated,tokens are conserved; any residual is the fee valued at a different price than the swap (12 s) and float rounding
+"D. The hedge pools' result split (21,764 single direct ETH/USDG hedges with an on-chain reference price, Binance at execution)","fees charged by the hedge pools, to their LPs",662.3089867726451,calculated from swap event fee and pool fee tier,
+"D. The hedge pools' result split (21,764 single direct ETH/USDG hedges with an on-chain reference price, Binance at execution)","fees charged by the hedge pools, to their protocols",189.08249368357522,calculated; v4 from event fee - LP fee; v3 from slot0 now,
+"D. The hedge pools' result split (21,764 single direct ETH/USDG hedges with an on-chain reference price, Binance at execution)","fees charged by the hedge pools, LP/protocol split unknown",47.26336688899694,calculated; non-standard pools,
+"D. The hedge pools' result split (21,764 single direct ETH/USDG hedges with an on-chain reference price, Binance at execution)",price impact of the bot's hedge on those pools,471.70144786417575,calculated; constant liquidity within the swap,
+"D. The hedge pools' result split (21,764 single direct ETH/USDG hedges with an on-chain reference price, Binance at execution)",those pools' price vs the on-chain reference before the hedge,406.3527187060711,calculated,
+"D. The hedge pools' result split (21,764 single direct ETH/USDG hedges with an on-chain reference price, Binance at execution)",on-chain reference vs Binance (basis),-299.2514430976596,calculated,
+"D. The hedge pools' result split (21,764 single direct ETH/USDG hedges with an on-chain reference price, Binance at execution)",= hedge pools' result at execution,1477.4575708178058,calculated,
+"D. The hedge pools' result split (21,764 single direct ETH/USDG hedges with an on-chain reference price, Binance at execution)",Binance move over the next 12 s on what they took,424.59174435421096,"calculated; market movement, not income",
+"D. The hedge pools' result split (21,764 single direct ETH/USDG hedges with an on-chain reference price, Binance at execution)","other bot trades (multi-hop hedges, or no on-chain reference on Nov 13), 12 s",449.7221699426555,calculated; not split,
+"E. The Fynd pool's side split (23,543 complete bot swaps with an on-chain reference price, Binance at execution)",Fynd's price vs the on-chain reference before the trade (staleness),-4669.479260430313,calculated,
+"E. The Fynd pool's side split (23,543 complete bot swaps with an on-chain reference price, Binance at execution)",on-chain reference vs Binance (basis),316.0407607477475,calculated,
+"E. The Fynd pool's side split (23,543 complete bot swaps with an on-chain reference price, Binance at execution)",Fynd's own curve (the pool gains from the trade's impact),852.0280804968361,calculated,
+"E. The Fynd pool's side split (23,543 complete bot swaps with an on-chain reference price, Binance at execution)",= Fynd LPs' swap side,-3501.4104191857314,calculated,
+"F. External traders (not the bot), whole period","LPs' swap side on external swaps, 12 s",-1873.382347316668,calculated,"3,843 swaps"
+"F. External traders (not the bot), whole period",fees external traders paid (gross),1837.8344896297551,calculated,proportional attribution from lp_split.py
+"F. External traders (not the bot), whole period",external traders' result after fees,35.54785768691295,calculated,

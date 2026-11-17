@@ -1,0 +1,153 @@
+{
+ "trades": 24199,
+ "hedge_notional_usd": 4477209.3117793575,
+ "hedge_cost_usd": 1875.9886429603712,
+ "hedge_cost_bp_vw": 4.190084743245576,
+ "single_direct": {
+  "trades": 22413,
+  "cost_bp_mean": {
+   "cost_fee_bp": 2.0888726876767674,
+   "cost_impact_bp": 1.1877898656617212,
+   "cost_own_dev_bp": 1.036589229923375,
+   "cost_basis_bp": -0.8559446819757783
+  },
+  "cost_usd": {
+   "cost_fee_bp": -910.0796040435807,
+   "cost_impact_bp": -486.1223090429952,
+   "cost_own_dev_bp": -406.3527187060711,
+   "cost_basis_bp": 299.25144309765955
+  }
+ },
+ "counterfactual_uni1bp": {
+  "trades": 23543,
+  "actual_cost_usd": 1863.987896896048,
+  "cf_cost_usd": 137.00414137881876,
+  "actual_bp_vw": 4.257614162398509,
+  "cf_bp_vw": 0.31293699578900047,
+  "share_trades_cf_cheaper": 0.9471605148027015,
+  "best_of_both_cost_usd": 122.7618468359571,
+  "by_direction_bp": {
+   "bot_buys_eth": {
+    "actual": 4.75061170480701,
+    "cf": 2.5493832503820686,
+    "uni1bp_mid_vs_binance_bp_median": -1.622095593933114
+   },
+   "bot_sells_eth": {
+    "actual": 3.7850355714861115,
+    "cf": -1.8308802218050662,
+    "uni1bp_mid_vs_binance_bp_median": -2.7949509909893875
+   }
+  }
+ },
+ "splitting_rough": {
+  "impact_cost_usd_single_direct": -486.1223090429952,
+  "saving_if_impact_halved_usd": -243.0611545214976,
+  "note": "impact is linear in size on constant liquidity; two pools of equal depth halve it; extra hop gas not deducted"
+ },
+ "netting": {
+  "30s": {
+   "pairs": 719,
+   "netted_notional_usd": 98651.26367865132,
+   "hedge_cost_saved_usd": 43.287920262038924,
+   "inventory_pnl_mean_usd": 0.14384100714850717,
+   "inventory_pnl_std_usd": 0.11645710032651768
+  },
+  "60s": {
+   "pairs": 1435,
+   "netted_notional_usd": 199787.7121690431,
+   "hedge_cost_saved_usd": 102.31247742581564,
+   "inventory_pnl_mean_usd": 0.1535487223259779,
+   "inventory_pnl_std_usd": 0.105880088545814
+  }
+ },
+ "sensitivity": [
+  {
+   "bot_trades": 23657,
+   "bot_volume_usd": 5059157.956599383,
+   "external_volume_usd": 507555.0616107922,
+   "lp_markout_12s_bot_usd": -4408.444388732013,
+   "lp_markout_12s_external_usd": -512.6717619112837,
+   "lp_fees_usd": 1479.2665417819587,
+   "protocol_fees_usd": 369.8166354454897,
+   "lp_net_trading_12s_usd": -3441.8496088613374,
+   "lp_il_proxy_at_end_usd": -14219.666613938316,
+   "lp_vs_hold_proxy_usd": -12740.400072156357,
+   "bot_gross_usd": 1236.2881448736828,
+   "bot_gas_usd": 433.52614684403545,
+   "bot_router_fees_usd": 200.6906744007941,
+   "bot_net_usd": 802.7619980296473,
+   "mean_abs_gap_bp": 9.151625799855436,
+   "share_time_gap_over_10bp": 0.14808565100198257,
+   "unexecuted_opportunities_s": 136909,
+   "external_eth_unfilled": 7.984114124481799,
+   "hedge_cost_cut": 0.0,
+   "hedge_cost_bp": 3.8909245173932425
+  },
+  {
+   "bot_trades": 24950,
+   "bot_volume_usd": 5326540.835768765,
+   "external_volume_usd": 507503.0514772971,
+   "lp_markout_12s_bot_usd": -4416.971385406881,
+   "lp_markout_12s_external_usd": -506.5829906521023,
+   "lp_fees_usd": 1515.8806534531486,
+   "protocol_fees_usd": 378.97016336328716,
+   "lp_net_trading_12s_usd": -3407.673722605835,
+   "lp_il_proxy_at_end_usd": -14298.276211105302,
+   "lp_vs_hold_proxy_usd": -12782.395557652153,
+   "bot_gross_usd": 1282.066262000625,
+   "bot_gas_usd": 457.22100704900424,
+   "bot_router_fees_usd": 211.29742967589763,
+   "bot_net_usd": 824.8452549516209,
+   "mean_abs_gap_bp": 8.963171601192132,
+   "share_time_gap_over_10bp": 0.1457748440882107,
+   "unexecuted_opportunities_s": 101487,
+   "external_eth_unfilled": 8.005612270947658,
+   "hedge_cost_cut": 0.1,
+   "hedge_cost_bp": 3.501832065653918
+  },
+  {
+   "bot_trades": 27038,
+   "bot_volume_usd": 5759808.313104798,
+   "external_volume_usd": 511777.7015007459,
+   "lp_markout_12s_bot_usd": -4423.859785639305,
+   "lp_markout_12s_external_usd": -516.8555396624932,
+   "lp_fees_usd": 1591.484638421832,
+   "protocol_fees_usd": 397.871159605458,
+   "lp_net_trading_12s_usd": -3349.230686879967,
+   "lp_il_proxy_at_end_usd": -14552.913136500982,
+   "lp_vs_hold_proxy_usd": -12961.428498079149,
+   "bot_gross_usd": 1365.369666771689,
+   "bot_gas_usd": 495.48463280923227,
+   "bot_router_fees_usd": 228.48462623477732,
+   "bot_net_usd": 869.8850339624568,
+   "mean_abs_gap_bp": 8.365598112768811,
+   "share_time_gap_over_10bp": 0.14358322457952602,
+   "unexecuted_opportunities_s": 84733,
+   "external_eth_unfilled": 6.186266884055787,
+   "hedge_cost_cut": 0.25,
+   "hedge_cost_bp": 2.918193388044932
+  },
+  {
+   "bot_trades": 31565,
+   "bot_volume_usd": 6684404.676539127,
+   "external_volume_usd": 510309.4619004169,
+   "lp_markout_12s_bot_usd": -4446.181897797776,
+   "lp_markout_12s_external_usd": -511.34323707470134,
+   "lp_fees_usd": 1716.0572799783104,
+   "protocol_fees_usd": 429.0143199945776,
+   "lp_net_trading_12s_usd": -3241.4678548941674,
+   "lp_il_proxy_at_end_usd": -15125.492078721392,
+   "lp_vs_hold_proxy_usd": -13409.434798743081,
+   "bot_gross_usd": 1546.961733097417,
+   "bot_gas_usd": 578.4441317635197,
+   "bot_router_fees_usd": 265.16224518203785,
+   "bot_net_usd": 968.5176013338972,
+   "mean_abs_gap_bp": 8.081847060691079,
+   "share_time_gap_over_10bp": 0.14151079247592846,
+   "unexecuted_opportunities_s": 60599,
+   "external_eth_unfilled": 6.7987353735190705,
+   "hedge_cost_cut": 0.5,
+   "hedge_cost_bp": 1.9454622586966213
+  }
+ ]
+}

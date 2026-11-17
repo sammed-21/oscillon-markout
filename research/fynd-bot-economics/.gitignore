@@ -1,0 +1,6 @@
+data/*.jsonl
+data/klines_nov13/
+out/_*.pkl
+__pycache__/
+.pytest_cache/
+audit/data/_binance.pkl

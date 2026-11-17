@@ -1,0 +1,62 @@
+{
+ "window_utc": [
+  "2026-10-22 00:00:00",
+  "2026-11-12 00:00:00"
+ ],
+ "mint_burn_events": 17384,
+ "mint_burn_in_range_share": 0.43597560975609756,
+ "lvr_last_swap_L": 274194.21012476383,
+ "lvr_with_mint_burn": 274100.66180529306,
+ "lvr_change_pct": -0.03411754005607781,
+ "compare_pools_uniswap_lvr_same_days": 274184.9925323548,
+ "uniswap_loss_over_lvr_as_reported": 0.9538537810643867,
+ "uniswap_loss_over_lvr_with_mint_burn": 0.954179323577315,
+ "uniswap_net_over_lvr_with_mint_burn": -0.20391625784771303,
+ "fynd_loss_over_lvr_same_days": 0.8780444298514499,
+ "by_period": {
+  "before_2026-10-22": {
+   "days": 15,
+   "fynd": {
+    "loss_over_lvr": 0.482291179533495,
+    "fees_over_lvr": 0.22099598412926413,
+    "net_over_lvr": -0.26129519540423074
+   },
+   "uniswap": {
+    "loss_over_lvr": 0.9636233316174632,
+    "fees_over_lvr": 0.6571855335020649,
+    "net_over_lvr": -0.3064377981153981
+   }
+  },
+  "from_2026-10-22": {
+   "days": 21,
+   "fynd": {
+    "loss_over_lvr": 0.8780444298514499,
+    "fees_over_lvr": 0.2274659224041781,
+    "net_over_lvr": -0.6505785074472717
+   },
+   "uniswap": {
+    "loss_over_lvr": 0.9538537810643867,
+    "fees_over_lvr": 0.7500070944276256,
+    "net_over_lvr": -0.20384668663676098
+   }
+  }
+ },
+ "trade_size_usd_median": {
+  "fynd_all": 155.26425187777116,
+  "fynd_bot": 158.28039178690867,
+  "fynd_other": 49.61335508837364,
+  "uniswap": 295.8191182398233
+ },
+ "swaps_per_day": {
+  "fynd": 837.2857142857143,
+  "uniswap": 179587.0
+ },
+ "fynd_volume_share_bot": 0.9332617929086262,
+ "fee_bp_to_lps": {
+  "fynd": 3.987585697784223,
+  "uniswap": 0.7499857565735988
+ },
+ "active_liquidity_usd_per_1pct_median": {
+  "uniswap": 399928.57437518035
+ }
+}

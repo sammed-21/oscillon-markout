@@ -1,0 +1,17 @@
+step,value,label,formula
+"A1 bot gross trading P&L, complete txs (ETH kept x Binance at exec + USDG kept)",738.5532565783209,recomputed and independently reconciled,sum(bot_gross_exec) over complete rows of top_panel_transaction_reconciliation.csv
+A2 gas on those txs,-443.4585631094759,verified directly from on-chain data,gasUsed x effectiveGasPrice x B_exec
+"A3 = net realized, complete txs",295.094693468845,recomputed and independently reconciled,A1 + A2
+"B1 incomplete txs: bot's own profit event, valued at exec",1.394712259458992,bot's own report (not independently reconciled),bot event word3
+B2 incomplete txs: gas,-1.3144707798862305,verified directly from on-chain data,
+B3 = net including incomplete txs,295.17493494841773,partly the bot's own report,A3 + B1 + B2
+C1 EOA txs neither Fynd trades nor other-pool trades (count),844.0,inferred from nonces,"36,024 nonces - Fynd trades - other-pool trades"
+C2 their gas (estimate: count x median Fynd-trade gas x median price),-14.966113662674513,estimated,not observable: no tx hashes
+C3 = net after the estimate,280.2088212857432,estimated,B3 + C2
+"D1 ETH kept by the bot (complete txs, ETH)",0.18011595247597423,recomputed and independently reconciled,sum(bot_eth)
+"D2 USDG kept by the bot (complete txs, USDG)",325.19554100000005,"verified directly from on-chain data (Transfer logs, check C1)",sum(bot_usdg)
+"D3 bot events: ETH profit, all 24,258 txs (ETH)",0.18065553613993734,bot's own report,
+"D4 bot events: USDG profit, all 24,258 txs (USDG)",325.50235,bot's own report,
+"D5 bot events: ETH profit, complete txs (ETH)",0.1801159524759742,bot's own report,equals D1 exactly (check C2)
+"D6 bot events: USDG profit, complete txs (USDG)",325.195541,bot's own report,equals D2 exactly (check C2)
+"E1 token not paid in, left with the bot per tx (max abs, raw)",0.0,recomputed,check C3: 0 = no inventory kept

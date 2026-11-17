@@ -1,0 +1,12 @@
+address,role,evidence_label,evidence
+0x4abfdbac0afa181338dc9c38c9c1264128c684a2,bot EOA (sends the trades),confirmed by the user (Nov 11); observed,"sent all 24,258 bot Fynd swaps; nonce 0 = its first Fynd trade (block 87,487,456); registered in the bot contract at deployment (event 0xd58299b7, block 84,286,819); pays all gas"
+0x7ea0ab3bf0ba63dfdcf3fcb73b68c04d89bcacc7,"bot contract (executes trades, holds profits)",observed,"target of every bot tx; emits one trade event per trade (42,405 all-time, 4 Ekubo pools); receives the Fynd leg and keeps the profit"
+0xd7c8c4ebf30c2825d73a36b8b6e9d1a842e61c80,"bot contract owner until block 111,842,342",observed,"OwnershipTransferred at deployment, then a two-step transfer away"
+0x0d41d284672c524d14790b230afe3e287ef4d4b2,"bot contract owner from block 111,842,342",observed,OwnershipTransferStarted + OwnershipTransferred
+0x09215a470bd585e59eb3f4b612fbd2678131ff9e,router used by the bot for the hedge legs,observed,"receives and forwards every hedge leg; emits (recipient, amount) fee events; unwraps WETH"
+0xa5503d92ee16a78e602996ad362674dc49034a14,router fee recipient,observed (role); owner not known,named in router fee events; total charged to the bot $177.57 on Fynd trades
+0x550cfe1292d0d9c0d28f232b3f42edb4439b1d09,Fynd extension on the ETH/USDG pool,observed,charges the dynamic fee; pays LPs 80% via FeesAccumulated; its event carries share = 0.2
+0x4f2826f91f74c315aac59eb091c4178f913d0312,address inside the Fynd extension's event,observed; role not known,constant in every extension event; possibly a signer or fee recipient (not verified)
+0x00000000000014aa86c5d3c41765bb24e11bd701,Ekubo Core (holds the pool),observed,swap and fee logs; native ETH settles here
+0x8366a39cc670b4001a1121b8f6a443a643e40951,Uniswap v4 PoolManager,observed,"most hedge legs (pools 0x84bd4e2d WETH/USDG 0.02%, 0x24107d15 ETH/USDG 0.01%)"
+0x6c6a40d2d1fc442e281e1f80314fd86516e17127,largest LP of the Fynd pool (EIP-7702 delegated EOA),"observed; the brief calls it the bot, the data does not support that","305 position events, 11 swaps (multi-pool routes sent to itself); code = 0xef0100 + 0x000000005c84f8fd50b21cac312528a64437030e; never sends bot trades"

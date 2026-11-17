@@ -1,0 +1,74 @@
+test,metric,value
+A/B per-swap (anchored),swaps,28100.0
+A/B per-swap (anchored),usdg_err_bp p50,4.18332035678759e-09
+A/B per-swap (anchored),usdg_err_bp p90,2.636256657417948e-06
+A/B per-swap (anchored),usdg_err_bp p99,0.0006785510887619112
+A/B per-swap (anchored),usdg_err_bp max,0.770056753479631
+A/B per-swap (anchored),price_err_bp p50,2.2204460492503127e-12
+A/B per-swap (anchored),price_err_bp p90,4.440892098500627e-12
+A/B per-swap (anchored),price_err_bp p99,1.267526849342771e-05
+A/B per-swap (anchored),price_err_bp max,0.27713388931965144
+A/B per-swap (anchored),liquidity_err_pct p50,0.0
+A/B per-swap (anchored),liquidity_err_pct p90,2.220446049250313e-14
+A/B per-swap (anchored),liquidity_err_pct p99,2.220446049250313e-14
+A/B per-swap (anchored),liquidity_err_pct max,131290.79319270822
+A/B per-swap (anchored),cum_usdg_err_usd,0.000507223530599659
+A/B per-swap (anchored),cum_abs_usdg_err_usd,0.004104990320205157
+A/B per-swap (anchored),max_abs_usdg_err_usd,0.0020362687706665383
+A/B per-swap (anchored),unfilled_swaps,2.0
+A/B per-swap (anchored),swaps_price_err_over_1bp,0.0
+A/B per-swap (anchored),swaps_liquidity_err_over_1pct,1.0
+A/B per-swap (open_loop),swaps,28100.0
+A/B per-swap (open_loop),usdg_err_bp p50,5.4770348451682604
+A/B per-swap (open_loop),usdg_err_bp p90,9999.986730974506
+A/B per-swap (open_loop),usdg_err_bp p99,9999.993279030492
+A/B per-swap (open_loop),usdg_err_bp max,10000.0
+A/B per-swap (open_loop),price_err_bp p50,5.475411341849519
+A/B per-swap (open_loop),price_err_bp p90,135320.87149961008
+A/B per-swap (open_loop),price_err_bp p99,142106.16949877216
+A/B per-swap (open_loop),price_err_bp max,143233.7198994238
+A/B per-swap (open_loop),liquidity_err_pct p50,2.220446049250313e-14
+A/B per-swap (open_loop),liquidity_err_pct p90,99.99553069422227
+A/B per-swap (open_loop),liquidity_err_pct p99,99.99575686261564
+A/B per-swap (open_loop),liquidity_err_pct max,131290.79319270822
+A/B per-swap (open_loop),cum_usdg_err_usd,56093.47973819723
+A/B per-swap (open_loop),cum_abs_usdg_err_usd,1881272.2482858656
+A/B per-swap (open_loop),max_abs_usdg_err_usd,2428.9244451171285
+A/B per-swap (open_loop),unfilled_swaps,6.0
+A/B per-swap (open_loop),swaps_price_err_over_1bp,15531.0
+A/B per-swap (open_loop),swaps_liquidity_err_over_1pct,11185.0
+D token conservation (anchored),positions_token_change_eth,26.53775599912205
+D token conservation (anchored),positions_token_change_usdg,-56602.02711449553
+D token conservation (anchored),swaps_eth_to_pool,26.537769871747276
+D token conservation (anchored),swaps_usdg_to_pool,-56602.05750200001
+"C LP vs hold per position (anchored, full period)",positions,179.0
+"C LP vs hold per position (anchored, full period)",simple_positions,176.0
+"C LP vs hold per position (anchored, full period)",checked_il_usd_all,-5993.482832745136
+"C LP vs hold per position (anchored, full period)",replay_il_usd_all,-5804.038199098325
+"C LP vs hold per position (anchored, full period)",checked_il_usd_simple,-5360.3012529165735
+"C LP vs hold per position (anchored, full period)",replay_il_usd_simple,-5360.643489112641
+"C LP vs hold per position (anchored, full period)",simple_max_abs_diff_usd,0.17587897300336408
+"C LP vs hold per position (anchored, full period)",simple_median_abs_diff_usd,9.999992016673787e-07
+"C LP vs hold per position (anchored, full period)",simple_sum_abs_diff_usd,0.5032428755891589
+bottom panel scenario REAL,lp_vs_hold_ex_fees_usd,-4926.78679867702
+bottom panel scenario REAL,lp_vs_hold_usd,-3439.571391747598
+bottom panel scenario REAL,mean_abs_gap_bp,9.051180844599516
+bottom panel scenario REAL,external_eth_unfilled,8.832069436116863e-07
+bottom panel scenario REAL,arbitrageur_net_usd,0.0
+bottom panel scenario REAL,lp_fees_usd_total,1487.2154069294215
+bottom panel scenario REAL,net_minus_(ex_fees+fees),0.0
+bottom panel scenario NO_BOT,lp_vs_hold_ex_fees_usd,-2946.960757505472
+bottom panel scenario NO_BOT,lp_vs_hold_usd,-2109.9860764646473
+bottom panel scenario NO_BOT,mean_abs_gap_bp,114.26081949195829
+bottom panel scenario NO_BOT,external_eth_unfilled,69.81702451466224
+bottom panel scenario NO_BOT,arbitrageur_net_usd,0.0
+bottom panel scenario NO_BOT,lp_fees_usd_total,836.9746810408247
+bottom panel scenario NO_BOT,net_minus_(ex_fees+fees),-1.1368683772161603e-13
+bottom panel scenario OUTSIDE,lp_vs_hold_ex_fees_usd,-5200.523064824358
+bottom panel scenario OUTSIDE,lp_vs_hold_usd,-1543.2707354712898
+bottom panel scenario OUTSIDE,mean_abs_gap_bp,13.220088334866542
+bottom panel scenario OUTSIDE,external_eth_unfilled,17.07788440234441
+bottom panel scenario OUTSIDE,arbitrageur_net_usd,505.01181903754207
+bottom panel scenario OUTSIDE,lp_fees_usd_total,3657.252329353068
+bottom panel scenario OUTSIDE,net_minus_(ex_fees+fees),0.0
+bottom panel scenario REAL vs direct calculation,"LP swap side on bot swaps at execution, replay - direct (USD)",-0.0002696062701943447

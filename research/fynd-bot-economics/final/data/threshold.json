@@ -1,0 +1,164 @@
+{
+ "trades": 22413,
+ "check_max_abs_bp": 4.508393658397836e-12,
+ "median_bp": {
+  "gap_after_signed": 5.06442379925115,
+  "basis": -1.1376662506594362,
+  "hedge_dev": 0.9197694290418125,
+  "hedge_impact": 1.816608689074814,
+  "fynd_vs_hedge_after": 2.496807206415145,
+  "marginal_fees_bp": 2.571912189795338,
+  "left_minus_fees_bp": -0.43899603380754026,
+  "gap_before_signed": 7.925933866112377,
+  "fynd_vs_hedge_before": 7.585997836339751
+ },
+ "mean_bp": {
+  "gap_after_signed": 4.940698759155698,
+  "basis": -0.8561366148447929,
+  "hedge_dev": 1.0367716320508376,
+  "hedge_impact": 2.3253795958259866,
+  "fynd_vs_hedge_after": 2.4825507801247686,
+  "marginal_fees_bp": 3.3100586496256716,
+  "left_minus_fees_bp": -0.8275078695009027,
+  "gap_before_signed": 8.335679241026444,
+  "fynd_vs_hedge_before": 8.202910857821495
+ },
+ "by_direction_median_bp": {
+  "bot_buys_eth": {
+   "gap_after_signed": 5.128238856630693,
+   "basis": 1.590650204624146,
+   "hedge_dev": 0.5521274025063093,
+   "hedge_impact": 1.624544672965859,
+   "fynd_vs_hedge_after": 1.2666476563832718,
+   "marginal_fees_bp": 1.9063405090412093,
+   "left_minus_fees_bp": -0.4926235792485443,
+   "gap_before_signed": 8.199338967456235,
+   "fynd_vs_hedge_before": 5.962187394828008
+  },
+  "bot_sells_eth": {
+   "gap_after_signed": 4.989743879134298,
+   "basis": -2.8130600239170147,
+   "hedge_dev": 1.780410931850021,
+   "hedge_impact": 2.9111215891792037,
+   "fynd_vs_hedge_after": 2.5261675195883906,
+   "marginal_fees_bp": 3.204531513183802,
+   "left_minus_fees_bp": -0.37202523963168327,
+   "gap_before_signed": 7.638154131010731,
+   "fynd_vs_hedge_before": 8.588129001455986
+  }
+ },
+ "share_left_within_1bp_of_fees": 0.6932583768348726,
+ "share_left_within_2bp_of_fees": 0.8788203274885111,
+ "mean_fee_bp_unweighted": 1.014415210159702,
+ "median_fee_bp": 0.5035798325504075,
+ "volume_weighted_fee_bp": 1.6984932650231455,
+ "trades_gross_below_gas": 792,
+ "gross_per_trade_usd_quantiles": {
+  "0.01": 0.006800404368434148,
+  "0.05": 0.017214593737078322,
+  "0.25": 0.0266721782429845,
+  "0.5": 0.030644
+ },
+ "trade_probability_by_gap_when_bot_active": {
+  "vs_binance": {
+   "[0.0, 2.0)": {
+    "seconds": 560398,
+    "trades": 810,
+    "p": 0.0014454013040731766
+   },
+   "[2.0, 4.0)": {
+    "seconds": 528712,
+    "trades": 1000,
+    "p": 0.0018913888846858024
+   },
+   "[4.0, 6.0)": {
+    "seconds": 475373,
+    "trades": 2403,
+    "p": 0.005054977880527501
+   },
+   "[6.0, 8.0)": {
+    "seconds": 313334,
+    "trades": 7099,
+    "p": 0.0226563347737558
+   },
+   "[8.0, 10.0)": {
+    "seconds": 120794,
+    "trades": 6225,
+    "p": 0.05153401659022799
+   },
+   "[10.0, 12.0)": {
+    "seconds": 43519,
+    "trades": 2878,
+    "p": 0.06613203428387601
+   },
+   "[12.0, 15.0)": {
+    "seconds": 29503,
+    "trades": 1530,
+    "p": 0.05185913296952852
+   },
+   "[15.0, 20.0)": {
+    "seconds": 24375,
+    "trades": 734,
+    "p": 0.030112820512820514
+   },
+   "[20.0, 1000000000.0)": {
+    "seconds": 61041,
+    "trades": 534,
+    "p": 0.008748218410576498
+   }
+  },
+  "vs_onchain": {
+   "[0.0, 2.0)": {
+    "seconds": 570818,
+    "trades": 40,
+    "p": 7.00748750039417e-05
+   },
+   "[2.0, 4.0)": {
+    "seconds": 538242,
+    "trades": 598,
+    "p": 0.0011110244090947938
+   },
+   "[4.0, 6.0)": {
+    "seconds": 402502,
+    "trades": 4950,
+    "p": 0.012298075537512857
+   },
+   "[6.0, 8.0)": {
+    "seconds": 275466,
+    "trades": 5066,
+    "p": 0.018390654382028998
+   },
+   "[8.0, 10.0)": {
+    "seconds": 170761,
+    "trades": 4355,
+    "p": 0.025503481474107085
+   },
+   "[10.0, 12.0)": {
+    "seconds": 73971,
+    "trades": 3719,
+    "p": 0.05027645969366373
+   },
+   "[12.0, 15.0)": {
+    "seconds": 37537,
+    "trades": 2959,
+    "p": 0.07882888882968804
+   },
+   "[15.0, 20.0)": {
+    "seconds": 26498,
+    "trades": 973,
+    "p": 0.03671975243414597
+   },
+   "[20.0, 1000000000.0)": {
+    "seconds": 61254,
+    "trades": 553,
+    "p": 0.009027981846083522
+   }
+  }
+ },
+ "active_seconds": 2157049,
+ "active_wide_binance_gap_no_trade": {
+  "seconds": 267331,
+  "median_gap_vs_onchain_bp": 11.267821003257783,
+  "median_gap_vs_binance_bp": 10.721311418471446
+ }
+}

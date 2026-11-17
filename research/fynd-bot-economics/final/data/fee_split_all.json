@@ -1,0 +1,15 @@
+{
+ "external_swaps": 3843,
+ "external_swaps_fee_observed_in_usdg": 2434,
+ "external_usdg_input_swaps_checked": 1367,
+ "external_usdg_input_fee_max_usdg": 0.0,
+ "external_output_fee_bp_median": 5.387981353379695,
+ "external_output_fee_bp_volume_weighted": 20.462908005508766,
+ "external_output_fee_usd_observed": 893.1504950000001,
+ "fa_intervals_usdg_checkable": 22202,
+ "fa_intervals_usdg_checkable_with_external_fees": 2426,
+ "match_80pct_with_external_fees": 2426,
+ "match_80pct_all_checkable": 22186,
+ "lp_share_median_with_external_fees": 0.7999935913354855,
+ "external_fee_usd_with_80pct_verified": 893.1504949999998
+}

@@ -1,0 +1,449 @@
+{
+ "coverage": {
+  "fynd_bot_txs_expected": 24258,
+  "fetched": 24258,
+  "complete": 24199,
+  "complete_with_residual": 0,
+  "incomplete": 59,
+  "bot_event_matches_reconstruction": 24258,
+  "max_abs_identity_check_usd": 1.716474185009531e-13,
+  "first_utc": "2026-10-13 11:47:37",
+  "last_utc": "2026-11-13 06:35:33",
+  "incomplete_note": "a hedge leg on a DEX type not decoded; the bot's own profit still matches the reconstruction",
+  "incomplete_bot_gross_usd": 1.394712259458992,
+  "incomplete_bot_net_usd": 0.08024147957276173,
+  "incomplete_lp_markout_12s_usd": -9.253317834128406
+ },
+ "execution": {
+  "trades": 24199,
+  "moved_toward_binance_share": 0.9790900450431836,
+  "crossed_binance_share": 0.05731641803380305,
+  "moved_toward_onchain_share": 0.972808793751808,
+  "abs_gap_before_bp_median": 8.019838257527512,
+  "abs_gap_after_bp_median": 5.128238856630693,
+  "abs_gap_before_bp_p05": 2.5097121964527025,
+  "trades_abs_gap_below_3bp": 1494,
+  "trades_where_binance_moved_toward_pool_over_5s_by_1bp_or_more": 1131,
+  "abs_impact_bp_median": 2.6887677676046295,
+  "size_vs_depth_1pct_median": 0.02701938685906715,
+  "hedge_vs_binance_bp_median_by_direction": {
+   "bot_buys_eth": -4.18415271936141,
+   "bot_sells_eth": 3.3423011377159844
+  },
+  "hedge_vs_onchain_bp_median_by_direction": {
+   "bot_buys_eth": -2.672938899971083,
+   "bot_sells_eth": 6.144079126534918
+  },
+  "gap_before_median_by_direction": {
+   "bot_buys_eth": -8.319888024416862,
+   "bot_sells_eth": 7.702128032384264
+  },
+  "gap_after_median_by_direction": {
+   "bot_buys_eth": -5.204648728044738,
+   "bot_sells_eth": 5.031994199255214
+  },
+  "bot_gross_negative_trades": 0,
+  "bot_net_negative_trades": 792,
+  "markout_curve": {
+   "1s": {
+    "usd": -3949.5293463834464,
+    "n": 24199,
+    "bp": -8.823236438847246
+   },
+   "5s": {
+    "usd": -4012.365542010916,
+    "n": 24199,
+    "bp": -8.963612307036833
+   },
+   "12s": {
+    "usd": -4028.022430384781,
+    "n": 24199,
+    "bp": -8.998589747613579
+   },
+   "30s": {
+    "usd": -4075.496995131337,
+    "n": 24199,
+    "bp": -9.104647779559535
+   },
+   "60s": {
+    "usd": -4023.7769789330023,
+    "n": 24199,
+    "bp": -8.989105422099454
+   },
+   "300s": {
+    "usd": -3721.290377623739,
+    "n": 24199,
+    "bp": -8.313351283095816
+   }
+  }
+ },
+ "bot_fee": {
+  "volume_weighted_bp": 1.6984932650231463,
+  "median_bp": 0.5035798325504075,
+  "share_zero": 0.22773668333402206,
+  "p95_bp": 3.270473400989503,
+  "other_traders_bp_incl_protocol": 19.77848693800788
+ },
+ "idle": {
+  "gaps_over_1h": 32,
+  "hours_in_gaps_over_1h": 136.19944444444445,
+  "hours_total": 738.7988888888889,
+  "longest_gap_h": 54.40416666666667,
+  "longest_gap_start_utc": "2026-10-15 03:05:09"
+ },
+ "lp": {
+  "avg_capital_usd": 18499.76386009664,
+  "days": 42.020127314814815,
+  "lp_minus_hold_per_30d_pct": -15.146972697525372,
+  "fees_per_30d_pct": 7.983098607687635,
+  "il_per_30d_pct": -23.13007130521294,
+  "totals": {
+   "cost_usd": 1824614.3000230473,
+   "capital_days_usd": 777362.4326952706,
+   "hold_usd": 1821785.7528327676,
+   "lp_usd": 1817860.8569847285,
+   "fees_usd": 2068.5869847060962,
+   "il_usd": -5993.482832745136,
+   "lp_minus_hold_usd": -3924.895848039057,
+   "hold_pnl_usd": -2828.547190279849,
+   "lp_pnl_usd": -6753.443038318906
+  },
+  "open_positions": 6,
+  "period": {
+   "start_utc": "2026-10-02 06:06:47",
+   "end_utc": "2026-11-13 06:35:46",
+   "days": 42.020127314814815,
+   "snapshot_block": 113153559,
+   "eth_start": 2722.82,
+   "eth_end": 1935.91
+  }
+ },
+ "gap_time": {
+  "window_utc": [
+   "2026-10-13 11:47:37",
+   "2026-11-13 06:35:33"
+  ],
+  "time_weighted_abs_gap_bp_median": 4.572452391285924,
+  "time_weighted_abs_gap_bp_mean": 9.051180844597303,
+  "share_of_time_abs_gap_over_8bp": 0.2349935725277919
+ },
+ "external": {
+  "swaps": 3843,
+  "volume_usd": 929208.8395791434,
+  "lp_loss_12s_usd": 1873.382347316668,
+  "fees_to_lps_usd": 1470.267591703804,
+  "fees_total_incl_protocol_usd": 1837.8344896297551,
+  "trader_result_12s_after_all_fees_usd": 35.54785768691295
+ },
+ "bot_costs_outside_fynd_swaps": {
+  "other_pool_trades_until_last_fynd_tx": 10922,
+  "other_pool_receipts_fetched": 1000,
+  "other_pool_trades_sent_by_bot_eoa": 1000,
+  "other_pool_gas_eth": 0.009708313621628,
+  "nonce_info": {
+   "txs_with_body": 10550,
+   "first_nonce": 0,
+   "last_nonce_seen": 13571,
+   "fynd_txs_up_to_that_nonce": 10550,
+   "non_fynd_txs_up_to_that_nonce": 3022,
+   "last_nonce_block": 98937663
+  },
+  "median_gas_eth_per_fynd_tx": 7.656063658e-06,
+  "eoa_txs_through_last_fynd_tx": 36024,
+  "fynd_trades": 24258,
+  "other_pool_sample_size": 1000,
+  "other_pool_sample_share_from_bot_eoa": 1.0,
+  "other_pool_sample_median_gas_eth": 9.520185266e-06,
+  "eoa_txs_not_a_successful_trade": 844
+ },
+ "bot_reported_profit_other_pools": {
+  "46e76723bc": {
+   "0x2e8c31162b855a2ffa90f6f8634643ad6f111e18": 2431.3815808952454,
+   "0x5fc5360d0400a0fd4f2af552add042d716f1d168": 33.296521
+  },
+  "a9a97762fa": {
+   "0x5fc5360d0400a0fd4f2af552add042d716f1d168": 33.528322,
+   "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec": 0.16599300131435665
+  },
+  "bc2615db1f": {
+   "0x39dbed3a2bd333467115de45665cc57f813c4571": 303.5381224724175,
+   "0x5fc5360d0400a0fd4f2af552add042d716f1d168": 58.465157999999995
+  }
+ },
+ "reconciliation": [
+  {
+   "section": "1. LP position level, all LPs, Oct 2 - Nov 13 (checked Nov 13 report)",
+   "item": "fees earned (LP share)",
+   "usd": 2068.5869847060962,
+   "evidence": "calculated",
+   "note": "fees collected + uncollected, valued when paid"
+  },
+  {
+   "section": "1. LP position level, all LPs, Oct 2 - Nov 13 (checked Nov 13 report)",
+   "item": "impermanent loss vs holding",
+   "usd": -5993.482832745136,
+   "evidence": "calculated",
+   "note": "tokens out - tokens in, at Binance at each position's end"
+  },
+  {
+   "section": "1. LP position level, all LPs, Oct 2 - Nov 13 (checked Nov 13 report)",
+   "item": "LP vs holding",
+   "usd": -3924.895848039057,
+   "evidence": "calculated",
+   "note": "= fees + IL"
+  },
+  {
+   "section": "2. LP trading side, per swap at Binance 12 s (lp_split.py), Oct 6 - Nov 13",
+   "item": "LP markout on bot swaps",
+   "usd": -4037.2757482190414,
+   "evidence": "calculated",
+   "note": "24,258 swaps"
+  },
+  {
+   "section": "2. LP trading side, per swap at Binance 12 s (lp_split.py), Oct 6 - Nov 13",
+   "item": "fees to LPs attributed to bot swaps (proportional split)",
+   "usd": 615.2670010853799,
+   "evidence": "calculated",
+   "note": "lp_split.py splits each fee payment by |USDG| across the swaps it covers"
+  },
+  {
+   "section": "2. LP trading side, per swap at Binance 12 s (lp_split.py), Oct 6 - Nov 13",
+   "item": "LP markout on other swaps",
+   "usd": -1873.382347316668,
+   "evidence": "calculated",
+   "note": "3,843 swaps"
+  },
+  {
+   "section": "2. LP trading side, per swap at Binance 12 s (lp_split.py), Oct 6 - Nov 13",
+   "item": "fees to LPs attributed to other swaps",
+   "usd": 1470.267591703804,
+   "evidence": "calculated",
+   "note": ""
+  },
+  {
+   "section": "2. LP trading side, per swap at Binance 12 s (lp_split.py), Oct 6 - Nov 13",
+   "item": "later price moves (12 s after each swap to position end)",
+   "usd": -99.77234529253155,
+   "evidence": "calculated",
+   "note": ""
+  },
+  {
+   "section": "2. LP trading side, per swap at Binance 12 s (lp_split.py), Oct 6 - Nov 13",
+   "item": "total = LP vs holding",
+   "usd": -3924.895848039057,
+   "evidence": "calculated",
+   "note": "sections 1 and 2 are two views of the same -$3,925; do not add them"
+  },
+  {
+   "section": "3. Bot swaps rebuilt from chain (24,199 complete txs): where the LPs' swap-side result went (tokens are conserved in each tx)",
+   "item": "Fynd LPs, swap side (at Binance at execution)",
+   "usd": -3552.468273056832,
+   "evidence": "calculated",
+   "note": "fee excluded; + = LPs gained"
+  },
+  {
+   "section": "3. Bot swaps rebuilt from chain (24,199 complete txs): where the LPs' swap-side result went (tokens are conserved in each tx)",
+   "item": "  Fynd fee paid by the bot (at Binance at execution)",
+   "usd": 760.2934638936168,
+   "evidence": "observed (USDG) / inferred from bot event (ETH)",
+   "note": "LPs get 80%, protocol 20%"
+  },
+  {
+   "section": "3. Bot swaps rebuilt from chain (24,199 complete txs): where the LPs' swap-side result went (tokens are conserved in each tx)",
+   "item": "  router fee paid by the bot (at Binance at execution)",
+   "usd": 177.56868605338468,
+   "evidence": "observed (USDG) / router event (ETH)",
+   "note": "recipient 0xa5503d92..."
+  },
+  {
+   "section": "3. Bot swaps rebuilt from chain (24,199 complete txs): where the LPs' swap-side result went (tokens are conserved in each tx)",
+   "item": "  bot, gross trading result (at Binance at execution)",
+   "usd": 738.5532565783209,
+   "evidence": "calculated; matches bot's own event in every tx",
+   "note": ""
+  },
+  {
+   "section": "3. Bot swaps rebuilt from chain (24,199 complete txs): where the LPs' swap-side result went (tokens are conserved in each tx)",
+   "item": "  other venues' LPs and protocols (at Binance at execution)",
+   "usd": 1876.0528665315082,
+   "evidence": "calculated",
+   "note": "the pools the bot hedged on"
+  },
+  {
+   "section": "3. Bot swaps rebuilt from chain (24,199 complete txs): where the LPs' swap-side result went (tokens are conserved in each tx)",
+   "item": "  check: sum of the five (at Binance at execution)",
+   "usd": -1.3642420526593924e-12,
+   "evidence": "calculated",
+   "note": "0 up to rounding and the fee's own revaluation"
+  },
+  {
+   "section": "3. Bot swaps rebuilt from chain (24,199 complete txs): where the LPs' swap-side result went (tokens are conserved in each tx)",
+   "item": "Fynd LPs, swap side (at Binance 12 s later)",
+   "usd": -4028.022430384781,
+   "evidence": "calculated",
+   "note": "fee excluded; + = LPs gained"
+  },
+  {
+   "section": "3. Bot swaps rebuilt from chain (24,199 complete txs): where the LPs' swap-side result went (tokens are conserved in each tx)",
+   "item": "  Fynd fee paid by the bot (at Binance 12 s later)",
+   "usd": 760.2212029152465,
+   "evidence": "observed (USDG) / inferred from bot event (ETH)",
+   "note": "LPs get 80%, protocol 20%"
+  },
+  {
+   "section": "3. Bot swaps rebuilt from chain (24,199 complete txs): where the LPs' swap-side result went (tokens are conserved in each tx)",
+   "item": "  router fee paid by the bot (at Binance 12 s later)",
+   "usd": 177.56868605338468,
+   "evidence": "observed (USDG) / router event (ETH)",
+   "note": "recipient 0xa5503d92..."
+  },
+  {
+   "section": "3. Bot swaps rebuilt from chain (24,199 complete txs): where the LPs' swap-side result went (tokens are conserved in each tx)",
+   "item": "  bot, gross trading result (at Binance 12 s later)",
+   "usd": 738.5064695376223,
+   "evidence": "calculated; matches bot's own event in every tx",
+   "note": ""
+  },
+  {
+   "section": "3. Bot swaps rebuilt from chain (24,199 complete txs): where the LPs' swap-side result went (tokens are conserved in each tx)",
+   "item": "  other venues' LPs and protocols (at Binance 12 s later)",
+   "usd": 2351.77148511468,
+   "evidence": "calculated",
+   "note": "the pools the bot hedged on"
+  },
+  {
+   "section": "3. Bot swaps rebuilt from chain (24,199 complete txs): where the LPs' swap-side result went (tokens are conserved in each tx)",
+   "item": "  check: sum of the five (at Binance 12 s later)",
+   "usd": 0.04541323615285364,
+   "evidence": "calculated",
+   "note": "0 up to rounding and the fee's own revaluation"
+  },
+  {
+   "section": "3. Bot swaps rebuilt from chain (24,199 complete txs): where the LPs' swap-side result went (tokens are conserved in each tx)",
+   "item": "Fynd LPs, swap side (at the on-chain reference (Uniswap v3 0.01% mid before the tx; 23,543 txs with it))",
+   "usd": -3817.4511799334796,
+   "evidence": "calculated",
+   "note": "sensitivity: removes the ~2.6 bp Binance basis"
+  },
+  {
+   "section": "3. Bot swaps rebuilt from chain (24,199 complete txs): where the LPs' swap-side result went (tokens are conserved in each tx)",
+   "item": "  Fynd fee paid by the bot (at the on-chain reference (Uniswap v3 0.01% mid before the tx; 23,543 txs with it))",
+   "usd": 742.5879044709175,
+   "evidence": "calculated",
+   "note": ""
+  },
+  {
+   "section": "3. Bot swaps rebuilt from chain (24,199 complete txs): where the LPs' swap-side result went (tokens are conserved in each tx)",
+   "item": "  router fee paid by the bot (at the on-chain reference (Uniswap v3 0.01% mid before the tx; 23,543 txs with it))",
+   "usd": 169.66371727929663,
+   "evidence": "calculated",
+   "note": ""
+  },
+  {
+   "section": "3. Bot swaps rebuilt from chain (24,199 complete txs): where the LPs' swap-side result went (tokens are conserved in each tx)",
+   "item": "  bot, gross trading result (at the on-chain reference (Uniswap v3 0.01% mid before the tx; 23,543 txs with it))",
+   "usd": 724.8370166231791,
+   "evidence": "calculated",
+   "note": ""
+  },
+  {
+   "section": "3. Bot swaps rebuilt from chain (24,199 complete txs): where the LPs' swap-side result went (tokens are conserved in each tx)",
+   "item": "  other venues' LPs and protocols (at the on-chain reference (Uniswap v3 0.01% mid before the tx; 23,543 txs with it))",
+   "usd": 2180.362541560089,
+   "evidence": "calculated",
+   "note": ""
+  },
+  {
+   "section": "3. Bot swaps rebuilt from chain (24,199 complete txs): where the LPs' swap-side result went (tokens are conserved in each tx)",
+   "item": "  check: sum of the five (at the on-chain reference (Uniswap v3 0.01% mid before the tx; 23,543 txs with it))",
+   "usd": 2.7284841053187847e-12,
+   "evidence": "calculated",
+   "note": ""
+  },
+  {
+   "section": "3. Bot swaps rebuilt from chain (24,199 complete txs): where the LPs' swap-side result went (tokens are conserved in each tx)",
+   "item": "Fynd fee paid by the bot, LP share (exact, per swap)",
+   "usd": 608.2347711148934,
+   "evidence": "calculated",
+   "note": "compare the proportional split in section 2"
+  },
+  {
+   "section": "3. Bot swaps rebuilt from chain (24,199 complete txs): where the LPs' swap-side result went (tokens are conserved in each tx)",
+   "item": "Fynd fee paid by the bot, protocol share",
+   "usd": 152.05869277872335,
+   "evidence": "calculated",
+   "note": ""
+  },
+  {
+   "section": "4. Bot economics on Fynd ETH/USDG",
+   "item": "gross trading P&L (after router fees)",
+   "usd": 738.5532565783209,
+   "evidence": "calculated",
+   "note": "ETH/USDG kept by the bot, Binance at execution"
+  },
+  {
+   "section": "4. Bot economics on Fynd ETH/USDG",
+   "item": "gas on these txs",
+   "usd": -443.4585631094759,
+   "evidence": "observed",
+   "note": "gasUsed x effectiveGasPrice (includes L1 part)"
+  },
+  {
+   "section": "4. Bot economics on Fynd ETH/USDG",
+   "item": "net realized P&L",
+   "usd": 295.094693468845,
+   "evidence": "calculated",
+   "note": ""
+  },
+  {
+   "section": "4. Bot economics on Fynd ETH/USDG",
+   "item": "unrealized: ETH profits revalued to the Nov 13 snapshot",
+   "usd": -64.66944202055768,
+   "evidence": "calculated",
+   "note": "ETH $1,935.91 at snapshot"
+  },
+  {
+   "section": "4. Bot economics on Fynd ETH/USDG",
+   "item": "residual inventory",
+   "usd": 0.0,
+   "evidence": "observed",
+   "note": "USDG left after ETH-profit trades; 0 = none"
+  },
+  {
+   "section": "4. Bot economics on Fynd ETH/USDG",
+   "item": "gas on the EOA's other txs (failed or non-trading), upper bound",
+   "usd": -12.50930396555801,
+   "evidence": "assumed",
+   "note": "844 txs x median Fynd-tx gas; not listable on this RPC"
+  },
+  {
+   "section": "5. Protocol and external traders",
+   "item": "all fees paid to LPs (FeesAccumulated, whole period)",
+   "usd": 2085.8120531864743,
+   "evidence": "observed",
+   "note": "valued at Binance when paid"
+  },
+  {
+   "section": "5. Protocol and external traders",
+   "item": "protocol share of all Fynd fees (20%)",
+   "usd": 521.4530132966186,
+   "evidence": "calculated",
+   "note": "share read from the extension event; verified on bot-only fee intervals"
+  },
+  {
+   "section": "5. Protocol and external traders",
+   "item": "external traders' result vs Binance 12 s, after all Fynd fees",
+   "usd": 35.54785768691295,
+   "evidence": "calculated",
+   "note": "3,843 swaps"
+  }
+ ],
+ "protocol_share": 0.2,
+ "fee_split_check": {
+  "intervals_with_only_bot_swaps": 18412,
+  "match_80pct": 18396,
+  "lp_share_eth_median": 0.7999999999999466,
+  "lp_share_usdg_median": 0.7999758988957314
+ },
+ "eth_at_snapshot": 1935.91
+}
