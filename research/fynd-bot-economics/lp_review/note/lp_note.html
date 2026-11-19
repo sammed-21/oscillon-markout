@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ETH/USDG LP Review</title>
+<style>
+  @page { size: A4; margin: 13mm 15mm 12mm 15mm; }
+  :root { --ink:#1b1b1b; --muted:#5c5c5c; --rule:#d9d9d6; --accent:#2a6fa8; --neg:#b4471c; --bg:#ffffff; --tint:#f4f4f1; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family: "Helvetica Neue", Arial, sans-serif; font-size: 9.2pt; line-height: 1.38; }
+  h1 { font-size: 15.5pt; margin: 0 0 2px; letter-spacing: -0.2px; }
+  .meta { color: var(--muted); font-size: 8.4pt; margin-bottom: 8px; }
+  h2 { font-size: 10.6pt; margin: 10px 0 3px; padding-top: 6px; border-top: 1px solid var(--rule); }
+  p { margin: 3px 0 5px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 6px 0 7px; }
+  .stat { background: var(--tint); border-radius: 6px; padding: 6px 9px; }
+  .stat b { display:block; font-size: 15pt; line-height: 1.15; }
+  .stat span { color: var(--muted); font-size: 8.1pt; }
+  table { border-collapse: collapse; width: 100%; margin: 3px 0 5px; font-size: 8.5pt; font-variant-numeric: tabular-nums; }
+  th { text-align: left; font-weight: 600; color: var(--muted); border-bottom: 1px solid var(--ink); padding: 2px 6px 2px 0; }
+  td { padding: 2px 6px 2px 0; border-bottom: 1px solid var(--rule); }
+  td.n, th.n { text-align: right; }
+  tr.total td { font-weight: 700; border-bottom: 1px solid var(--ink); }
+  .neg { color: var(--neg); }
+  .small { font-size: 7.9pt; color: var(--muted); }
+  figure { margin: 6px 0 0; text-align: center; }
+  figure img { width: 72%; }
+  figcaption { font-size: 7.9pt; color: var(--muted); text-align: left; }
+  ol, ul { margin: 2px 0 4px; padding-left: 17px; }
+  li { margin: 1.5px 0; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .q { background: var(--tint); border-radius: 6px; padding: 5px 10px 6px; margin-top: 6px; }
+  .q h2 { border-top: none; padding-top: 2px; margin-top: 2px; }
+  .page2 { break-before: page; }
+  code { font-family: Menlo, monospace; font-size: 8pt; }
+</style>
+</head>
+<body>
+
+<h1>ETH/USDG pool: LP returns and the rebalancing bot</h1>
+<div class="meta">Fynd ETH/USDG, Robinhood Chain · Oct 2 – Nov 13 2026 (42 days) · 179 LP positions · about $18,500 average capital · prepared for the Fynd team, Nov 2026</div>
+
+<div class="stats">
+  <div class="stat"><b class="neg">−$3,925</b><span>LPs vs simply holding their deposited tokens (−$151 per $1,000 per 30 days)</span></div>
+  <div class="stat"><b>35%</b><span>of LPs' impermanent loss covered by the fees they earned</span></div>
+  <div class="stat"><b>1.4 bp vs 9.0 bp</b><span>fee the bot pays LPs, vs what LPs lose on its trades before fees</span></div>
+</div>
+
+<p>In this period LPs earned less in fees than they lost to price moves. Most of the shortfall sits in the wallet you identified as Fynd's, which kept its capital in narrow ranges, and most of it arises on the bot's trades. That loss is <b>not</b> the bot's profit: the bot kept about $295 after gas, and most of the rest went to the pools it hedges on. The bot does its job of keeping the price aligned (it moves the pool toward Binance on 97.9% of its trades). The open question is whether that alignment can be achieved at a lower cost to LPs.</p>
+
+<h2>1. LPs were not paid for the risk they took</h2>
+<table>
+  <tr><th></th><th class="n">USD</th><th class="n">per $1,000 per 30 days</th></tr>
+  <tr><td>Fees to LPs (their 80% share)</td><td class="n">+$2,069</td><td class="n">+$80</td></tr>
+  <tr><td>Impermanent loss</td><td class="n neg">−$5,993</td><td class="n neg">−$231</td></tr>
+  <tr class="total"><td>LPs vs holding</td><td class="n neg">−$3,925</td><td class="n neg">−$151 (95% range −$196 to −$121)</td></tr>
+</table>
+<p class="small">“Vs holding” compares each position with simply holding the tokens it deposited, both valued at Binance prices when the position closed. Over 42 days that is −21.2% of average capital. ETH fell over the period, so both lost money: holding −$2,829, LPing −$6,753.</p>
+
+<h2>2. One wallet bears most of it, and the clearest difference is range width</h2>
+<table>
+  <tr><th>LP group</th><th class="n">positions</th><th class="n">avg capital</th><th class="n">vs holding</th><th class="n">per $1,000 / 30 d</th><th class="n">fees cover</th><th class="n">typical range</th><th class="n">typical hours open</th></tr>
+  <tr><td><code>0x6c6a…7127</code> (yours)</td><td class="n">153</td><td class="n">$10,530</td><td class="n neg">−$3,197</td><td class="n neg">−$217</td><td class="n">37%</td><td class="n">2.1%</td><td class="n">25</td></tr>
+  <tr><td>All other LPs</td><td class="n">26</td><td class="n">$7,970</td><td class="n neg">−$728</td><td class="n neg">−$65</td><td class="n">21%</td><td class="n">17.6%</td><td class="n">294</td></tr>
+</table>
+<p>88% of <code>0x6c6a…7127</code>'s capital sat in 1–3% ranges, with each position typically open about 6 hours; that bucket alone is <span style="white-space:nowrap">−$2,814</span>. 95% of the other LPs' capital sat in 10–30% ranges. A narrow range earns more fees per dollar while the price stays inside it, but takes more impermanent loss per price move, and each reset locks that loss in. In this period the extra fees did not cover it. Treat this as the leading explanation, not a proven cause: timing and position size also differ between the groups.</p>
+
+<figure>
+  <img src="chart.png" alt="LP returns per $1,000 per 30 days by LP group, and LP loss vs fees by trading flow">
+  <figcaption>Top: per $1,000 of capital per 30 days, by LP group. Bottom: LPs' loss before fees and the fees they received, by trading flow (valued at Binance 12 s after each trade).</figcaption>
+</figure>
+
+<div class="page2">
+<h2>3. The loss arises mostly on the bot's trades, and it is not the bot's profit</h2>
+<table>
+  <tr><th>Trading flow</th><th class="n">share of volume</th><th class="n">fee LPs received</th><th class="n">LPs' loss before fees</th><th class="n">fees cover</th><th class="n">LP net</th></tr>
+  <tr><td>Fynd's bot</td><td class="n">83%</td><td class="n">1.4 bp (+$615)</td><td class="n neg">9.0 bp (−$4,037)</td><td class="n">15%</td><td class="n neg">−$3,422</td></tr>
+  <tr><td>Everyone else</td><td class="n">17%</td><td class="n">15.8 bp (+$1,470)</td><td class="n neg">20.2 bp (−$1,873)</td><td class="n">78%</td><td class="n neg">−$403</td></tr>
+  <tr><td>Later price moves</td><td></td><td></td><td></td><td></td><td class="n neg">−$100</td></tr>
+  <tr class="total"><td>Total</td><td></td><td></td><td></td><td></td><td class="n neg">−$3,925</td></tr>
+</table>
+<p>Both bp figures are per dollar of the same trades, so on this basis LPs would need about <b>9 bp</b> from the bot to break even; it pays 1.4 bp. Other flow roughly pays for itself. The loss is measured against Binance 12 s after each trade; at execution time the bot-flow figure is about <span style="white-space:nowrap">−$2,950</span>. This is LVR: LPs lose it to whoever brings the pool back to the market, and in a replay an outside arbitrageur realizes about the same before fees.</p>
+
+<div class="two">
+<div>
+<p><b>Where the $3,423 went</b> (12 s valuation; adds up to the cent)</p>
+<table>
+  <tr><th>To</th><th class="n">USD</th><th class="n">share</th></tr>
+  <tr><td>Pools the bot hedged on*</td><td class="n">$2,355</td><td class="n">69%</td></tr>
+  <tr><td>Gas</td><td class="n">$443</td><td class="n">13%</td></tr>
+  <tr><td>The bot, after gas</td><td class="n">$295</td><td class="n">9%</td></tr>
+  <tr><td>Routers</td><td class="n">$178</td><td class="n">5%</td></tr>
+  <tr><td>20% fee share</td><td class="n">$151</td><td class="n">4%</td></tr>
+</table>
+<p class="small">* Swap fees ~$899, price impact ~$472, plus price differences and moves. Not those pools' profit: it is valued at Binance 12 s later.</p>
+</div>
+<div>
+<p><b>The bot's own result</b></p>
+<table>
+  <tr><td>Profit before gas</td><td class="n">+$739</td></tr>
+  <tr><td>Gas</td><td class="n neg">−$443</td></tr>
+  <tr class="total"><td>Profit after gas</td><td class="n">+$295</td></tr>
+</table>
+<p class="small">From on-chain token flows and receipts; matches the bot contract's own profit events. It doesn't depend on the valuation time.</p>
+</div>
+</div>
+
+<h2>4. What the replays suggest (replays of this period, not forecasts)</h2>
+<ul>
+  <li><b>Cheaper hedging is the change that helps everyone.</b> The bot never used Uniswap's WETH/USDG 0.01% pool, which was cheaper on 95% of its trades (about 0.3 bp vs 4.3 bp against Binance). Hedging at 1 bp and charging the bot 4 bp improves LPs' trading result from −$3,442 to −$2,378, with the price gap about unchanged (8.9 bp vs 9.2 bp) and the bot still profitable.</li>
+  <li><b>A higher bot fee alone has a trade-off.</b> At the normal 19.8 bp, LPs improve to −$1,647, but the pool sits further from the market (16.8 bp gap), because the bot trades less.</li>
+  <li><b>Range width needs no mechanism change.</b> Wider ranges and fewer resets for <code>0x6c6a…7127</code> may narrow the gap in §2; I haven't replayed this yet.</li>
+</ul>
+
+<div class="q">
+<h2>Questions where your view would help most</h2>
+<ol>
+  <li>Do ~$739 before gas and ~$295 after gas match your records for the bot?</li>
+  <li>Are <code>0x6c6a…7127</code>'s narrow ranges and frequent resets deliberate?</li>
+  <li>Who receives the 20% fee share?</li>
+  <li>What is the mechanism meant to put first: price alignment, LP returns, or a balance? Is there a target, for example fee coverage of LVR?</li>
+  <li>How was the bot's ~1.4 bp fee set, and is there anything stopping it from hedging on deeper liquidity?</li>
+  <li>Which next study would be most useful: <b>(A)</b> a trade-by-trade hedge-cost test, <b>(B)</b> range guidance for LPs, or <b>(C)</b> a matched comparison with a standard Uniswap pool across LVR, fees, price gap and net LP return?</li>
+</ol>
+<p><b>Where am I likely wrong?</b></p>
+</div>
+
+<h2>Method and limits</h2>
+<ul class="small">
+  <li>Positions, fees and the bot's trades are reconstructed from on-chain logs; prices are Binance. One 42-day period, with ETH falling and volatility rising, so other conditions may differ.</li>
+  <li>The split by flow uses a 12-second valuation and is a split of the same −$3,925, not an extra loss. The bot's profit doesn't depend on that choice.</li>
+  <li>That <code>0x6c6a…7127</code> is Fynd's rests on your Nov 12 message. Ownership of the other LP wallets is unresolved. Gas on the bot wallet's 844 non-trade transactions (~$13–15) is not included.</li>
+  <li>Replays hold traders and routers fixed. Position-level data and the transaction-level reconstruction are available on request.</li>
+</ul>
+</div>
+
+</body>
+</html>

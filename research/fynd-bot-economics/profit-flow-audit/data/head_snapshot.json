@@ -1,0 +1,57 @@
+{
+ "wallets": {
+  "bot_contract": {
+   "address": "0x7ea0ab3bf0ba63dfdcf3fcb73b68c04d89bcacc7",
+   "nonce": 1,
+   "native_wei": 47800745431866142,
+   "USDG_raw": 135120881,
+   "WETH_raw": 0,
+   "AI_raw": 1010812973053944064350,
+   "PONS_raw": 154107889329909095306,
+   "NVDA_raw": 280903382545429031
+  },
+  "bot_sender": {
+   "address": "0x4abfdbac0afa181338dc9c38c9c1264128c684a2",
+   "nonce": 43493,
+   "native_wei": 15904389128492403,
+   "USDG_raw": 0,
+   "WETH_raw": 0,
+   "AI_raw": 0,
+   "PONS_raw": 0,
+   "NVDA_raw": 0
+  },
+  "owner_1": {
+   "address": "0xd7c8c4ebf30c2825d73a36b8b6e9d1a842e61c80",
+   "nonce": 34,
+   "native_wei": 5639982145207370,
+   "USDG_raw": 1539154,
+   "WETH_raw": 0,
+   "AI_raw": 7635764413078698353,
+   "PONS_raw": 1179818355306890371,
+   "NVDA_raw": 5643977875606
+  },
+  "owner_2": {
+   "address": "0x0d41d284672c524d14790b230afe3e287ef4d4b2",
+   "nonce": 1,
+   "native_wei": 0,
+   "USDG_raw": 0,
+   "WETH_raw": 0,
+   "AI_raw": 0,
+   "PONS_raw": 0,
+   "NVDA_raw": 0
+  },
+  "lp_0x6c6a": {
+   "address": "0x6c6a40d2d1fc442e281e1f80314fd86516e17127",
+   "nonce": 1843,
+   "native_wei": 1842747765116532807,
+   "USDG_raw": 3737898,
+   "WETH_raw": 0,
+   "AI_raw": 202531585863090757334,
+   "PONS_raw": 374404,
+   "NVDA_raw": 0
+  }
+ },
+ "block_from": 117310993,
+ "block_to": 117311142,
+ "timestamp": 1794995657
+}

@@ -1,0 +1,5 @@
+flow,swaps,volume_usd,volume_share,lp_fee_usd,lp_fee_bp,lp_loss_before_fees_12s_usd,lp_loss_before_fees_12s_bp,fee_coverage,lp_net_12s_usd,per_1000_per_30d,ci95_per_1000_per_30d,breakeven_lp_fee_bp
+Fynd's bot (0x4abf…84a2 via 0x7ea0…acc7),24258,4.48406e+06,0.828346,615.267,1.37212,-4037.28,9.00361,0.152397,-3422.01,-132.062,"[-175.09807400582147, -108.94063514069305]",9.00361
+"everyone else (routers, traders)",3843,929209,0.171654,1470.27,15.8228,-1873.38,20.161,0.78482,-403.115,-15.557,"[-36.50215027026589, 6.479521423442095]",20.161
+"later price moves (after 12 s, to each position's end)",,,,,,,,,-99.7723,-3.85042,,
+total = LP vs hold,28101,5.41327e+06,1,2085.53,3.85263,-5910.66,10.9188,0.352843,-3924.9,-151.47,"[-196.37776687433814, -121.36220741799718]",10.1251

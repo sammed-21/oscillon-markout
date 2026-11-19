@@ -1,0 +1,9 @@
+group,width_bucket,positions,capital_days_usd,median_hours,fees_usd,il_usd,lp_minus_hold_usd,capital_share_of_group,per_1000_per_30d_net
+"0x6c6a…7127 (Fynd's, per Edouard)",under 1%,94,51384.1,0.281389,331.548,-714.737,-383.188,0.11613,-223.72
+"0x6c6a…7127 (Fynd's, per Edouard)",1–3%,58,388216,6.10653,1546.49,-4360.16,-2813.66,0.877385,-217.43
+"0x6c6a…7127 (Fynd's, per Edouard)",over 30% / full range,1,2869.33,692.809,0.312445,-0.450866,-0.138421,0.0064848,-1.44725
+all other LPs (ownership unresolved),under 1%,1,3.30615,0.3925,0.00301347,-0.181882,-0.178869,9.87225e-06,-1623.06
+all other LPs (ownership unresolved),1–3%,10,10165.5,8.12028,25.9197,-39.0061,-13.0864,0.0303545,-38.6201
+all other LPs (ownership unresolved),3–10%,6,2652.62,9.81278,14.6053,-34.0322,-19.4269,0.00792081,-219.71
+all other LPs (ownership unresolved),10–30%,8,317731,55.9567,145.121,-838.649,-693.528,0.948753,-65.4827
+all other LPs (ownership unresolved),over 30% / full range,1,4340.91,399.949,4.5859,-6.27046,-1.68457,0.0129621,-11.642

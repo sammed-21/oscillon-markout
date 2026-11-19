@@ -1,0 +1,6 @@
+asset,profit_events,withdrawn_observed,balance_at_head,unexplained,trades,pools,note
+USDG,517.896502,382.775621,135.120881,0,18830,"Fynd AI/USDG, Fynd ETH/USDG, Fynd PONS/USDG, Fynd USDG/NVDA",ERC-20: every transfer is logged
+AI,2435.21998395,1424.40701089,1010.81297305,0,3599,Fynd AI/USDG,ERC-20: every transfer is logged
+PONS,329.250535653,175.142646323,154.10788933,0,2261,Fynd PONS/USDG,ERC-20: every transfer is logged
+NVDA,0.280903382545,0,0.280903382545,0,2435,Fynd USDG/NVDA,ERC-20: every transfer is logged
+ETH,0.208407966151,0,0.0478007454319,0.160607220719,15280,Fynd ETH/USDG,native ETH: outflows leave no log

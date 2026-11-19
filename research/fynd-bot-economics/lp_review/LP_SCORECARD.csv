@@ -1,0 +1,19 @@
+metric,value,unit,evidence
+"LP vs holding, all LPs",-3924.895848039057,USD,calculated from on-chain positions (checked report)
+  fees to LPs (80% share),2068.5869847060962,USD,on-chain
+  impermanent loss,-5993.482832745136,USD,calculated
+average capital,18499.76386009664,USD,calculated
+"LP vs holding per $1,000 per 30 days",-151.46972697525374,USD,calculated
+  95% range,"[-196, -121]",USD,calculated (day resampling)
+fees as share of impermanent loss,0.34513938596844895,ratio,calculated
+LPs' USD P&L (not vs holding),-6753.443038318906,USD,calculated
+share of LP shortfall on 0x6c6a…7127,0.8145415744970979,ratio,calculated; ownership per Edouard
+"other LPs per $1,000 per 30 days",-65.20635885962261,USD,calculated
+"LP net on bot flow, 12 s",-3422.0087471336615,USD,calculated (checked report)
+  fee coverage on bot flow,0.1523965761706497,ratio,calculated
+  fee bot pays vs fee LPs need to break even,1.4 bp vs 9.0 bp,bp,calculated
+"LP net on everyone else's flow, 12 s",-403.11475561286375,USD,calculated (95% range includes zero)
+  fee coverage on other flow,0.7848198173799044,ratio,calculated
+bot gross / gas / net,739 / 443 / 295,USD,on-chain token flows + receipts
+bot trades moving pool toward Binance,0.9790996784565916,ratio,calculated
+"replay: LP vs hold, real / outside arb / no arb",-3440 / -1543 / -2110,USD,model

@@ -1,0 +1,22 @@
+window 0/1101 logs 0 1s
+window 100/1101 logs 0 342s
+window 200/1101 logs 6710 420s
+window 300/1101 logs 13487 420s
+window 400/1101 logs 23162 484s
+window 500/1101 logs 33804 620s
+window 600/1101 logs 43587 987s
+window 700/1101 logs 48296 987s
+window 800/1101 logs 59529 987s
+window 900/1101 logs 67828 987s
+window 1000/1101 logs 104000 1012s
+window 1100/1101 logs 113246 1051s
+wallet logs 113239
+bot contract logs 42410
+owner txs 30
+Traceback (most recent call last):
+  File "/Users/sammedsbetadur/Desktop/oscillon/oscillon-markout/research/fynd-bot-economics/profit-flow-audit/fetch_flows.py", line 100, in <module>
+    snap["wallets"][k] = {"address": w, "nonce": int(rpc("eth_getTransactionCount", [w, hex(head)]), 16),
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sammedsbetadur/Desktop/oscillon/oscillon-markout/research/fynd-bot-economics/profit-flow-audit/fetch_flows.py", line 45, in rpc
+    raise RuntimeError(f"{method} {params} failed")
+RuntimeError: eth_getTransactionCount ['0x7ea0ab3bf0ba63dfdcf3fcb73b68c04d89bcacc7', '0x6fdc203'] failed
